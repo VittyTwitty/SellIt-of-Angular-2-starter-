@@ -1,0 +1,110 @@
+
+@import "../../styles/_vars.scss";
+
+
+
+
+.s-login {
+  display: flex;
+  width: 100%;
+  &_bg{
+    flex-grow: 1;
+    align-self: stretch;
+    overflow: hidden;
+    background-position: left bottom;
+    background-size: 109% auto;
+    background-repeat: no-repeat;
+    background-image: url('../../assets/img/login-page/main-bg-1.jpg');
+    img {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+    }
+  }
+  &_inner {
+    width: 380px;
+    background-color: $main-color;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+  }
+  &_logo {
+    width: 200px;
+    margin: 75px auto 100px;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  &_buttons {
+    margin: 0 auto 50px;
+    width: 330px;
+    button {
+      width: 150px;
+      height: 35px;
+      border: none;
+      background-color: #f2f2f2;
+      cursor: pointer;
+      font-family: $main-font, monospace;
+      color: #4a4a4a;
+      transition: all $main-time;
+      &:hover {
+        box-shadow: inset 0 -3px $second-color;
+      }
+      &:active {
+        background-color: #91d763;
+      }
+    }
+    .sign-in{
+      float: left;
+    }
+    .sign-up{
+      float: right;
+    }
+  }
+  &_form {
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    margin: 0 auto;
+    input {
+      border: none;
+      background-color: transparent;
+      height: 26px;
+      color: #f2f2f2;
+      padding-left: 14px;
+      border-bottom: 3px solid #fff;
+      font-family: Arial, monospace;
+      transition: all $main-time;
+      &:focus {
+        border-bottom: 3px solid $second-color;
+        transition: all $main-time;
+      }
+    }
+    input::-webkit-input-placeholder { color: #f2f2f2; }
+    input:-moz-placeholder { color: #f2f2f2; }
+    button {
+      margin-top: 35px;
+      height: 35px;
+      border: none;
+      background-color: #f2f2f2;
+      cursor: pointer;
+      font-family: $main-font, monospace;
+      color: #4a4a4a;
+      transition: all $main-time;
+      &:hover {
+        box-shadow: inset 0 -3px $second-color;
+      }
+      &:active {
+        background-color: #91d763;
+      }
+    }
+  }
+}
+
+
+
+
+@import "../../styles/_media.scss";

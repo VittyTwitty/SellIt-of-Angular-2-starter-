@@ -1,0 +1,56 @@
+@import "../../styles/_vars.scss";
+@import "../../styles/_media.scss";
+
+
+
+.product-item {
+  &:hover {
+    a {
+      transition: all $main-time;
+      opacity: 0.9;
+    }
+    .product-item__bottom {
+      transition: all $main-time cubic-bezier(.01,.63,.45,1.68);
+      height: 70px;
+    }
+  }
+  &:nth-child(4n + 1){
+    margin-left: 0;
+  }
+  &__bacground {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    img {
+      width: 120%;
+    }
+  }
+  &__bottom {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: $main-color;
+    color: #fff;
+    span {
+      font-family: $main-font;
+      font-size: 1.125em;
+      font-weight: bold;
+      line-height: 50px;
+      margin-left: 15px;
+    }
+    i {
+      font-size: 1.250em;
+      display: inline-block;
+      float: right;
+      line-height: 50px;
+      margin-right: 15px;
+    }
+  }
+}

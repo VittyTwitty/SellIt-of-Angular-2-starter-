@@ -1,0 +1,138 @@
+@import "../../styles/_vars.scss";
+@import "../../styles/grid";
+@import "../../styles/_media.scss";
+
+.single-item{
+  font-family: $main-font;
+  .bold{
+    font-weight: bold;
+  }
+  .italic {
+    font-style: italic;
+  }
+  .big-font {
+    text-transform: uppercase;
+  }
+  &__inner {
+    display: flex;
+    flex-direction: row;
+  }
+  &__background {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    float: right;
+    position: relative;
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+  &__description {
+    width: 500px;
+    color: #4a4a4a;
+    h2{
+      font-size: 2em;
+      margin-bottom: 20px;
+      font-family: MyrReg, Arial, sans-serif;
+    }
+    p {
+      font-size: 1.125em;
+      margin-bottom: 30px;
+    }
+  }
+  &__price {
+    .green{
+      color: $second-color;
+    }
+    .blue{
+      color: $main-color;
+    }
+    .big-font {
+      font-size: 2em;
+    }
+  }
+  &__roster{
+    margin-bottom: 30px;
+    li:nth-child(2),
+    li:last-child{
+      margin-left: 30px;
+
+    }
+  }
+  &__list {
+    li:last-child{
+      margin-top: 30px;
+    }
+  }
+
+}
+
+//========== slider single-page
+.slider {
+  margin: 0 auto;
+  max-width: $slider-w-h;
+}
+
+.slide_viewer {
+  width: 100%;
+  height: $slider-w-h;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide_group {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.slide {
+  display: none;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+
+
+.previous_btn {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  display: flex;
+  i {
+    margin: auto;
+  }
+}
+
+.next_btn {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  i {
+    margin: auto;
+  }
+}
+
+.previous_btn, .next_btn {
+  cursor: pointer;
+  height: 100%;
+  opacity: 0.1;
+  transition: opacity 0.4s ease-in-out;
+  width: 50px;
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.previous_btn:hover, .next_btn:hover {
+  opacity: 0.6;
+}
+

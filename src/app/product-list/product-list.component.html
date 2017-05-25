@@ -1,0 +1,8 @@
+ <div class="s-content" (click)="sliceArray(prd)">
+    <div class="s-content__inner" (scroll)="onScroll($event)" >
+
+       <product-item *ngFor="let prod of prd2" [item]="prod"></product-item>
+       
+
+    </div>
+</div>

@@ -1,0 +1,33 @@
+@import "../../styles/_vars.scss";
+
+
+.s-content {
+  flex-basis: 100%;
+  overflow-y: scroll;
+  &__inner {
+    height: 100%;
+    max-width: 1340px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.s-content::-webkit-scrollbar {
+  width: 0;
+}
+.s-content {
+  -ms-overflow-style: none;
+}
+
+product-item {
+  width: 320px;
+  height: 250px;
+  position: relative;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  &:nth-child(4n + 1){
+    margin-left: 0;
+  }
+}
+
+@import "../../styles/_media.scss";

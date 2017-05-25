@@ -1,0 +1,83 @@
+@import "reset";
+@import "media";
+
+body{
+  display: flex;
+  flex-direction: column;
+}
+app {
+  background-color: #fff;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+product-list {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+/*product-list::-webkit-scrollbar {
+  width: 0;
+}
+product-list {
+  -ms-overflow-style: none;
+}*/
+header {
+  width: 100%;
+  min-height: 150px;
+  z-index: 1;
+}
+footer {
+  width: 100%;
+  min-height: 50px;
+  background-color: $main-color;
+  text-align: center;
+  margin-top: 10px;
+}
+
+button:active, button:focus, input {
+  outline: none;
+}
+button::-moz-focus-inner {
+  border: 0;
+}
+login-page {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: -150px;
+  margin-bottom: -60px;
+
+}
+
+single-page {  
+  flex-grow: 1;
+}
+
+//========== header
+
+//========== header
+
+
+//========== main-content
+
+//========== end main-content
+
+//========== single-page
+
+  //========== end slider single-page
+//========== end single-page
+
+
+//========== login-page
+
+
+
+//========== end login-page
+
+//========== footer
+
+//========== end footer

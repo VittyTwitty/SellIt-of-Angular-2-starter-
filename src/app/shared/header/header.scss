@@ -1,0 +1,123 @@
+@import "../../../styles/_vars.scss";
+@import "../../../styles/_media.scss";
+
+.header {
+  width: 100%;
+  min-height: 150px;
+}
+
+.logo {
+  width: 120px;
+  height: 50px;
+  float: left;
+  margin-left: 50px;
+  margin-top: 10px;
+  &__img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.search-form {
+  width: 450px;
+  float: left;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid $main-color;
+  margin-left: 115px;
+  margin-top: 15px;
+  &__find {
+    width: 5%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    transition: all $main-time;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__input {
+    border: none;
+    width: 95%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #4a4a4a;
+    font-size: 0.875em;
+    background-color: rgba(255, 255, 255, 0);
+  }
+
+}
+
+.user-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 380px;
+  height: 60px;
+  background-color: $main-color;
+  float: right;
+  color: #fff;
+  padding: 0 25px;
+  border: none;
+  text-align: left;
+  transition: all $main-time ease;
+  cursor: pointer;
+  position: relative;
+  &__img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  &__name {
+    font-family: $main-font;
+    font-size: 1.125em;
+    font-weight: bold;
+    width: 245px;
+  }
+  &__in {
+    float: right;
+    font-size: 24px;
+
+  }
+  &:hover {
+    box-shadow: inset 5px 0px #4a4a4a;
+    .user-button__sub{
+      display: inline-block;
+    }
+    i {
+      color: #eee;
+      transition: 1s;
+    }
+  }
+  &__sub {
+    position: absolute;
+    bottom: -42px;
+    left: 0;
+    height: 42px;
+    width: 100%;
+    background-color: $main-color;
+    text-align: center;
+    display: none;
+  }
+  &__new-post,
+  &__profile {
+    float: left;
+    width: calc( 50% - 5px);
+    line-height: 42px;
+    font-size: 16px;
+    border-left: 5px solid #4a4a4a;
+    font-family: MyrReg, sans-serif;
+    &:hover {
+      background-color: #13C3CB;
+    }
+    &:active {
+      background-color: #13C3CB;
+    }
+  }
+}

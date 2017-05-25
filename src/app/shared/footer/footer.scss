@@ -1,0 +1,16 @@
+@import "../../../styles/_vars.scss";
+
+
+.footer {
+  width: 100%;
+  min-height: 50px;
+  background-color: $main-color;
+  text-align: center;
+  &__text {
+    font-size: 1.125em;
+    font-family: $main-font;
+    font-weight: bold;
+    color: #fff;
+    line-height: 50px;
+  }
+}
