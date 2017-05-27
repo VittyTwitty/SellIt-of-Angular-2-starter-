@@ -3,6 +3,7 @@ import { Component, HostListener } from "@angular/core";
 import { products } from "../shared/main.service";
 
 import $ from 'jquery';
+
 @Component ({
     selector: 'product-list',
     templateUrl: 'product-list.component.html',
@@ -25,11 +26,11 @@ export class ProductListComponent {
         this.arrTo = this.arrTo + 16;    
         
         for (var i = 0; i < 16; i++) {
-           this.prd2.push(this.prd.slice(this.arrFrom, this.arrTo)[i]);
 
-           console.log('sdsdsd', this.prd2);
-            
+           this.prd2.push(this.prd.slice(this.arrFrom, this.arrTo)[i]);
+                      
         }
+        
         return this.prd2;
     }
 

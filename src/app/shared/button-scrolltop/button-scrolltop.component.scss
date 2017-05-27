@@ -1,0 +1,30 @@
+
+
+.button-scrollTop {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 60px;
+  cursor: pointer;
+  font-size: 19px;
+  z-index: 10;
+  right: 20px;
+  color: #ccc;
+  display: flex;
+
+  i {
+    position: relative;
+  }
+
+
+  &:hover {
+    color: white;
+    background: #ccc;
+
+    i {
+      animation: arrowMove 1s infinite;
+    }
+  }
+}
