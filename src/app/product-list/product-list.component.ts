@@ -58,17 +58,14 @@ export class ProductListComponent implements OnInit {
             console.log('ffffffffff');
         }
     }
-
-
-
-
-
 }
 
-  /*  private prd: any[] = products;
-
-    private arrFrom: number = 0;
+  /* 
+   private arrFrom: number = 0;
     private arrTo: number = 16;
+   private prd: any[] = products;
+
+   
 
     public prd2: any[] = this.prd.slice(this.arrFrom, this.arrTo);
 
