@@ -31,7 +31,6 @@ import { XLargeDirective } from './home/x-large';
 
 import { Header } from './shared/header/header';
 import { Footer } from './shared/footer/footer';
-import { BtnScrollTopComponent } from './shared/button-scrolltop/button-scrolltop.component';
 
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductListComponent } from './product-list/product-list.component';
@@ -39,11 +38,13 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SinglePageComponent } from './single-page/single-page.component';
 
 import { BoldDirective } from './shared/directives/bold.directive';
-import { ScrollTopDirective } from './shared/directives/scroll-top.directive';
 
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import { BtnScrollTopComponent } from "./shared/button-scrolltop/button-scrolltop.component";
+import { ScrollTopDirective } from "./shared/directives/scroll-top/scroll-top.directive";
+import { ProductService } from "./shared/footer/user.service";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -70,12 +71,12 @@ type StoreType = {
     //XLargeDirective,
     Footer,
     Header,
-    BtnScrollTopComponent,
     ProductItemComponent,
     ProductListComponent,
     LoginPageComponent,
     SinglePageComponent,
     BoldDirective,
+    BtnScrollTopComponent,
     ScrollTopDirective
   ],
   /**
@@ -92,7 +93,8 @@ type StoreType = {
    */
   providers: [
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    ProductService
   ]
 })
 export class AppModule {

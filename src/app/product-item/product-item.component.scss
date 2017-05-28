@@ -44,6 +44,10 @@
       font-weight: bold;
       line-height: 50px;
       margin-left: 15px;
+      display: inline-block;
+      max-width: 70%;
+      height: 50px;
+      overflow: hidden;
     }
     i {
       font-size: 1.250em;

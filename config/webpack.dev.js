@@ -132,7 +132,6 @@ module.exports = function (options) {
        *
        * NOTE: when adding more properties, make sure you include them in custom-typings.d.ts
        */
-      
       new DefinePlugin({
         'ENV': JSON.stringify(METADATA.ENV),
         'HMR': METADATA.HMR,
