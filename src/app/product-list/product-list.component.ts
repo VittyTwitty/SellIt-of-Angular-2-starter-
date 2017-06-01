@@ -14,7 +14,7 @@ import { Products } from "../shared/footer/products";
 
 })
 
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit{
 
     private productsIn: Products[];
     private products: Products[];
@@ -27,8 +27,8 @@ export class ProductListComponent implements OnInit {
     public ngOnInit() {
         this.productService.getUsersList().subscribe((data) => {
             this.productsIn = data;
-            this.products = this.productsIn.slice(0, 13);
-            console.log(this.productsIn)
+            this.products = this.productsIn.slice(this.arrFrom, this.arrTo);
+            console.log(this.products)
         });
     }
 
@@ -37,52 +37,16 @@ export class ProductListComponent implements OnInit {
         this.arrTo = this.arrTo + 16;
 
         for (var i = 0; i < 16; i++) {
-
+            
             if (this.products.length < this.productsIn.length) {
                 this.products.push(this.productsIn.slice(this.arrFrom, this.arrTo)[i]);
-            } else {
-                return this.products;
-            }
+            } 
 
         }
+        
         return this.products;
     }
 
-    @HostListener('scroll', ['$event'])
-    onScroll(event) {
-        let x: any = $('.s-content__inner');
-        let y: any = $('product-list');
 
-        if (y.height() + y.scrollTop() >= x.height()) {
-            this.pushProducts();
-            console.log('ffffffffff');
-        }
-    }
 }
-
-  /* 
-   private arrFrom: number = 0;
-    private arrTo: number = 16;
-   private prd: any[] = products;
-
-   
-
-    public prd2: any[] = this.prd.slice(this.arrFrom, this.arrTo);
-
-    public pushProducts() {
-        this.arrFrom = this.arrTo;
-        this.arrTo = this.arrTo + 16;    
-        
-        for (var i = 0; i < 16; i++) {
-
-           this.prd2.push(this.prd.slice(this.arrFrom, this.arrTo)[i]);
-                      
-        }
-        
-        return this.prd2;
-    }
-*/
-
-
-
 

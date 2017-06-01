@@ -37,13 +37,13 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SinglePageComponent } from './single-page/single-page.component';
 
-import { BoldDirective } from './shared/directives/bold.directive';
 
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
 import { BtnScrollTopComponent } from "./shared/button-scrolltop/button-scrolltop.component";
-import { ScrollTopDirective } from "./shared/directives/scroll-top/scroll-top.directive";
+import { ScrollTopDirective } from "./shared/directives/scroll-top.directive";
+import { ScrollPushItemsDirective } from "./shared/directives/scroll-push.directive";
 import { ProductService } from "./shared/footer/user.service";
 
 // Application wide providers
@@ -75,9 +75,9 @@ type StoreType = {
     ProductListComponent,
     LoginPageComponent,
     SinglePageComponent,
-    BoldDirective,
     BtnScrollTopComponent,
-    ScrollTopDirective
+    ScrollTopDirective,
+    ScrollPushItemsDirective
   ],
   /**
    * Import Angular's modules.

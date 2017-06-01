@@ -1,7 +1,7 @@
-<div class="s-content">
+<div class="s-content" scrollPushItems (nextPage)="pushProducts()">
 
-    <div class="s-content__inner">
-       <product-item *ngFor="let prod of products" [item]="prod"></product-item>
+    <div class="s-content__inner" >
+       <product-item  *ngFor="let prod of products" [item]="prod"></product-item>
     </div>
 
     
