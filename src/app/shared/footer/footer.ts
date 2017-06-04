@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Response } from '@angular/http';
 
 @Component({
-    selector: 'footer',
+    selector: 'sellit-footer',
     templateUrl: 'footer.html',
     styleUrls: ['footer.scss']
 })

@@ -1,6 +1,6 @@
 <div class="product-item">
 
-    <a href="single-page.html">
+    <a [routerLink]="['single-item', item.id]" [queryParams]="{ 'price': item.price, 'title': item.title, 'photo': item.photo}">
         <div class="product-item__bacground">
             <img src="{{ item.photo }}" alt="Одежда">
         </div>

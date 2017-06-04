@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 
-@Component ({
+@Component({
     selector: 'product-item',
     templateUrl: 'product-item.component.html',
     styleUrls: ['product-item.component.scss']
@@ -9,6 +9,8 @@ import { Component, Input } from "@angular/core";
 
 export class ProductItemComponent {
     @Input() item;
+
+  
 }
 
 

@@ -11,6 +11,8 @@ export class ProductService {
     private productsURL = 'http://fe-kurs.light-it.net:38000/api/poster/';
     private results: Products[] = [];
 
+    private results2: Products[] = [];
+
     constructor(private http: Http) { }
 
     public getUsersList(): Observable<Products[]> {
@@ -20,8 +22,19 @@ export class ProductService {
             data.forEach((index) => {
                 this.results.push(new Products(index));
             });
+            
             return this.results;
         });
+        
     }
+
+ getAll() {
+    return Observable.of(this.results);
+  }
+
+  getOne(index) {
+    // if(this.articles.length >= index+1) return Observable.
+      return this.http.get(this.productsURL);
+  }
 
 }

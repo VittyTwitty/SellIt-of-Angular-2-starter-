@@ -1,0 +1,78 @@
+@import "../../../styles/_vars.scss";
+@import "../../../styles/grid";
+@import "../../../styles/_media.scss";
+
+
+
+
+.slider {
+  margin: 0 auto;
+  max-width: $slider-w-h;
+}
+
+.slide_viewer {
+  width: 100%;
+  height: $slider-w-h;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide_group {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.slide {
+  display: none;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  display: flex;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+
+
+.previous_btn {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  top: 0;
+  display: flex;
+  i {
+    margin: auto;
+  }
+}
+
+.next_btn {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  i {
+    margin: auto;
+  }
+}
+
+.previous_btn, .next_btn {
+  cursor: pointer;
+  height: 100%;
+  opacity: 0.1;
+  transition: opacity 0.4s ease-in-out;
+  width: 50px;
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.previous_btn:hover, .next_btn:hover {
+  opacity: 0.6;
+}
+
+img {
+  width: 100%;
+}

@@ -19,7 +19,7 @@ import {
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
-import { ROUTES } from './app.routes';
+import { appRoutes } from './app.routes';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
@@ -36,6 +36,7 @@ import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SinglePageComponent } from './single-page/single-page.component';
+import { SliderComponent } from "./single-page/slider/slider.component";
 
 
 
@@ -44,7 +45,9 @@ import '../styles/headings.css';
 import { BtnScrollTopComponent } from "./shared/button-scrolltop/button-scrolltop.component";
 import { ScrollTopDirective } from "./shared/directives/scroll-top.directive";
 import { ScrollPushItemsDirective } from "./shared/directives/scroll-push.directive";
+
 import { ProductService } from "./shared/footer/user.service";
+import { AuthPageComponent } from "./auth-page/auth-page.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -74,8 +77,10 @@ type StoreType = {
     ProductItemComponent,
     ProductListComponent,
     LoginPageComponent,
+    AuthPageComponent,
     SinglePageComponent,
     BtnScrollTopComponent,
+    SliderComponent,
     ScrollTopDirective,
     ScrollPushItemsDirective
   ],
@@ -86,7 +91,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(appRoutes, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

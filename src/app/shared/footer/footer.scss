@@ -6,6 +6,10 @@
   min-height: 50px;
   background-color: $main-color;
   text-align: center;
+  position: fixed;
+  bottom: 0;
+  //border-top: 10px solid #fff;
+  z-index: 10;
   &__text {
     font-size: 1.125em;
     font-family: $main-font;
