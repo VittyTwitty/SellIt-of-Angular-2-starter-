@@ -37,6 +37,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SinglePageComponent } from './single-page/single-page.component';
 import { SliderComponent } from "./single-page/slider/slider.component";
+import { SignUpComponent } from "./login-page/sign-up/sign-up.component";
+import { SignInComponent } from "./login-page/sign-in/sign-in.component";
 
 
 
@@ -47,7 +49,7 @@ import { ScrollTopDirective } from "./shared/directives/scroll-top.directive";
 import { ScrollPushItemsDirective } from "./shared/directives/scroll-push.directive";
 
 import { ProductService } from "./shared/footer/user.service";
-import { AuthPageComponent } from "./auth-page/auth-page.component";
+import { ChatComponent } from "./shared/chat/chat.component";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -77,10 +79,12 @@ type StoreType = {
     ProductItemComponent,
     ProductListComponent,
     LoginPageComponent,
-    AuthPageComponent,
     SinglePageComponent,
     BtnScrollTopComponent,
     SliderComponent,
+    SignInComponent,
+    SignUpComponent,
+    ChatComponent,
     ScrollTopDirective,
     ScrollPushItemsDirective
   ],

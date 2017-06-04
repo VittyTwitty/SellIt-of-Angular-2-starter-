@@ -1,0 +1,101 @@
+@import "../../../styles/vars.scss";
+@import "../../../styles/grid.css";
+
+.chat-wrapper {
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+    height: 300px;
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    color: #4a4a4a;
+
+    &_head {
+        width: 100%;
+        height: 35px;
+        h4 {
+            font-size: 30px;
+        }
+    }
+    &_body {
+        display: flex;
+        justify-content: rows;
+        height: 100%
+    }
+    &_messages{
+        width: 480px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-right: 20px;
+    }
+    &_message {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        &--done {
+            max-width: 80%;
+            span {
+                padding-right: 5px;
+                display: inline-block;
+                border-right: 5px solid $main_color;
+            }
+        }
+
+        &--done:nth-child(even) {
+            align-self: flex-end;
+            span {                
+                border-right: 0px solid $main_color;
+                border-left: 5px solid $main_color;
+                padding: 0 0 0 5px;
+            }
+            img {
+                float: right;
+                
+            }
+        }
+    }
+        
+        input {
+            border: none;
+            width: 100%;
+            height: 25px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 0;
+            color: #4a4a4a;
+            font-size: 0.875em;
+            background-color: rgba(255, 255, 255, 0);
+            border-bottom: 1px solid $main-color;
+        }
+        img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            float: left;
+        }
+    
+    &_connects{
+        font-weight: bold;
+        h4 {
+            margin-bottom: 5px;
+        }
+         li {
+             display: block;
+             height: 45px;
+             width: 100%;
+             line-height: 40px;
+             cursor: pointer;
+         }
+         img {
+             width: 38px;
+             height: 38px;
+             border-radius: 50%;
+             float: left;
+         }
+    }
+    
+    
+}

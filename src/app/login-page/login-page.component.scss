@@ -1,21 +1,4 @@
-
 @import "../../styles/_vars.scss";
-
-/*.s-login {
-  display: flex;
-  margin-top: -150px;
-  &_bg{
-    background-color: red;
-    width: 100%;
-  }
-
-  &_inner {
-    width: 400px;
-    height: 100%;
-  }
-
-}*/
-
 
 .s-login {
   display: flex;
@@ -84,44 +67,11 @@
       float: right;
     }
   }
-  &_form {
-    display: flex;
-    flex-direction: column;
-    width: 330px;
-    margin: 0 auto;
-    input {
-      border: none;
-      background-color: transparent;
-      height: 26px;
-      color: #f2f2f2;
-      padding-left: 14px;
-      border-bottom: 3px solid #fff;
-      font-family: Arial, monospace;
-      transition: all $main-time;
-      &:focus {
-        border-bottom: 3px solid $second-color;
-        transition: all $main-time;
-      }
-    }
-    input::-webkit-input-placeholder { color: #f2f2f2; }
-    input:-moz-placeholder { color: #f2f2f2; }
-    button {
-      margin-top: 35px;
-      height: 35px;
-      border: none;
-      background-color: #f2f2f2;
-      cursor: pointer;
-      font-family: $main-font, monospace;
-      color: #4a4a4a;
-      transition: all $main-time;
-      &:hover {
-        box-shadow: inset 0 -3px $second-color;
-      }
-      &:active {
-        background-color: #91d763;
-      }
-    }
-  }
+ 
+}
+
+.active-login{
+  box-shadow: inset 0 -3px $second-color;
 }
 
 
