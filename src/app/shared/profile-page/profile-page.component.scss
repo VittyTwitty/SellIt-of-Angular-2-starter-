@@ -1,0 +1,187 @@
+@import "../../../styles/_vars.scss";
+
+.profile {
+    width: 380px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -380px;    //ddddddddddddddddddddddddddddddddddddddddddddddddddddddddd - 380px
+    z-index: 50;
+    justify-content: flex-end;
+    transition: all $main-time;
+    &_inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background-color: $main-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+    }
+    &_title{
+        font-size: 2em;
+        font-weight: 600;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    } 
+    &_img {
+        width: 100px;
+        height: 100px; 
+        position: relative; 
+        margin-bottom: 10px;
+        &--wrapper {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }       
+    } 
+    &_online--status {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #00c000;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        z-index: 10;
+    }  
+    &_name {
+        font-size: 1.325em;
+    }
+    &_purchases {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 24%;
+            min-height: 30px;
+            padding: 0 4.5%;
+            margin-bottom: 2px;
+            font-weight: bold;
+            font-size: 1.2em;
+
+        }
+        .profile_purchases--title {            
+            font-weight: normal;
+            font-size: 0.9em;
+        }
+        
+    }
+    &_sales {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+        width: 100%;
+        position: relative;
+        &:before {
+            content: '';
+            width: 60%;
+            height: 1px;
+            position: absolute;
+            left: 20%;
+            top: -20px;
+            background-color: #fff;
+        }
+
+        div {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        li {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+    }
+    &_close {
+        position: absolute;
+        left: 0;
+        top: calc( 50% - 30px );
+        &:hover {
+            cursor: pointer;
+            svg {
+                transition: all $main-time;
+                fill: black;
+            }
+        }
+        &--triangle-top {
+            width: 0;
+            height: 0;
+            border-top: 10px solid $main-color;
+            border-left: 30px solid #fff;
+        }
+        &--center{
+            display: flex;
+            width: 30px;
+            height: 40px;
+            background-color:#fff;
+            justify-content: center;
+            svg {
+                align-self: center;
+                height: 20px;
+                width: auto;
+                line-height: 40px;
+                fill: $dark-color;
+            }
+        }
+        &--triangle-bot {
+            width: 0;
+            height: 0;
+            border-bottom: 10px solid $main-color;
+            border-left: 30px solid #fff;
+        }
+    }
+    &_settings {
+        width: 100%;
+        margin-top: 100px;
+        &-icon{
+            text-align: center;
+            svg {
+                fill: $dark-color;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                transition: $main-time;
+                &:hover {
+                    transform: rotateZ(37deg)
+                }
+                
+            }
+        }
+        &-body {
+            width: 100%;
+        }
+        &-avatar {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+            &-choose {
+                width: 80px;
+                height: 80px;
+                cursor: pointer;
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+    }
+}

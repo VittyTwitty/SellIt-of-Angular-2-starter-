@@ -1,0 +1,65 @@
+<form (submit)="addProduct($event, addProductForm)" #addProductForm="ngForm" name="addProductForm" class="add-post">
+
+    <label class="add-post_descr-product">
+        <span>Title of product <span class="red-color">*</span></span>
+        <input #addTitle="ngModel" validatorNameDirective type="text" [(ngModel)]="data.title" name="title" required>
+        <div class="add-post_error-send" [hidden]="addTitle.valid || (addTitle.pristine && !addProductForm.submitted)">
+             <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
+        </div>      
+    </label>
+
+
+    <label class="add-post_descr-product">
+        <span>Description</span>
+        <textarea [(ngModel)]="data.description" name="description" rows="10" cols="70" maxlength="400"></textarea>
+    </label>
+
+
+
+
+    <label class="add-post_descr-product">        
+        <span>Price  <span class="red-color">*</span></span>
+        <input type="text" [(ngModel)]="data.price" validatorPriceDirective name="price" #addPrice="ngModel" required>
+        <div class="add-post_error-send" [hidden]="addPrice.valid || (addPrice.pristine && !addProductForm.submitted)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
+        </div>
+    </label>
+
+
+
+    <label class="add-post_descr-product">        
+        <span>Author <span class="red-color">*</span></span>
+        <input type="text" [(ngModel)]="data.author" validatorNameDirective name="author" #addAuthor="ngModel" required>    
+        <div class="add-post_error-send" [hidden]="addAuthor.valid || (addAuthor.pristine && !addProductForm.submitted)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
+        </div>
+    </label>
+
+    <label class="add-post_descr-product">        
+        <span>Phone </span>
+        <input type="text" [(ngModel)]="data.phone" name="phone" required>
+    </label>
+
+
+
+    <label class="add-post_upload">
+        <span class="add-post_upload-button">Добавить</span>
+        <div>Изображение не выбрано</div>
+        <input type="file" [(ngModel)]="data.photo" name="photo" #addPhoto="ngModel"/>
+    </label>
+
+    <button class="add-post_add-button" openButton>Add item</button>
+
+</form>
+<!--
+<div *ngIf="(addProductForm.submitted || addTitle.touched) && addTitle.invalid" class="alert">
+    <div [hidden]="!titleInput.errors.required">
+        Name is required
+    </div>
+    <div [hidden]="!titleInput.errors.minlength">
+        Name must be at least 4 characters long.
+    </div>
+    <div [hidden]="!titleInput.errors.maxlength">
+        Name cannot be more than 24 characters long.
+    </div>
+</div>-->

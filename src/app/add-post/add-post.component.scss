@@ -1,0 +1,141 @@
+@import "../../styles/_vars.scss";
+
+
+@keyframes balloon {
+    0% {
+        background-color: red;
+        bottom: 60px;
+    }
+    70% {
+        background-color: red;
+        bottom: 10px;
+    }
+    100% {
+        background-color: red;
+        bottom: 0px;
+    }
+}
+
+
+.add-post {
+    display: flex;
+    flex-direction: column;
+    width: 32%;
+    margin: 0 auto;
+    &_descr-product{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 5%;
+    }
+    input, textarea { 
+        font-size: 1em;
+        margin-bottom: 10px;
+        border: 1px solid $main-color;
+        border-left: 4px solid $main-color;
+        padding: 0 30px; 
+        width: 55%;
+        border-radius: 0 5px 5px 0;        
+        transition: all 1s;
+        outline: none;
+    }    
+    input {
+        height: 2.5em;
+        line-height: 2.5em;
+    }
+    label{
+        position: relative;
+    }
+    
+    &_error-send {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        right: 5px;
+        top: calc( 50% - 17px );
+        border-radius: 50%;
+        text-align: center;
+        svg {
+            line-height: 24px;
+            height: 100%;
+            width: auto;
+            fill: #fd2049;
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+    textarea{
+        font-family: Arial, Helvetica, sans-serif;
+        resize: none;
+        height: 10em;
+        line-height: 1.5em;
+        padding-top: 10px;
+    }
+    &_upload {
+        width: 100%;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        font-size: 1em;
+        height: 2.5em;
+        line-height: 2.5em;
+        margin-top: 30px;
+        border: 1px solid $main-color;
+        border-left: 4px solid $main-color;
+        color: $dark-color;
+        &-button, div{
+            display: block;
+            cursor: pointer;
+        }
+        &-button{
+            float: right;
+            box-sizing: border-box;
+            width: 8em;                 
+            height: 100%;
+            text-align: center;
+            border-left: 1px solid $main-color;
+            transition: all $main-time;
+            background-color: $main-color;
+                color: #fff;
+            &:hover {
+                background-color: #13C3CB; 
+            }
+            &:active {
+                background-color: $main-color;
+            }
+        }
+        div {
+            background: transparent;     
+            padding-left: 1em
+        }
+
+        input[type=file]{
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            z-index: -10;
+        }
+    }
+    &_add-button {
+        align-self: center;;
+        margin-top: 50px;
+        width: 50%;
+        height: 2.5em;
+        background-color: $main-color;
+        color: #fff;
+        box-sizing: border-box;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        transition: all $main-time;
+        &:hover {
+            background-color: #13C3CB; 
+        }
+        &:active {
+            background-color: $main-color; 
+        }
+        
+    }
+}
+

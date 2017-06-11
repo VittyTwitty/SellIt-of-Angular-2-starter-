@@ -28,11 +28,10 @@
   height: 100%;
   position: absolute;
   width: 100%;
-  display: flex;
 }
 
 .slide:first-child {
-  display: block;
+  display: flex;
 }
 
 

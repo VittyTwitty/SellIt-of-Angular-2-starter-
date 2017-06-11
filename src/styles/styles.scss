@@ -1,6 +1,8 @@
 @import "reset";
 @import "media";
 
+//@import '~bootstrap/scss/bootstrap.scss';
+
 body{
   display: flex;
   flex-direction: column;
@@ -37,6 +39,10 @@ sellit-login-page {
 
 single-page {  
   flex-grow: 1;
+}
+
+.red-color {
+  color: #fd2049;
 }
 
 

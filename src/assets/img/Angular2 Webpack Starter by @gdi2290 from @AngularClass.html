@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost:3000/#/sellit-add-post -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Angular2 Webpack Starter by @gdi2290 from @AngularClass</title>
+
+  <meta name="description" content="Angular2 Webpack Starter by @gdi2290 from @AngularClass">
+  <link rel="stylesheet" href="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/font-awesome.min.css">
+  
+  <!-- Configured Head Tags  -->
+  <link rel="apple-touch-icon" sizes="57x57" href="http://localhost:3000/assets/icon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="http://localhost:3000/assets/icon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="http://localhost:3000/assets/icon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="http://localhost:3000/assets/icon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="http://localhost:3000/assets/icon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="http://localhost:3000/assets/icon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="http://localhost:3000/assets/icon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="http://localhost:3000/assets/icon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:3000/assets/icon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="http://localhost:3000/assets/icon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:3000/assets/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="http://localhost:3000/assets/icon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:3000/assets/icon/favicon-16x16.png">
+	<link rel="manifest" href="http://localhost:3000/assets/manifest.json">
+	<meta name="msapplication-TileColor" content="#00bcd4">
+	<meta name="msapplication-TileImage" content="/assets/icon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#00bcd4">
+  
+
+  <!-- base url -->
+  <!--<base href="/">--><base href=".">
+
+  <script>/******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	var parentJsonpFunction = window["webpackJsonpac__name_"];
+/******/ 	window["webpackJsonpac__name_"] = function webpackJsonpCallback(chunkIds, moreModules, executeModules) {
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [], result;
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules, executeModules);
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/ 		if(executeModules) {
+/******/ 			for(i=0; i < executeModules.length; i++) {
+/******/ 				result = __webpack_require__(__webpack_require__.s = executeModules[i]);
+/******/ 			}
+/******/ 		}
+/******/ 		return result;
+/******/ 	};
+/******/
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// objects to store loaded and loading chunks
+/******/ 	var installedChunks = {
+/******/ 		3: 0
+/******/ 	};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/ 	// This file contains only the entry chunk.
+/******/ 	// The chunk loading function for additional chunks
+/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
+/******/ 		if(installedChunks[chunkId] === 0) {
+/******/ 			return Promise.resolve();
+/******/ 		}
+/******/
+/******/ 		// a Promise means "currently loading".
+/******/ 		if(installedChunks[chunkId]) {
+/******/ 			return installedChunks[chunkId][2];
+/******/ 		}
+/******/
+/******/ 		// setup Promise in chunk cache
+/******/ 		var promise = new Promise(function(resolve, reject) {
+/******/ 			installedChunks[chunkId] = [resolve, reject];
+/******/ 		});
+/******/ 		installedChunks[chunkId][2] = promise;
+/******/
+/******/ 		// start chunk loading
+/******/ 		var head = document.getElementsByTagName('head')[0];
+/******/ 		var script = document.createElement('script');
+/******/ 		script.type = 'text/javascript';
+/******/ 		script.charset = 'utf-8';
+/******/ 		script.async = true;
+/******/ 		script.timeout = 120000;
+/******/
+/******/ 		if (__webpack_require__.nc) {
+/******/ 			script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 		}
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + ".chunk.js";
+/******/ 		var timeout = setTimeout(onScriptComplete, 120000);
+/******/ 		script.onerror = script.onload = onScriptComplete;
+/******/ 		function onScriptComplete() {
+/******/ 			// avoid mem leaks in IE.
+/******/ 			script.onerror = script.onload = null;
+/******/ 			clearTimeout(timeout);
+/******/ 			var chunk = installedChunks[chunkId];
+/******/ 			if(chunk !== 0) {
+/******/ 				if(chunk) {
+/******/ 					chunk[1](new Error('Loading chunk ' + chunkId + ' failed.'));
+/******/ 				}
+/******/ 				installedChunks[chunkId] = undefined;
+/******/ 			}
+/******/ 		};
+/******/ 		head.appendChild(script);
+/******/
+/******/ 		return promise;
+/******/ 	};
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// on error function for async loading
+/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
+/******/ })
+/************************************************************************/
+/******/ ([]);
+</script>
+
+<script type="text/javascript" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/polyfills.dll.js.Без названия" defer=""></script><script type="text/javascript" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/vendor.dll.js.Без названия" defer=""></script><script type="text/javascript" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/polyfills.bundle.js.Без названия" defer=""></script><script type="text/javascript" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/vendor.bundle.js.Без названия" defer=""></script><script type="text/javascript" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/main.bundle.js.Без названия" defer=""></script><style type="text/css">html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: '';
+  content: none; }
+
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*==========  Desktop First  ==========*/
+@media only screen and (max-width: 1400px) {
+  product-item {
+    width: 23%;
+    height: 220px;
+    margin: 0 1% 10px 1%; }
+    product-item:nth-child(4n+1) {
+      margin-left: 1%; }
+  .s-login_bg {
+    background-size: auto 100%;
+    margin-left: -80px; } }
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+  .header .search-form {
+    width: 400px; }
+    .header .search-form__find {
+      width: 10%; }
+    .header .search-form__input {
+      width: 90%; }
+  .header .user-button {
+    width: 240px;
+    padding: 0 5px; }
+    .header .user-button__name {
+      width: 100px; }
+  .s-content product-item {
+    height: 180px; } }
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  .header .search-form {
+    width: 150px;
+    margin-left: 35px; }
+    .header .search-form__find {
+      width: 20%; }
+    .header .search-form__input {
+      width: 80%; }
+  .s-content product-item {
+    width: 23%;
+    height: 160px;
+    margin: 0 1% 10px 1%; }
+    .s-content product-item:nth-child(4n+1) {
+      margin-left: 1%; }
+  .single-item .single-item__description > h2 {
+    font-size: 1.250em; }
+  .single-item .single-item__description p {
+    font-size: 1em; } }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .header-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+  .header .logo {
+    margin-right: 60px; }
+  .header .user-button {
+    width: 210px;
+    margin-left: 25px;
+    padding: 0 10px; }
+  .header .search-form {
+    order: 3;
+    flex-grow: 1;
+    margin-left: 0;
+    width: 100%; }
+  .header .user-button__sub {
+    height: 84px;
+    bottom: -84px; }
+  .header .user-button__new-post,
+  .header .user-button__profile {
+    display: block;
+    float: none;
+    width: 100%; }
+    .header .user-button__new-post:hover,
+    .header .user-button__profile:hover {
+      background-color: #13C3CB; }
+    .header .user-button__new-post:active,
+    .header .user-button__profile:active {
+      background-color: #13C3CB; }
+  .s-content product-item {
+    width: 23%;
+    height: 135px;
+    margin: 0 1% 10px 1%; }
+    .s-content product-item:nth-child(4n+1) {
+      margin-left: 1%; }
+    .s-content product-item span {
+      font-size: 0.775em;
+      margin-left: 5px; }
+    .s-content product-item i {
+      font-size: 1em; }
+  .single-item .single-item__background {
+    width: 300px;
+    height: 300px; }
+  .single-item .single-item__description > h2 {
+    font-size: 1.250em; }
+  .single-item .single-item__description p {
+    font-size: 1em; }
+  .previous_btn {
+    left: 50px; }
+  .next_btn {
+    right: 50px; }
+  div.s-login_inner {
+    width: 100%; } }
+
+@media only screen and (max-width: 601px) {
+  .s-content product-item {
+    width: 48%;
+    height: 150px;
+    margin: 0 1% 10px 1%; }
+    .s-content product-item:nth-child(4n+1) {
+      margin-left: 1%; }
+  .single-item .single-item__background {
+    width: 200px;
+    height: 200px; } }
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  .header-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap; }
+  .header .logo {
+    margin-left: 20px;
+    width: 100px; }
+  .header .user-button {
+    flex-grow: 1;
+    margin-left: 22px;
+    width: 100px;
+    padding: 0 10px; }
+    .header .user-button__img {
+      display: none; }
+  .header .search-form {
+    order: 3;
+    flex-grow: 1;
+    margin-left: 0; }
+  .single-item .single-item__inner {
+    flex-direction: column; }
+  .single-item .single-item__background {
+    width: 90%;
+    margin: 0 auto;
+    height: 280px;
+    float: none; }
+  .single-item .single-item__description {
+    width: auto;
+    padding: 30px; }
+    .single-item .single-item__description > h2 {
+      font-size: 1.250em; }
+    .single-item .single-item__description p {
+      font-size: 1em; } }
+
+/* Custom, iPhone Retina */
+body {
+  display: flex;
+  flex-direction: column; }
+
+product-list {
+  flex-grow: 1;
+  overflow-y: scroll; }
+
+product-list::-webkit-scrollbar {
+  width: 0; }
+
+product-list {
+  -ms-overflow-style: none; }
+
+sellit-header {
+  width: 100%;
+  min-height: 150px;
+  position: relative; }
+
+button:active, button:focus, input {
+  outline: none; }
+
+button::-moz-focus-inner {
+  border: 0; }
+
+single-page {
+  flex-grow: 1; }
+
+/*button-scrolltop {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 70px;
+  right: 24px;
+  background: #fff;
+  color: #ccc;
+} */
+</style><style type="text/css"></style><style>html, body{
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+a.active {
+  background-color: gray;
+}
+</style><style>@media only screen and (max-width: 1400px) {
+  product-item[_ngcontent-c1] {
+    width: 23%;
+    height: 220px;
+    margin: 0 1% 10px 1%; }
+    product-item[_ngcontent-c1]:nth-child(4n+1) {
+      margin-left: 1%; }
+  .s-login_bg[_ngcontent-c1] {
+    background-size: auto 100%;
+    margin-left: -80px; } }
+
+
+@media only screen and (max-width: 1200px) {
+  .header[_ngcontent-c1]   .search-form[_ngcontent-c1] {
+    width: 400px; }
+    .header[_ngcontent-c1]   .search-form__find[_ngcontent-c1] {
+      width: 10%; }
+    .header[_ngcontent-c1]   .search-form__input[_ngcontent-c1] {
+      width: 90%; }
+  .header[_ngcontent-c1]   .user-button[_ngcontent-c1] {
+    width: 240px;
+    padding: 0 5px; }
+    .header[_ngcontent-c1]   .user-button__name[_ngcontent-c1] {
+      width: 100px; }
+  .s-content[_ngcontent-c1]   product-item[_ngcontent-c1] {
+    height: 180px; } }
+
+
+@media only screen and (max-width: 992px) {
+  .header[_ngcontent-c1]   .search-form[_ngcontent-c1] {
+    width: 150px;
+    margin-left: 35px; }
+    .header[_ngcontent-c1]   .search-form__find[_ngcontent-c1] {
+      width: 20%; }
+    .header[_ngcontent-c1]   .search-form__input[_ngcontent-c1] {
+      width: 80%; }
+  .s-content[_ngcontent-c1]   product-item[_ngcontent-c1] {
+    width: 23%;
+    height: 160px;
+    margin: 0 1% 10px 1%; }
+    .s-content[_ngcontent-c1]   product-item[_ngcontent-c1]:nth-child(4n+1) {
+      margin-left: 1%; }
+  .single-item[_ngcontent-c1]   .single-item__description[_ngcontent-c1]    > h2[_ngcontent-c1] {
+    font-size: 1.250em; }
+  .single-item[_ngcontent-c1]   .single-item__description[_ngcontent-c1]   p[_ngcontent-c1] {
+    font-size: 1em; } }
+
+
+@media only screen and (max-width: 768px) {
+  .header-container[_ngcontent-c1] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+  .header[_ngcontent-c1]   .logo[_ngcontent-c1] {
+    margin-right: 60px; }
+  .header[_ngcontent-c1]   .user-button[_ngcontent-c1] {
+    width: 210px;
+    margin-left: 25px;
+    padding: 0 10px; }
+  .header[_ngcontent-c1]   .search-form[_ngcontent-c1] {
+    order: 3;
+    flex-grow: 1;
+    margin-left: 0;
+    width: 100%; }
+  .header[_ngcontent-c1]   .user-button__sub[_ngcontent-c1] {
+    height: 84px;
+    bottom: -84px; }
+  .header[_ngcontent-c1]   .user-button__new-post[_ngcontent-c1], .header[_ngcontent-c1]   .user-button__profile[_ngcontent-c1] {
+    display: block;
+    float: none;
+    width: 100%; }
+    .header[_ngcontent-c1]   .user-button__new-post[_ngcontent-c1]:hover, .header[_ngcontent-c1]   .user-button__profile[_ngcontent-c1]:hover {
+      background-color: #13C3CB; }
+    .header[_ngcontent-c1]   .user-button__new-post[_ngcontent-c1]:active, .header[_ngcontent-c1]   .user-button__profile[_ngcontent-c1]:active {
+      background-color: #13C3CB; }
+  .s-content[_ngcontent-c1]   product-item[_ngcontent-c1] {
+    width: 23%;
+    height: 135px;
+    margin: 0 1% 10px 1%; }
+    .s-content[_ngcontent-c1]   product-item[_ngcontent-c1]:nth-child(4n+1) {
+      margin-left: 1%; }
+    .s-content[_ngcontent-c1]   product-item[_ngcontent-c1]   span[_ngcontent-c1] {
+      font-size: 0.775em;
+      margin-left: 5px; }
+    .s-content[_ngcontent-c1]   product-item[_ngcontent-c1]   i[_ngcontent-c1] {
+      font-size: 1em; }
+  .single-item[_ngcontent-c1]   .single-item__background[_ngcontent-c1] {
+    width: 300px;
+    height: 300px; }
+  .single-item[_ngcontent-c1]   .single-item__description[_ngcontent-c1]    > h2[_ngcontent-c1] {
+    font-size: 1.250em; }
+  .single-item[_ngcontent-c1]   .single-item__description[_ngcontent-c1]   p[_ngcontent-c1] {
+    font-size: 1em; }
+  .previous_btn[_ngcontent-c1] {
+    left: 50px; }
+  .next_btn[_ngcontent-c1] {
+    right: 50px; }
+  div.s-login_inner[_ngcontent-c1] {
+    width: 100%; } }
+
+@media only screen and (max-width: 601px) {
+  .s-content[_ngcontent-c1]   product-item[_ngcontent-c1] {
+    width: 48%;
+    height: 150px;
+    margin: 0 1% 10px 1%; }
+    .s-content[_ngcontent-c1]   product-item[_ngcontent-c1]:nth-child(4n+1) {
+      margin-left: 1%; }
+  .single-item[_ngcontent-c1]   .single-item__background[_ngcontent-c1] {
+    width: 200px;
+    height: 200px; } }
+
+
+@media only screen and (max-width: 480px) {
+  .header-container[_ngcontent-c1] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap; }
+  .header[_ngcontent-c1]   .logo[_ngcontent-c1] {
+    margin-left: 20px;
+    width: 100px; }
+  .header[_ngcontent-c1]   .user-button[_ngcontent-c1] {
+    flex-grow: 1;
+    margin-left: 22px;
+    width: 100px;
+    padding: 0 10px; }
+    .header[_ngcontent-c1]   .user-button__img[_ngcontent-c1] {
+      display: none; }
+  .header[_ngcontent-c1]   .search-form[_ngcontent-c1] {
+    order: 3;
+    flex-grow: 1;
+    margin-left: 0; }
+  .single-item[_ngcontent-c1]   .single-item__inner[_ngcontent-c1] {
+    flex-direction: column; }
+  .single-item[_ngcontent-c1]   .single-item__background[_ngcontent-c1] {
+    width: 90%;
+    margin: 0 auto;
+    height: 280px;
+    float: none; }
+  .single-item[_ngcontent-c1]   .single-item__description[_ngcontent-c1] {
+    width: auto;
+    padding: 30px; }
+    .single-item[_ngcontent-c1]   .single-item__description[_ngcontent-c1]    > h2[_ngcontent-c1] {
+      font-size: 1.250em; }
+    .single-item[_ngcontent-c1]   .single-item__description[_ngcontent-c1]   p[_ngcontent-c1] {
+      font-size: 1em; } }
+
+
+.header[_ngcontent-c1] {
+  width: 100%;
+  min-height: 150px;
+  position: relative; }
+
+.logo[_ngcontent-c1] {
+  position: relative;
+  z-index: 2;
+  width: 120px;
+  height: 50px;
+  float: left;
+  margin-left: 50px;
+  margin-top: 10px; }
+  .logo__img[_ngcontent-c1] {
+    width: 100%;
+    height: auto; }
+
+.search-form[_ngcontent-c1] {
+  position: relative;
+  z-index: 2;
+  width: 450px;
+  float: left;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #00B4C0;
+  margin-left: 115px;
+  margin-top: 15px; }
+  .search-form__find[_ngcontent-c1] {
+    width: 5%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    float: left;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s; }
+    .search-form__find[_ngcontent-c1]:hover {
+      color: #00B4C0; }
+  .search-form__input[_ngcontent-c1] {
+    border: none;
+    width: 95%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    color: #4a4a4a;
+    font-size: 0.875em;
+    background-color: rgba(255, 255, 255, 0); }
+
+.user-button[_ngcontent-c1] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 380px;
+  height: 60px;
+  background-color: #00B4C0;
+  float: right;
+  color: #fff;
+  padding: 0 25px;
+  border: none;
+  text-align: left;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  position: relative; }
+  .user-button__img[_ngcontent-c1] {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden; }
+  .user-button__name[_ngcontent-c1] {
+    font-family: Arial;
+    font-size: 1.125em;
+    font-weight: bold;
+    width: 245px; }
+  .user-button__in[_ngcontent-c1] {
+    float: right;
+    font-size: 24px; }
+  .user-button[_ngcontent-c1]:hover {
+    box-shadow: inset 5px 0px #4a4a4a; }
+    .user-button[_ngcontent-c1]:hover   .user-button__sub[_ngcontent-c1] {
+      display: inline-block; }
+    .user-button[_ngcontent-c1]:hover   i[_ngcontent-c1] {
+      color: #eee;
+      transition: 1s; }
+  .user-button__sub[_ngcontent-c1] {
+    position: absolute;
+    bottom: -42px;
+    left: 0;
+    height: 42px;
+    width: 100%;
+    background-color: #00B4C0;
+    text-align: center;
+    display: none; }
+  .user-button__new-post[_ngcontent-c1], .user-button__profile[_ngcontent-c1] {
+    float: left;
+    width: calc( 50% - 5px);
+    line-height: 42px;
+    font-size: 16px;
+    border-left: 5px solid #4a4a4a;
+    font-family: MyrReg, sans-serif; }
+    .user-button__new-post[_ngcontent-c1]:hover, .user-button__profile[_ngcontent-c1]:hover {
+      background-color: #13C3CB; }
+    .user-button__new-post[_ngcontent-c1]:active, .user-button__profile[_ngcontent-c1]:active {
+      background-color: #13C3CB; }</style><style>.footer[_ngcontent-c2] {
+  width: 100%;
+  min-height: 50px;
+  background-color: #00B4C0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 10; }
+  .footer__text[_ngcontent-c2] {
+    font-size: 1.125em;
+    font-family: Arial;
+    font-weight: bold;
+    color: #fff;
+    line-height: 50px; }</style><style>.profile[_ngcontent-c3] {
+  width: 380px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -380px;
+  z-index: 50;
+  justify-content: flex-end;
+  transition: all 0.5s; }
+  .profile_inner[_ngcontent-c3] {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #00B4C0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff; }
+  .profile_title[_ngcontent-c3] {
+    font-size: 2em;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .profile_img[_ngcontent-c3] {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin-bottom: 10px; }
+    .profile_img--wrapper[_ngcontent-c3] {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative; }
+      .profile_img--wrapper[_ngcontent-c3]   img[_ngcontent-c3] {
+        width: 100%;
+        height: 100%; }
+  .profile_online--status[_ngcontent-c3] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #00c000;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    z-index: 10; }
+  .profile_name[_ngcontent-c3] {
+    font-size: 1.325em; }
+  .profile_purchases[_ngcontent-c3] {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px; }
+    .profile_purchases[_ngcontent-c3]   li[_ngcontent-c3] {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 24%;
+      min-height: 30px;
+      padding: 0 4.5%;
+      margin-bottom: 2px;
+      font-weight: bold;
+      font-size: 1.2em; }
+    .profile_purchases[_ngcontent-c3]   .profile_purchases--title[_ngcontent-c3] {
+      font-weight: normal;
+      font-size: 0.9em; }
+  .profile_sales[_ngcontent-c3] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    width: 100%;
+    position: relative; }
+    .profile_sales[_ngcontent-c3]:before {
+      content: '';
+      width: 60%;
+      height: 1px;
+      position: absolute;
+      left: 20%;
+      top: -20px;
+      background-color: #fff; }
+    .profile_sales[_ngcontent-c3]   div[_ngcontent-c3] {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px; }
+    .profile_sales[_ngcontent-c3]   li[_ngcontent-c3] {
+      margin-bottom: 5px;
+      font-size: 0.9em; }
+  .profile_close[_ngcontent-c3] {
+    position: absolute;
+    left: 0;
+    top: calc( 50% - 30px); }
+    .profile_close[_ngcontent-c3]:hover {
+      cursor: pointer; }
+      .profile_close[_ngcontent-c3]:hover   svg[_ngcontent-c3] {
+        transition: all 0.5s;
+        fill: black; }
+    .profile_close--triangle-top[_ngcontent-c3] {
+      width: 0;
+      height: 0;
+      border-top: 10px solid #00B4C0;
+      border-left: 30px solid #fff; }
+    .profile_close--center[_ngcontent-c3] {
+      display: flex;
+      width: 30px;
+      height: 40px;
+      background-color: #fff;
+      justify-content: center; }
+      .profile_close--center[_ngcontent-c3]   svg[_ngcontent-c3] {
+        align-self: center;
+        height: 20px;
+        width: auto;
+        line-height: 40px;
+        fill: #4a4a4a; }
+    .profile_close--triangle-bot[_ngcontent-c3] {
+      width: 0;
+      height: 0;
+      border-bottom: 10px solid #00B4C0;
+      border-left: 30px solid #fff; }</style></head>
+
+<body>
+
+  <app ng-version="4.0.3"><sellit-header _nghost-c1=""><div _ngcontent-c1="" class="header">
+    <div _ngcontent-c1="" class="header-container">
+
+        <div _ngcontent-c1="" class="logo">
+            <a _ngcontent-c1="" routerlink="" ng-reflect-router-link="" href="http://localhost:3000/#/"><img _ngcontent-c1="" alt="Логотип SellIt" class="logo__img" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/logo_main.png"></a>
+        </div>
+        <form _ngcontent-c1="" class="search-form ng-untouched ng-pristine ng-valid" novalidate="">
+            <button _ngcontent-c1="" class="search-form__find">
+                <i _ngcontent-c1="" class="fa fa-search fa"></i>
+            </button>
+            <input _ngcontent-c1="" class="search-form__input" placeholder="Try find something">
+        </form>
+
+        <button _ngcontent-c1="" class="user-button">
+            <div _ngcontent-c1="" class="user-button__img">
+                <img _ngcontent-c1="" alt="Аватарка" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/user-img.jpg">
+            </div>
+
+            <div _ngcontent-c1="" class="user-button__name">
+                Kim Evans
+            </div>
+
+            <div _ngcontent-c1="" class="user-button__in">
+                <i _ngcontent-c1="" class="fa fa-sign-out fa"></i>
+            </div>
+            <div _ngcontent-c1="" class="user-button__sub">
+                <div _ngcontent-c1="" class="user-button__new-post" routerlink="/sellit-login-page" tabindex="0" ng-reflect-router-link="/sellit-login-page">
+                    <span _ngcontent-c1="">Add new post</span>
+                </div>
+                <div _ngcontent-c1="" class="user-button__profile" openbutton="">
+                    <span _ngcontent-c1="">Profile</span>
+                </div>
+            </div>
+
+        </button>
+    </div>
+<sellit-profile _ngcontent-c1="" _nghost-c3=""><div _ngcontent-c3="" class="profile">
+    <div _ngcontent-c3="" class="profile_inner">
+
+        <div _ngcontent-c3="" class="profile_title">
+            <h3 _ngcontent-c3="">My Sellit</h3>
+        </div>
+        <div _ngcontent-c3="" class="profile_img">
+            <div _ngcontent-c3="" class="profile_img--wrapper">
+                <img _ngcontent-c3="" alt="" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/user-img.jpg">
+            </div>
+
+            <div _ngcontent-c3="" class="profile_online--status"></div>
+        </div>
+        <div _ngcontent-c3="" class="profile_name">Alis Kim</div>
+        <ul _ngcontent-c3="" class="profile_purchases">
+            <li _ngcontent-c3="" class="profile_purchases--title">Продаж за месяц</li>
+            <li _ngcontent-c3="" class="profile_purchases--title">Продаж за всё время</li>
+            <li _ngcontent-c3="" class="profile_purchases--title">Выручка</li>
+            <li _ngcontent-c3="">12</li>
+            <li _ngcontent-c3="">216</li>
+            <li _ngcontent-c3="">10340 $</li>
+        </ul>
+
+        <ul _ngcontent-c3="" class="profile_sales">
+            <div _ngcontent-c3="">Лучшие продажи</div>
+            <li _ngcontent-c3="">Котушка-мокрушка</li>
+            <li _ngcontent-c3="">Зверь едет в тверь</li>
+            <li _ngcontent-c3="">Заец азиат</li>
+        </ul>
+
+        <div _ngcontent-c3="" class="profile_close" closebutton="">
+            <div _ngcontent-c3="" class="profile_close--triangle-top"></div>
+            <div _ngcontent-c3="" class="profile_close--center">
+                <svg _ngcontent-c3="" height="512" viewBox="0 0 898.3 898.3" width="512" xmlns="http://www.w3.org/2000/svg">
+                    <style _ngcontent-c3="">
+                    </style>
+                    <polygon _ngcontent-c3="" class="a" points="120.2 882.5 553.6 449.2 120.2 15.8 0 136 313.2 449.2 0 762.3 "></polygon>
+                    <polygon _ngcontent-c3="" class="a" points="344.7 762.3 464.9 882.5 898.3 449.2 464.9 15.8 344.7 136 657.9 449.2 "></polygon>
+                </svg>
+            </div>
+            <div _ngcontent-c3="" class="profile_close--triangle-bot"></div>
+        </div>
+
+    </div>
+</div></sellit-profile>
+</div>
+</sellit-header>
+
+<router-outlet></router-outlet><sellit-profile _nghost-c3="" ng-version="4.0.3"><div _ngcontent-c3="" class="profile">
+    <div _ngcontent-c3="" class="profile_inner">
+
+        <div _ngcontent-c3="" class="profile_title">
+            <h3 _ngcontent-c3="">My Sellit</h3>
+        </div>
+        <div _ngcontent-c3="" class="profile_img">
+            <div _ngcontent-c3="" class="profile_img--wrapper">
+                <img _ngcontent-c3="" alt="" src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/user-img.jpg">
+            </div>
+
+            <div _ngcontent-c3="" class="profile_online--status"></div>
+        </div>
+        <div _ngcontent-c3="" class="profile_name">Alis Kim</div>
+        <ul _ngcontent-c3="" class="profile_purchases">
+            <li _ngcontent-c3="" class="profile_purchases--title">Продаж за месяц</li>
+            <li _ngcontent-c3="" class="profile_purchases--title">Продаж за всё время</li>
+            <li _ngcontent-c3="" class="profile_purchases--title">Выручка</li>
+            <li _ngcontent-c3="">12</li>
+            <li _ngcontent-c3="">216</li>
+            <li _ngcontent-c3="">10340 $</li>
+        </ul>
+
+        <ul _ngcontent-c3="" class="profile_sales">
+            <div _ngcontent-c3="">Лучшие продажи</div>
+            <li _ngcontent-c3="">Котушка-мокрушка</li>
+            <li _ngcontent-c3="">Зверь едет в тверь</li>
+            <li _ngcontent-c3="">Заец азиат</li>
+        </ul>
+
+        <div _ngcontent-c3="" class="profile_close" closebutton="">
+            <div _ngcontent-c3="" class="profile_close--triangle-top"></div>
+            <div _ngcontent-c3="" class="profile_close--center">
+                <svg _ngcontent-c3="" height="512" viewBox="0 0 898.3 898.3" width="512" xmlns="http://www.w3.org/2000/svg">
+                    <style _ngcontent-c3="">
+                    </style>
+                    <polygon _ngcontent-c3="" class="a" points="120.2 882.5 553.6 449.2 120.2 15.8 0 136 313.2 449.2 0 762.3 "></polygon>
+                    <polygon _ngcontent-c3="" class="a" points="344.7 762.3 464.9 882.5 898.3 449.2 464.9 15.8 344.7 136 657.9 449.2 "></polygon>
+                </svg>
+            </div>
+            <div _ngcontent-c3="" class="profile_close--triangle-bot"></div>
+        </div>
+
+    </div>
+</div></sellit-profile>
+
+<sellit-footer _nghost-c2=""><div _ngcontent-c2="" class="footer">
+    <span _ngcontent-c2="" class="footer__text">
+        2017 - front-end labs Light IT
+    </span>
+</div></sellit-footer></app>
+
+
+
+  
+  <!-- Webpack Dev Server reload -->
+  <script src="./Angular2 Webpack Starter by @gdi2290 from @AngularClass_files/webpack-dev-server.js.Без названия"></script>
+  
+
+
+
+
+</body></html>

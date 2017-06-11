@@ -34,22 +34,31 @@ import { Footer } from './shared/footer/footer';
 
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductListComponent } from './product-list/product-list.component';
-import { LoginPageComponent } from './login-page/login-page.component';
 import { SinglePageComponent } from './single-page/single-page.component';
 import { SliderComponent } from "./single-page/slider/slider.component";
 import { SignUpComponent } from "./login-page/sign-up/sign-up.component";
 import { SignInComponent } from "./login-page/sign-in/sign-in.component";
+import { ProfileComponent } from "./shared/profile-page/profile-page.component";
 
 
+import { ProductService } from "./shared/services/sellit-product.service";
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
 import { BtnScrollTopComponent } from "./shared/button-scrolltop/button-scrolltop.component";
 import { ScrollTopDirective } from "./shared/directives/scroll-top.directive";
 import { ScrollPushItemsDirective } from "./shared/directives/scroll-push.directive";
+import { CloseButtonDirective } from "./shared/directives/close-button.directive";
+import { OpenButtonDirective } from "./shared/directives/open-button.directive";
 
-import { ProductService } from "./shared/footer/user.service";
+
 import { ChatComponent } from "./shared/chat/chat.component";
+import { LoginPageModule } from "./login-page/login-page.module";
+import { SharedModule } from "./shared/shared.module";
+import { AddPostModule } from "./add-post/add-post.module";
+import { RandomPhotoService } from "./shared/services/random-photo.service";
+
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -78,15 +87,17 @@ type StoreType = {
     Header,
     ProductItemComponent,
     ProductListComponent,
-    LoginPageComponent,
     SinglePageComponent,
     BtnScrollTopComponent,
     SliderComponent,
-    SignInComponent,
-    SignUpComponent,
+    ProfileComponent,
+    //SignInComponent,
+    //SignUpComponent,
     ChatComponent,
     ScrollTopDirective,
-    ScrollPushItemsDirective
+    ScrollPushItemsDirective,
+    CloseButtonDirective,
+    OpenButtonDirective
   ],
   /**
    * Import Angular's modules.
@@ -95,6 +106,9 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    LoginPageModule,
+    AddPostModule,
+    SharedModule,
     RouterModule.forRoot(appRoutes, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   /**
@@ -103,7 +117,8 @@ type StoreType = {
   providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    ProductService
+    ProductService,
+    RandomPhotoService
   ]
 })
 export class AppModule {

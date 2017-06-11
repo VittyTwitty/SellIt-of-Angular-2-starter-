@@ -18,14 +18,14 @@ export class ScrollTopDirective {
 
     public html: any = $('body');
     onClick() {
-        console.log(this.html);      
+        //console.log(this.html);      
         this.html.animate({
             scrollTop: 0
         }, 300);
     }
 
     onScrollHide() {
-        console.log(this.html.scrollTop()); 
+       // console.log(this.html.scrollTop()); 
         if (this.html.scrollTop() > 115 && this.html.scrollTop() < 149) {
 
             this.el.nativeElement.style.display = 'flex';

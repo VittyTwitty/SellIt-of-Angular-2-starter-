@@ -11,7 +11,7 @@
             <input class="search-form__input" placeholder="Try find something">
         </form>
 
-        <button class="user-button" routerLink="/sellit-login-page">
+        <button class="user-button" >
             <div class="user-button__img">
                 <img src="../../../assets/img/user-img.jpg" alt="Аватарка">
             </div>
@@ -23,15 +23,16 @@
             <div class="user-button__in">
                 <i class="fa fa-sign-out fa"></i>
             </div>
-            <div class="user-button__sub">
-                <div class="user-button__new-post">
+            <div class="user-button__sub" >
+                <div class="user-button__new-post" routerLink="/sellit-add-post">
                     <span>Add new post</span>
                 </div>
-                <div routerLink="/sellit-login-page" class="user-button__profile">
+                <div openButton class="user-button__profile">
                     <span>Profile</span>
                 </div>
             </div>
 
         </button>
     </div>
+<sellit-profile></sellit-profile>
 </div>

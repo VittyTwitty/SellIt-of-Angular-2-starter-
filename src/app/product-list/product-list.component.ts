@@ -4,9 +4,11 @@ import { products } from "../shared/main.service";
 
 import $ from 'jquery';
 
-import { ProductService } from "../shared/footer/user.service";
+
 import { Products } from "../shared/footer/products";
 import { Router } from "@angular/router";
+import { ProductService } from "../shared/services/sellit-product.service";
+import { RandomPhotoService } from "../shared/services/random-photo.service";
 
 @Component({
     selector: 'product-list',
@@ -16,38 +18,63 @@ import { Router } from "@angular/router";
 })
 
 export class ProductListComponent implements OnInit {
+    photosRandom: any[];
 
-    private productsIn: Products[];
+    offsetStep: number = 0;
+    respFlag: boolean = true;
+
+    // private productsIn: Products[];
     private products: Products[];
 
-    private arrFrom: number = 0;
-    private arrTo: number = 16;
-    id: number;
+   
 
     constructor(private productService: ProductService, private router: Router) { }
 
     public ngOnInit() {
         this.productService.getUsersList().subscribe((data) => {
-            this.productsIn = data;
-            this.products = this.productsIn.slice(this.arrFrom, this.arrTo);
-            console.log(this.products)
+            this.products = data;
+           
+            // this.products = this.productsIn.slice(this.arrFrom, this.arrTo);
+
         });
+
+        
     }
+
+
 
     public pushProducts() {
-        this.arrFrom = this.arrTo;
-        this.arrTo = this.arrTo + 16;
-
-        for (var i = 0; i < 16; i++) {
-
-            if (this.products.length < this.productsIn.length) {
-                this.products.push(this.productsIn.slice(this.arrFrom, this.arrTo)[i]);
-            }
-
+        if (this.respFlag) {
+            let lengthItems: number = this.products.length;
+            this.offsetStep += 16;
+            
+            this.productService.getUsersList(this.offsetStep).subscribe(res => {
+                res.forEach(prod => {
+                    this.products.push(prod);
+                    if (this.products.length === lengthItems) {
+                        this.respFlag = false;
+                    };
+                })
+            })
         }
 
-        return this.products;
     }
+
+    /*  public pushProducts() {
+          this.arrFrom = this.arrTo;
+          this.arrTo = this.arrTo + 16;
+  
+          for (var i = 0; i < 16; i++) {
+  
+              if (this.products.length < this.productsIn.length) {
+                  this.products.push(this.productsIn.slice(this.arrFrom, this.arrTo)[i]);
+              }
+  
+          }
+         
+          return this.products;
+      }
+      */
 
     handleSelect(event) {
         this.router.navigate(['/profile', event.name]);

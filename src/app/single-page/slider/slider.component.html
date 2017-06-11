@@ -1,17 +1,10 @@
 <div class="slide_viewer">
     <div class="slide_group">
-        <div class="slide">
-            <img src="{{this.photo}}" alt="">
+
+        <div class="slide" *ngFor='let photo of photos'>
+            <img src="{{ photo?.photo }}" alt="">
         </div>
-        <div class="slide">
-            <img src="{{this.photo}}" alt="">
-        </div>
-        <div class="slide">
-            <img src="{{this.photo}}" alt="">
-        </div>
-        <div class="slide">
-            <img src="{{this.photo}}" alt="">
-        </div>
+        
     </div>
 </div>
 <div class="previous_btn" title="Previous">

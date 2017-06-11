@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SinglePageComponent } from "../single-page.component";
 
 @Component({
@@ -7,6 +7,10 @@ import { SinglePageComponent } from "../single-page.component";
     styleUrls: ['slider.component.scss']
 })
 
-export class SliderComponent extends SinglePageComponent{
-
+export class SliderComponent // extends SinglePageComponent
+ {
+    @Input() public photos;
+    constructor () {
+        console.log("FOTO " + this.photos)
+    }
 }
