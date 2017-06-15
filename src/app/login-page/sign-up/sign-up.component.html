@@ -1,11 +1,16 @@
-<form class="s-login_form">
-    <input type="text" placeholder="Email">
-    <input type="text" placeholder="Name">
-    <input type="text" placeholder="Password">
-    <input type="text" placeholder="Next one password"><br />
-    <input type="phone" placeholder="Phone number">
-    <input type="text" placeholder="Country">
-    <input type="text" placeholder="City">
+<form [formGroup]="signUpForm" (submit)="signUp($event)" class="s-login_form">
 
-    <button type="submit" (click)="myNameIs()">Registration</button>
+    <input type="text" name="email" [formControl]="signUpForm.get('email')" placeholder="Email">
+    <input type="text" name="name" [formControl]="signUpForm.get('name')" placeholder="Name">
+    <input type="text" name="password" [formControl]="signUpForm.get('password')" placeholder="Password">
+    <input type="text" name="passwordRepeat" [formControl]="signUpForm.get('passwordRepeat')" placeholder="Next one password"><br
+    />
+    <input type="phone" name="phone" [formControl]="signUpForm.get('phone')" placeholder="Phone number">
+    <div class="s-login_form-address-group" formGroupName="address">
+        <input type="text" name="country" [formControl]="signUpForm.get('address').get('country')" placeholder="Country">
+        <input type="text" name="city" [formControl]="signUpForm.get('address').get('city')" placeholder="City">
+    </div>
+
+
+    <button type="submit">Registration</button>
 </form>

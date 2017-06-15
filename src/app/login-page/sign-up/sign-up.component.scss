@@ -36,4 +36,10 @@
         background-color: #91d763;
       }
     }
+    &-address-group {
+      width: 100%;
+      input{
+        width: calc( 100% - 14px);
+      }
+    }
   }

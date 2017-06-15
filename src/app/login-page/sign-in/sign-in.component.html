@@ -1,6 +1,6 @@
-<form class="s-login_form">
-    <input type="text" placeholder="Email">
-    <input type="text" placeholder="Password">
+<form [formGroup]="signInForm" (submit)="signIn($event)" class="s-login_form">
+    <input type="text" name="email" formControlName="email" placeholder="Email">
+    <input type="text" name="password" formControlName="password" placeholder="Password">
 
-    <button type="submit" (click)="myNameIs()">Login</button>
+    <button type="submit">Login</button>
 </form>
