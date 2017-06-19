@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http, RequestOptions, XHRBackend } from '@angular/http';
 import {
   NgModule,
   ApplicationRef
@@ -61,6 +61,8 @@ import { AuthService } from "./core/auth.service";
 
 import {CookieService} from 'angular2-cookie/core';
 import { UserLoginService } from "./shared/services/user-auth.service";
+import { StipHttp } from "./core/stip-http";
+import { Session } from "./core/session";
 
 
 
@@ -125,6 +127,12 @@ type StoreType = {
     ProductService,
     AuthService,
     CookieService,
+    Session,
+    { 
+      provide: Http, 
+      useClass: StipHttp, 
+      deps: [XHRBackend, RequestOptions, Session]
+    },
     UserLoginService,
     RandomPhotoService
   ]

@@ -1,9 +1,10 @@
 import { Injectable, OnInit } from "@angular/core";
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
-import { CookieService } from "angular2-cookie/core";
 import { Observable } from "rxjs/Observable";
 import { User } from "../shared/models/user.model";
 import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { CookieService } from "angular2-cookie/core";
+import { Session } from "./session";
 
 @Injectable()
 export class AuthService {
@@ -11,8 +12,8 @@ export class AuthService {
     private subject = new BehaviorSubject(this.loggedIn());
     private API_PATH = '';
 
-    constructor(private http: Http, private cookieService: CookieService) {
-        this.API_PATH = 'http://fe-kurs.light-it.net:38000/api';
+    constructor(private http: Http, private session: Session) {
+        this.API_PATH = 'http://fe-kurs.light-it.loc:38000/api';
         // this.loggedIn = !!localStorage.getItem('auth_token');
     }
 
@@ -25,8 +26,9 @@ export class AuthService {
                 let token = userPerson.token;
                 if (userPerson && token) {
                     let currentUser = new User(userPerson);
-                    this.cookieService.put('userId', (currentUser.id).toString());
-                    this.cookieService.put('userToken', token);
+                    //this.cookieService.put('userId', (currentUser.id).toString());
+                   // this.cookieService.put('userToken', token);
+                    this.session.sessionToken = token;
                     localStorage.setItem('auth_token', JSON.stringify(currentUser.getUser()));
                     this.signInListener()
                     // console.log(userPerson);
@@ -41,8 +43,9 @@ export class AuthService {
     public logout() {
         return this.http.post(`${this.API_PATH}/logout/`, '')
             .map((response: Response) => {
-                this.cookieService.remove('userId');
-                this.cookieService.remove('userToken');
+                // this.cookieService.remove('userId');
+                // this.cookieService.remove('userToken');
+                this.session.sessionToken = ''
                 localStorage.removeItem('auth_token');
                 // console.log(response.json());
                 return response.json();
@@ -58,11 +61,12 @@ export class AuthService {
     }
 
     public loggedIn() {
-        if (this.cookieService.get('userToken')) {
-            return true;
-        } else {
-            return false;
-        }
+        // if (this.session.sessionToken) {
+        //     return true;
+        // } else {
+        //     return false;
+        // }
+        return !!this.session.sessionToken
     }
 
     public authListener(): Observable<any> {
@@ -72,7 +76,7 @@ export class AuthService {
 
     public signInListener() {
         let subNext = this.subject;
-        if (this.cookieService.get('userToken')) {
+        if (this.session.sessionToken) {
             return subNext.next(true);
         }
         else {
@@ -82,7 +86,7 @@ export class AuthService {
     }
 
     public userTokenDate() {
-        if (this.cookieService.get('userToken')) {
+        if (this.session.sessionToken) {
             return new User(JSON.parse(localStorage.getItem('auth_token')));
         } else {
             return null;

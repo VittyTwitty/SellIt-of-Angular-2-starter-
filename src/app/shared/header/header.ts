@@ -4,7 +4,6 @@ import { User } from "../models/user.model";
 import { AuthService } from "../../core/auth.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
-import { CookieService } from "angular2-cookie/core";
 
 @Component({
     selector: 'sellit-header',
@@ -17,11 +16,13 @@ export class Header implements OnInit, OnDestroy {
     sub: Subscription;
     public loggedInUser: boolean;
 
-    constructor(private authService: AuthService, private router: Router, private cookieService: CookieService) {
+    constructor(private authService: AuthService, private router: Router) {
         this.sub = this.authService.authListener()
             .subscribe(
             data => {
                 this.loggedInUser = data;
+                console.log(this.loggedInUser);
+                
             });
 
     }

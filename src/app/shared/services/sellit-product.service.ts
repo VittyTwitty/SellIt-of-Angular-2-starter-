@@ -29,7 +29,7 @@ export class ProductService {
     public getUsersList(offsetOfQuery: number | string = 0): Observable<Products[]> {
         this.offsetOfQuery = offsetOfQuery;
 
-        return this.http.get(this.productsHomeURL, { search: this.getParams() })
+        return this.http.get(this.productsLabsURL, { search: this.getParams() })
             .map((response: Response) => {
 
                 let data = response.json().results;
@@ -46,7 +46,7 @@ export class ProductService {
     getProduct(id: number) {
         this.id = id;
 
-        return this.http.get(this.productsHomeURL + this.id).map((response: Response) => {
+        return this.http.get(this.productsLabsURL + this.id).map((response: Response) => {
             let responseProduct = response.json();
           
             return new Products(responseProduct)

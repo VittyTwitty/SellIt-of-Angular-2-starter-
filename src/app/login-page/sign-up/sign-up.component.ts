@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
 import { AuthService } from "../../core/auth.service";
-import { CookieService } from "angular2-cookie/core";
 import { Router } from "@angular/router";
 
 @Component({
@@ -30,7 +29,6 @@ export class SignUpComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
-        private cookieService: CookieService,
         private router: Router
     ) { }
 
