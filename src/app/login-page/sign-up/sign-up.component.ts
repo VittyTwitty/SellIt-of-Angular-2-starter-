@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
+import { AuthService } from "../../core/auth.service";
+import { CookieService } from "angular2-cookie/core";
+import { Router } from "@angular/router";
 
 @Component({
     selector: 'sellit-sign-up',
@@ -7,15 +10,16 @@ import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
     styleUrls: ['sign-up.component.scss']
 })
 
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
+    signup: Response;
 
 
     public signUpForm: FormGroup = new FormGroup({
 
         email: new FormControl(''),
-        name: new FormControl(''),
+        username: new FormControl(''),
         password: new FormControl(''),
-        passwordRepeat: new FormControl(''),
+        password_confirm: new FormControl(''),
         phone: new FormControl(''),
         address: new FormGroup({
             country: new FormControl(''),
@@ -24,14 +28,32 @@ export class SignUpComponent {
 
     })
 
-    constructor() {
+    constructor(
+        private authService: AuthService,
+        private cookieService: CookieService,
+        private router: Router
+    ) { }
 
-    }
+    ngOnInit() { }
 
-    signUp($event) {
+    signUp($event, form) {
         $event.preventDefault();
-        console.log(this.signUpForm.value)
+        this.authService.signup(form.value)
+            .subscribe(
+            data => {
+                this.router.navigate(
+                    ['/sellit-login-page',
+                        {
+                            outlets: { 'sellit-login-registr': ['sellit-sign-in'] }
+                        }
+                    ]
+                )
+                console.log(data);
 
+            },
+            err => {
+                console.error(err);
+            })
     }
 
 }

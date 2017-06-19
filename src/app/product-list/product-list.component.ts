@@ -19,30 +19,17 @@ import { RandomPhotoService } from "../shared/services/random-photo.service";
 
 export class ProductListComponent implements OnInit {
     photosRandom: any[];
-
     offsetStep: number = 0;
     respFlag: boolean = true;
-
-    // private productsIn: Products[];
-    private products: Products[];
-
-   
+    private products: Products[];   
 
     constructor(private productService: ProductService, private router: Router) { }
 
     public ngOnInit() {
         this.productService.getUsersList().subscribe((data) => {
             this.products = data;
-           
-            // this.products = this.productsIn.slice(this.arrFrom, this.arrTo);
-
-        });
-
-        
+        });        
     }
-
-
-
     public pushProducts() {
         if (this.respFlag) {
             let lengthItems: number = this.products.length;
@@ -57,29 +44,9 @@ export class ProductListComponent implements OnInit {
                 })
             })
         }
-
     }
-
-    /*  public pushProducts() {
-          this.arrFrom = this.arrTo;
-          this.arrTo = this.arrTo + 16;
-  
-          for (var i = 0; i < 16; i++) {
-  
-              if (this.products.length < this.productsIn.length) {
-                  this.products.push(this.productsIn.slice(this.arrFrom, this.arrTo)[i]);
-              }
-  
-          }
-         
-          return this.products;
-      }
-      */
-
     handleSelect(event) {
         this.router.navigate(['/profile', event.name]);
     }
-
-
 }
 

@@ -17,10 +17,6 @@ export class ProductService {
     private limitOfQuery: number = 16;
     private offsetOfQuery: number | string = 0;
 
-    // private results: Products[] = [];
-
-    //  private results2: Products[] = [];
-
     constructor(private http: Http) { }
 
     public getParams() {

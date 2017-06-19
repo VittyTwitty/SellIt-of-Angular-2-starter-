@@ -57,6 +57,10 @@ import { LoginPageModule } from "./login-page/login-page.module";
 import { SharedModule } from "./shared/shared.module";
 import { AddPostModule } from "./add-post/add-post.module";
 import { RandomPhotoService } from "./shared/services/random-photo.service";
+import { AuthService } from "./core/auth.service";
+
+import {CookieService} from 'angular2-cookie/core';
+import { UserLoginService } from "./shared/services/user-auth.service";
 
 
 
@@ -119,6 +123,9 @@ type StoreType = {
     ENV_PROVIDERS,
     APP_PROVIDERS,
     ProductService,
+    AuthService,
+    CookieService,
+    UserLoginService,
     RandomPhotoService
   ]
 })

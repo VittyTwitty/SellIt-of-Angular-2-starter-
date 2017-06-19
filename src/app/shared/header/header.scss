@@ -84,6 +84,17 @@
     font-size: 1.125em;
     font-weight: bold;
     width: 245px;
+    margin-left: 10px;
+  }
+  &_inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &_outer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   &__in {
     float: right;

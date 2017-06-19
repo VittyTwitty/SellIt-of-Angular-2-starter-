@@ -1,4 +1,4 @@
-<form [formGroup]="signInForm" (submit)="signIn($event)" class="s-login_form">
+<form [formGroup]="signInForm" (submit)="loginUser($event, myForm)" #myForm='ngForm' class="s-login_form">
     <input type="text" name="email" formControlName="email" placeholder="Email">
     <input type="text" name="password" formControlName="password" placeholder="Password">
 

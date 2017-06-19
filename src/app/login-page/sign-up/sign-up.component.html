@@ -1,9 +1,9 @@
-<form [formGroup]="signUpForm" (submit)="signUp($event)" class="s-login_form">
+<form [formGroup]="signUpForm" (submit)="signUp($event, signUpForm)" class="s-login_form">
 
     <input type="text" name="email" [formControl]="signUpForm.get('email')" placeholder="Email">
-    <input type="text" name="name" [formControl]="signUpForm.get('name')" placeholder="Name">
+    <input type="text" name="name" [formControl]="signUpForm.get('username')" placeholder="Name">
     <input type="text" name="password" [formControl]="signUpForm.get('password')" placeholder="Password">
-    <input type="text" name="passwordRepeat" [formControl]="signUpForm.get('passwordRepeat')" placeholder="Next one password"><br
+    <input type="text" name="password_confirm" [formControl]="signUpForm.get('password_confirm')" placeholder="Next one password"><br
     />
     <input type="phone" name="phone" [formControl]="signUpForm.get('phone')" placeholder="Phone number">
     <div class="s-login_form-address-group" formGroupName="address">

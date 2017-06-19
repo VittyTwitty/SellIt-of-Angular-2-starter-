@@ -1,4 +1,4 @@
-<div class="header"> <button routerLink="sellit-login-page"> dfsdsd</button>
+<div class="header">
     <div class="header-container">
 
         <div class="logo">
@@ -10,19 +10,38 @@
             </button>
             <input class="search-form__input" placeholder="Try find something">
         </form>
+        <button (click)="logout()">delete</button>
+        <button (click)="clickUser()">proverka</button>
+        <button class="user-button">
 
-        <button class="user-button" >
-            <div class="user-button__img">
-                <img src="../../../assets/img/user-img.jpg" alt="Аватарка">
+            <div class="user-button_inner" routerLink="sellit-login-page" *ngIf="loggedInUser">
+                <div class="user-button__img">
+                    <img src="../../../assets/img/user-img.jpg" alt="Аватарка">
+                </div>
+
+                <div (click)="logout()" class="user-button__name" >
+                    {{currentUser.email}}
+                </div>
+                <div class="user-button__in">
+                    <i class="fa fa-sign-out fa"></i>
+                </div>
+            </div>
+            
+            <div routerLink="sellit-login-page" class="user-button_outer" *ngIf="!loggedInUser">
+               
+                <div  class="user-button__name" >
+                    Get profit here
+                </div>
+                <div class="user-button__in">
+                <i class="fa fa-sign-in fa"></i>
+            </div>
             </div>
 
-            <div class="user-button__name">
-                Kim Evans
-            </div>
+            <!--<div  class="user-button__name" >
+                Войти
+            </div>-->
 
-            <div class="user-button__in">
-                <i class="fa fa-sign-out fa"></i>
-            </div>
+            
             <div class="user-button__sub" >
                 <div class="user-button__new-post" routerLink="/sellit-add-post">
                     <span>Add new post</span>
@@ -34,5 +53,5 @@
 
         </button>
     </div>
-<sellit-profile></sellit-profile>
+    <sellit-profile></sellit-profile>
 </div>
