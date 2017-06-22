@@ -2,16 +2,15 @@
     <div class="s-login_bg"></div>
     <div class="s-login_inner">
         <div class="s-login_logo">
-            <img src="../../assets/img/login-page/login-logo.png" alt="">
+            <a routerLink='/'>
+                <img src="../../assets/img/login-page/login-logo.png" alt="">
+            </a>
+
         </div>
-        <div class="s-login_buttons" >
-            <button [routerLink]="[{ outlets: { 'sellit-login-registr':['sellit-sign-in'] }}]" 
-                    routerLinkActive="active-login" 
-                    class="sign-in">Sign In
+        <div class="s-login_buttons">
+            <button [routerLink]="[{ outlets: { 'sellit-login-registr':['sellit-sign-in'] }}]" routerLinkActive="active-login" class="sign-in">Sign In
             </button>
-            <button [routerLink]="[{ outlets: { 'sellit-login-registr':['sellit-sign-up'] }}]" 
-                    routerLinkActive="active-login" 
-                    class="sign-up">Sign Up
+            <button [routerLink]="[{ outlets: { 'sellit-login-registr':['sellit-sign-up'] }}]" routerLinkActive="active-login" class="sign-up">Sign Up
             </button>
         </div>
         <router-outlet name="sellit-login-registr"></router-outlet>

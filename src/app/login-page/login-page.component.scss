@@ -7,7 +7,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
   &_bg{
     flex-grow: 1;
     align-self: stretch;
@@ -31,7 +30,7 @@
     background-color: $main-color;
     display: flex;
     flex-direction: column;
-    z-index: 2;
+   
   }
   &_logo {
     width: 200px;

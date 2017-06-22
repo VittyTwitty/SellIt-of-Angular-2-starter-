@@ -6,12 +6,12 @@
         </div>
         <div class="profile_img">
             <div class="profile_img--wrapper">
-                <img src="../assets/img/user-img.jpg" alt="">
+                <img src="../../../assets/img/userLogin.svg" alt="">
             </div>
 
             <div class="profile_online--status"></div>
         </div>
-        <div class="profile_name">Alis Kim</div>
+        <div class="profile_name">{{currentUser?.username}}</div>
         <ul class="profile_purchases">
             <li class="profile_purchases--title">Продаж за месяц</li>
             <li class="profile_purchases--title">Продаж за всё время</li>
@@ -54,20 +54,20 @@
                         class="a" />
                 </svg>
             </div>
-            <!--<div class="profile_settings-body">
-                <div class="profile_settings-avatar">
-                     <div class="profile_settings-avatar-choose" *ngFor="let pht of photoRandom">
-                         <img src="{{pht.picture.medium}}" alt="">
-                         
-                     </div>
-                </div>
-                <div class="profile_settings-password">
-                   
-                </div>
 
-            </div>-->
         </div>
-       
+         <form [formGroup]="addAvatarForm" (submit)="addAvatar($event, formAdd)" class="add-post" #formAdd='ngForm'>
+
+            <label>
+                <span>Change avatar</span>
+                <input type="file" name="profile_photo" (change)="changeListenerImg($event)"/>
+            </label>
+
+            <button type="submit">Add item</button>
+
+        </form>
+
+
 
 
     </div>

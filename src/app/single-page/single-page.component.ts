@@ -41,6 +41,7 @@ export class SinglePageComponent implements OnInit {
             console.log(this.products);
         })
 
+
         
 
         // this.sub2 = this.route.queryParams.subscribe(info => {

@@ -13,7 +13,7 @@ export class AuthService {
     private API_PATH = '';
 
     constructor(private http: Http, private session: Session) {
-        this.API_PATH = 'http://fe-kurs.light-it.loc:38000/api';
+        this.API_PATH = 'http://fe-kurs.light-it.net:38000/api';
         // this.loggedIn = !!localStorage.getItem('auth_token');
     }
 
@@ -27,10 +27,10 @@ export class AuthService {
                 if (userPerson && token) {
                     let currentUser = new User(userPerson);
                     //this.cookieService.put('userId', (currentUser.id).toString());
-                   // this.cookieService.put('userToken', token);
+                    // this.cookieService.put('userToken', token);
                     this.session.sessionToken = token;
                     localStorage.setItem('auth_token', JSON.stringify(currentUser.getUser()));
-                    this.signInListener()
+                    this.signInListener();
                     // console.log(userPerson);
                     // console.log(token);
                     // console.log(currentUser);
@@ -40,12 +40,41 @@ export class AuthService {
             })
     }
 
+    public photos(data) {
+        return this.http.post(`${this.API_PATH}/photo/`, data)
+            .map((response: Response) => {
+                let photo = response.json();
+                let arrPhotos = [];
+                for (let i = 0; i < photo.length; i++) {
+                    arrPhotos.push(photo[i].id);
+                };
+                return arrPhotos;
+            })
+    }
+
+    public profilePhoto(data) {
+        return this.http.post(`${this.API_PATH}/profile_photo/`, data)
+            .map((response: Response) => {
+                let profilePhoto = response.json();      
+                console.log(profilePhoto)          
+                return profilePhoto;
+            })
+    }
+
+    public addPost(data) {
+        return this.http.post(`${this.API_PATH}/poster/`, data)
+            .map((response: Response) => {
+               return response.json();
+            })
+    }
+
+
     public logout() {
         return this.http.post(`${this.API_PATH}/logout/`, '')
             .map((response: Response) => {
                 // this.cookieService.remove('userId');
                 // this.cookieService.remove('userToken');
-                this.session.sessionToken = ''
+                this.session.sessionToken = null;
                 localStorage.removeItem('auth_token');
                 // console.log(response.json());
                 return response.json();
@@ -69,29 +98,27 @@ export class AuthService {
         return !!this.session.sessionToken
     }
 
+    redirectUrl: string;
+
     public authListener(): Observable<any> {
         let subAsObservable = this.subject.asObservable();
         return subAsObservable;
     }
 
     public signInListener() {
-        let subNext = this.subject;
         if (this.session.sessionToken) {
-            return subNext.next(true);
+            return this.subject.next(true);
         }
         else {
             localStorage.removeItem('auth_token');
-            return subNext.next(false);
+            return this.subject.next(false);
         }
     }
 
     public userTokenDate() {
-        if (this.session.sessionToken) {
-            return new User(JSON.parse(localStorage.getItem('auth_token')));
-        } else {
-            return null;
-            // return false;
-        }
+        return (this.session.sessionToken) ? new User(JSON.parse(localStorage.getItem('auth_token'))) : null;
     }
+
+
 
 }

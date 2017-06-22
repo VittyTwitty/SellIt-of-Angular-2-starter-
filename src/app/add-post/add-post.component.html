@@ -1,59 +1,77 @@
-<form [formGroup]="addProductForm" (submit)="addProduct($event)" class="add-post" #formAdd="ngForm">
+<sellit-header></sellit-header>
+<div class="add-post_wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508 508">
+        <style>
+            .a {
+                fill: #FFF;
+            }
+        </style>
+        <path d="M501.7 289.8l-233-233c-4.1-4.1-9.6-6.3-15.3-6.3h-144.1c-5.7 0-11.2 2.3-15.3 6.3l-36.2 36.2c-4.1 4.1-6.3 9.6-6.3 15.3v144.1c0 5.7 2.3 11.2 6.3 15.3l233 233c8.4 8.4 22.1 8.4 30.6 0l180.3-180.3C510.1 312 510.1 298.3 501.7 289.8zM161.5 160.5c-13.9 13.9-36.4 13.9-50.3 0s-13.9-36.4 0-50.3 36.4-13.9 50.3 0S175.4 146.6 161.5 160.5z"
+            fill="#00B4C0" />
+        <path d="M102.1 139.5c-15.9-1.7-32.4-8.5-47-19.3 -0.9-0.6-1.8-1.4-2.6-2.1 0 7.3 0 14.3 0 21l0 0c17.6 11.2 37.1 17.5 55.8 17.9 0.4 0 0.8 0 1.2 0C105.3 151.9 102.9 145.7 102.1 139.5z"
+            class="a" />
+        <path d="M161.8 110.4c-2.3-2.3-4.7-4.2-7.5-5.7 -0.9 1.1-1.6 2.5-1.8 4 -1 5.8-3.2 11.1-6.6 15.6 -7.9 10.6-21.4 16.3-38.1 16 -2.1 0-4.3-0.2-6.4-0.4 -15.9-1.7-32.4-8.5-47-19.3 -0.9-0.6-1.8-1.4-2.6-2.1 -31.6-24.8-44-62.3-27.5-84.5 16.9-22.8 58-21.2 91.6 3.7 5.3 3.9 10.1 8.3 14.5 12.9 6.9 0 13.4 0 19.8 0 0.1-1.9-0.6-3.9-1.9-5.5 -6.4-7.9-13.8-15-22.3-21.2 -41.1-30.5-92.9-30.6-115.5-0.1 -19.8 26.7-10.6 68.2 19.8 98.6 4.2 4.2 8.9 8.2 13.9 12 2.5 1.8 5 3.5 7.6 5.1l0 0c17.6 11.2 37.1 17.5 55.8 17.9 0.4 0 0.8 0 1.2 0 21.9 0.1 40-8 51-22.9 3.6-4.8 6.3-10.2 8.1-16.1C166.3 115.6 164.2 112.9 161.8 110.4z"
+            fill="#FF7058" />
+        <rect x="198.3" y="222.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 400.8961 635.117)" width="267.3" height="23.5"
+            class="a" />
+        <rect x="150.3" y="268.9" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 286.2599 679.8247)" width="267.3" height="23.5"
+            class="a" />
+        <rect x="102.7" y="318.4" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 170.0296 730.6475)" width="267.3" height="23.5"
+            class="a" />
+    </svg>
+    <form [formGroup]="addProductForm" (submit)="addProduct($event, formAdd)" class="add-post" #formAdd='ngForm'>
 
-    <label class="add-post_descr-product">
-        <span>Title of product <span class="red-color">*</span></span>
-        <input type="text" name="title" formControlName="title" >
-        <div  class="add-post_error-send" [hidden]="addProductForm.get('title').valid || (addProductForm.get('title').pristine && !formAdd.submitted)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
-        </div>
-    </label>
+        <label class="add-post_descr-product">
+            <span>Title of product <span class="red-color">*</span></span>
+            <input type="text" name="title" formControlName="title" >
+            <div  class="add-post_error-send" [hidden]="addProductForm.get('title').valid || (addProductForm.get('title').pristine && !formAdd.submitted)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
+            </div>
+        </label>
 
 
-    <label class="add-post_descr-product">
-        <span>Description</span>
-        <textarea name="description" rows="10" cols="70" maxlength="400" [formControl]="addProductForm.get('description')"></textarea>
-        <div  class="add-post_error-send" [hidden]="addProductForm.get('description').valid || (addProductForm.get('description').pristine && !formAdd.submitted)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
-        </div>
-    </label>
-
-
-
-
-    <label class="add-post_descr-product">        
-        <span>Price  <span class="red-color">*</span></span>
-        <input type="text" name="price" [formControl]="addProductForm.get('price')">
-        <div  class="add-post_error-send" [hidden]="addProductForm.get('price').valid || (addProductForm.get('price').pristine && !formAdd.submitted)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
-        </div>
-    </label>
-
-
-
-    <label class="add-post_descr-product">        
-        <span>Author <span class="red-color">*</span></span>
-        <input type="text"name="author" [formControl]="addProductForm.get('author')">    
-        <div  class="add-post_error-send" [hidden]="addProductForm.get('author').valid || (addProductForm.get('author').pristine && !formAdd.submitted)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
-        </div>
-    </label>
-
-    <label class="add-post_descr-product">        
-        <span>Phone </span>
-        <input type="text" name="phone" [formControl]="addProductForm.get('phone')">
-       <div  class="add-post_error-send" [hidden]="addProductForm.get('phone').valid || (addProductForm.get('phone').pristine && !formAdd.submitted)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
-        </div>
-    </label>
+        <label class="add-post_descr-product">
+            <span>Description</span>
+            <textarea name="description" rows="10" cols="70" maxlength="400" [formControl]="addProductForm.get('description')"></textarea>
+            <div  class="add-post_error-send" [hidden]="addProductForm.get('description').valid || (addProductForm.get('description').pristine && !formAdd.submitted)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
+            </div>
+        </label>
 
 
 
-    <label class="add-post_upload">
-        <span class="add-post_upload-button">Добавить</span>
-        <div id="add-post_upload-img-name">Изображение не выбрано</div>
-        <input type="file" name="photo" (change)="changeListenerImg($event)"/>
-    </label>
 
-    <button type="submit" class="add-post_add-button">Add item</button>
+        <label class="add-post_descr-product">        
+            <span>Price  <span class="red-color">*</span></span>
+            <input type="text" name="price" [formControl]="addProductForm.get('price')">
+            <div  class="add-post_error-send" [hidden]="addProductForm.get('price').valid || (addProductForm.get('price').pristine && !formAdd.submitted)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
+            </div>
+        </label>
 
-</form>
+
+
+        <!--<label class="add-post_descr-product">        
+            <span>Author <span class="red-color">*</span></span>
+            <input type="text"name="author" [formControl]="addProductForm.get('author')">    
+            <div  class="add-post_error-send" [hidden]="addProductForm.get('author').valid || (addProductForm.get('author').pristine && !formAdd.submitted)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 442.8 442.8"><path d="M237.1 31.6c-113.6 0-205.7 85-205.7 189.8 0 28.5 6.8 55.5 19 79.7L1.7 389.1c-2.7 4.9-2.2 10.9 1.2 15.3 2.7 3.4 6.7 5.3 10.9 5.3 1.2 0 2.5-0.2 3.7-0.5l106.5-29.2c32.4 19.7 71.3 31.2 113 31.2 113.6 0 205.7-85 205.7-189.8C442.8 116.6 350.7 31.6 237.1 31.6zM217.9 145.3c0-10.2 8.3-18.5 18.5-18.5s18.5 8.3 18.5 18.5v101c0 10.2-8.3 18.5-18.5 18.5s-18.5-8.3-18.5-18.5V145.3zM236.4 316c-11.2 0-20.4-9.1-20.4-20.4 0-11.2 9.1-20.4 20.4-20.4 11.2 0 20.4 9.1 20.4 20.4C256.7 306.8 247.6 316 236.4 316z" /></svg>
+            </div>
+        </label>-->
+
+      
+
+
+
+        <label class="add-post_upload">
+            <span class="add-post_upload-button">Добавить</span>
+            <div id="add-post_upload-img-name">Изображение не выбрано</div>
+            <input type="file" name="photos" (change)="changeListenerImg($event)" multiple/>
+        </label>
+
+        <button type="submit" class="add-post_add-button">Add item</button>
+
+    </form>
+</div>
+
+<sellit-footer></sellit-footer>

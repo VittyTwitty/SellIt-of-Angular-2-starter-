@@ -9,7 +9,6 @@
 
 .logo {
   position: relative;
-  z-index: 2;
   width: 120px;
   height: 50px;
   float: left;
@@ -23,7 +22,6 @@
 
 .search-form {
   position: relative;
-  z-index: 2;
   width: 450px;
   float: left;
   height: 30px;
@@ -77,6 +75,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    background-color: #fff;
     overflow: hidden;
   }
   &__name {
@@ -137,4 +136,37 @@
     }
   }
 }
+
+
+.logo { 
+  .path-1 {
+    fill:#a9e4e8;
+  }
+  .path-2-main {
+    fill: $main_color;
+    transition: all $main_time;
+  }  
+      
+  &:hover { 
+    .path-2-main {
+      stroke: $dark-color;
+      stroke-width: 1px;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: dash 4s linear forwards;
+      fill: #fff;
+    }
+    .path-1 {
+      fill:#fff;
+    }
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+}
+
 

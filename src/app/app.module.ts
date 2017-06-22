@@ -29,8 +29,7 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
-import { Header } from './shared/header/header';
-import { Footer } from './shared/footer/footer';
+
 
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductListComponent } from './product-list/product-list.component';
@@ -38,7 +37,6 @@ import { SinglePageComponent } from './single-page/single-page.component';
 import { SliderComponent } from "./single-page/slider/slider.component";
 import { SignUpComponent } from "./login-page/sign-up/sign-up.component";
 import { SignInComponent } from "./login-page/sign-in/sign-in.component";
-import { ProfileComponent } from "./shared/profile-page/profile-page.component";
 
 
 import { ProductService } from "./shared/services/sellit-product.service";
@@ -48,8 +46,6 @@ import '../styles/headings.css';
 import { BtnScrollTopComponent } from "./shared/button-scrolltop/button-scrolltop.component";
 import { ScrollTopDirective } from "./shared/directives/scroll-top.directive";
 import { ScrollPushItemsDirective } from "./shared/directives/scroll-push.directive";
-import { CloseButtonDirective } from "./shared/directives/close-button.directive";
-import { OpenButtonDirective } from "./shared/directives/open-button.directive";
 
 
 import { ChatComponent } from "./shared/chat/chat.component";
@@ -59,10 +55,12 @@ import { AddPostModule } from "./add-post/add-post.module";
 import { RandomPhotoService } from "./shared/services/random-photo.service";
 import { AuthService } from "./core/auth.service";
 
-import {CookieService} from 'angular2-cookie/core';
+import { CookieService } from 'angular2-cookie/core';
 import { UserLoginService } from "./shared/services/user-auth.service";
 import { StipHttp } from "./core/stip-http";
 import { Session } from "./core/session";
+import { CommonModule } from "@angular/common";
+import { AuthGuard } from "./shared/guards/auth-guard.service";
 
 
 
@@ -82,33 +80,29 @@ type StoreType = {
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     //AboutComponent,
-   // HomeComponent,
+    // HomeComponent,
     //NoContentComponent,
     //XLargeDirective,
-    Footer,
-    Header,
     ProductItemComponent,
     ProductListComponent,
     SinglePageComponent,
     BtnScrollTopComponent,
     SliderComponent,
-    ProfileComponent,
     //SignInComponent,
     //SignUpComponent,
     ChatComponent,
     ScrollTopDirective,
-    ScrollPushItemsDirective,
-    CloseButtonDirective,
-    OpenButtonDirective
+    ScrollPushItemsDirective
   ],
   /**
    * Import Angular's modules.
    */
   imports: [
+    CommonModule, 
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -126,11 +120,12 @@ type StoreType = {
     APP_PROVIDERS,
     ProductService,
     AuthService,
+    AuthGuard,
     CookieService,
     Session,
-    { 
-      provide: Http, 
-      useClass: StipHttp, 
+    {
+      provide: Http,
+      useClass: StipHttp,
       deps: [XHRBackend, RequestOptions, Session]
     },
     UserLoginService,
@@ -142,7 +137,7 @@ export class AppModule {
   constructor(
     public appRef: ApplicationRef,
     public appState: AppState
-  ) {}
+  ) { }
 
   public hmrOnInit(store: StoreType) {
     if (!store || !store.state) {
@@ -180,7 +175,7 @@ export class AppModule {
     /**
      * Save input values
      */
-    store.restoreInputValues  = createInputTransfer();
+    store.restoreInputValues = createInputTransfer();
     /**
      * Remove styles
      */

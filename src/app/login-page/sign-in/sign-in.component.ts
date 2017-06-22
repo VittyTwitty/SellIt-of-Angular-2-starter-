@@ -36,7 +36,7 @@ export class SignInComponent implements OnInit {
             .subscribe(
             data => {
                 this.router.navigate(['/']);
-                console.log(data);
+               // console.log(data);
             },
             err => {
                 console.error(err);

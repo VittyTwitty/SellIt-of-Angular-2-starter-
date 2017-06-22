@@ -9,20 +9,28 @@ import { SignUpComponent } from "./login-page/sign-up/sign-up.component";
 import { SignInComponent } from "./login-page/sign-in/sign-in.component";
 import { ProfileComponent } from "./shared/profile-page/profile-page.component";
 import { AddPostComponent } from "./add-post/add-post.component";
-import { AuthGuard } from "./core/auth-guard";
+import { AuthGuard } from "./shared/guards/auth-guard.service";
+
 
 export const appRoutes: Routes = [
     {
-        path: '', component: ProductListComponent
+        path: '', 
+        component: ProductListComponent
+    },
+    {
+        path: 'home', 
+        component: ProductListComponent
     },
     {
         path: 'single-item/:id', component: SinglePageComponent
     },
     {
-        path: 'sellit-profile', component: ProfileComponent
+        path: 'sellit-profile', component: ProfileComponent,
+        canActivate: [AuthGuard]
     },
     {
-        path: 'sellit-add-post', loadChildren: 'app/add-post/add-post.module#AddPostModule'
+        path: 'sellit-add-post', loadChildren: 'app/add-post/add-post.module#AddPostModule',
+        canActivateChild: [AuthGuard],
     },
     /*{ path: 'sellit-login-page', component: LoginPageComponent,
         children: [{

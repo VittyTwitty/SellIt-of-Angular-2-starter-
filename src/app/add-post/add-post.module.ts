@@ -5,13 +5,14 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { EmailValidationDirective } from "../shared/directives/validator-name.directive";
 import { SharedModule } from "../shared/shared.module";
+import { AuthGuard } from "../shared/guards/auth-guard.service";
 
 @NgModule({
     imports:
     [   
         ReactiveFormsModule,        
         SharedModule,
-        routAddPost
+        routAddPost,
     ],
     declarations: [AddPostComponent],
     exports: [AddPostComponent]
