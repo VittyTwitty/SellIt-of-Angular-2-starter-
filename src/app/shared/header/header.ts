@@ -4,6 +4,9 @@ import { User } from "../models/user.model";
 import { AuthService } from "../../core/auth.service";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
+import { UserChangeService } from "../../core/user-change.service";
+import { DataSvgService } from "../services/data-svg.service";
+
 
 @Component({
     selector: 'sellit-header',
@@ -12,34 +15,43 @@ import { Subscription } from "rxjs/Subscription";
 })
 
 export class Header implements OnInit, OnDestroy {
+    mainLogo: string;
+
     currentUser: User;
+    avatar: string;
+    userPortfolio: any[] = [];
+    profileUser: Subscription;
+    user: void;
+    currentOnline: User;
     sub: Subscription;
     public loggedInUser: boolean;
 
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(private dataSvgService: DataSvgService, private userChangeService: UserChangeService, private authService: AuthService, private router: Router) {
 
-
-        //this.clickUser();
-        //this.currentUser = this.authService.userTokenDate();
-        //console.log('this.currentUser  ' + this.currentUser);
 
     }
 
     ngOnInit() {
-        this.currentUser = this.authService.userTokenDate();
-        // console.log('this.currentUser');
-        //  console.log(this.currentUser);
-        // console.log('this.currentUser');
+
+        //this.currentOnline = this.authService.userTokenDate();
+        (this.currentOnline) ? this.loggedInUser = true : this.loggedInUser = false;
+
+        this.mainLogo = this.dataSvgService.svgChooser('mainLogo');
+
+        this.userChangeService.getProfile()
+            .then(data => {
+                this.currentOnline = data;
+                console.log(this.currentOnline)
+            })
+
         this.sub = this.authService.authListener()
             .subscribe(
             data => {
                 this.loggedInUser = data;
-                //  console.log('this.loggedInUser  ' + this.loggedInUser);
-            });
-        // console.log(this.sub);
-        (this.currentUser) ? this.loggedInUser = true : this.loggedInUser = false;
-    }
 
+            });
+
+    }
 
     ngOnDestroy() {
         this.sub.unsubscribe();
@@ -60,14 +72,6 @@ export class Header implements OnInit, OnDestroy {
             });
     }
 
-    // clickUser() {
-    //     //console.log(this.currentUser);
-    //     if (this.loggedInUser) {
-    //         //  console.log('Vitalik, gotovo')
-    //         new User(JSON.parse(localStorage.getItem('auth_token')));
-    //     } else {
-    //         //  console.log('Vitalik dumai');
-    //     }
-    // }
+
 
 }

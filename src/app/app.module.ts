@@ -61,6 +61,9 @@ import { StipHttp } from "./core/stip-http";
 import { Session } from "./core/session";
 import { CommonModule } from "@angular/common";
 import { AuthGuard } from "./shared/guards/auth-guard.service";
+import { UserChangeService } from "./core/user-change.service";
+import { ConfigService } from "./shared/services/config.service";
+import { DataSvgService } from "./shared/services/data-svg.service";
 
 
 
@@ -120,8 +123,11 @@ type StoreType = {
     APP_PROVIDERS,
     ProductService,
     AuthService,
+    UserChangeService,
     AuthGuard,
+    ConfigService,
     CookieService,
+    DataSvgService,
     Session,
     {
       provide: Http,

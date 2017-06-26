@@ -1,4 +1,4 @@
-<div class="profile">
+<div class="profile" id="profile">
     <div class="profile_inner">
 
         <div class="profile_title">
@@ -6,10 +6,32 @@
         </div>
         <div class="profile_img">
             <div class="profile_img--wrapper">
-                <img src="../../../assets/img/userLogin.svg" alt="">
-            </div>
+                <img src="{{onlineUser?.avatarProfile}}" alt="" *ngIf="onlineUser?.avatarProfile; else default_avatar">
+                <ng-template #default_avatar>
+                    <img src="../../assets/img/userLogin.svg" alt="">
+                </ng-template>
 
+                <div class="profile_img-change" (click)="openPopup()">
+                    <span>Change photo</span>
+                </div>
+
+            </div>
             <div class="profile_online--status"></div>
+        </div>
+        <div class="profile_img-change--popup" id="profile_img-change--popup">
+
+            <form [formGroup]="addAvatarForm" (submit)="addAvatar($event, formAdd)" class="add-photo" #formAdd='ngForm'>
+                <div class="profile_settings-upload">
+                    <label >
+                        <span id="change_avatar">Choose avatar</span>
+                        <img id="change_avatar-img" src="" alt="">
+                        <input type="file" name="profile_photo" (change)="changeListenerImg($event)"/>
+                    </label>
+                </div>
+
+                <button type="submit">Add avatar</button>
+            </form>
+            <span class="close-popup" (click)="closePopup()">X</span>
         </div>
         <div class="profile_name">{{currentUser?.username}}</div>
         <ul class="profile_purchases">
@@ -44,31 +66,15 @@
 
         <div class="profile_settings">
 
-            <div class="profile_settings-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54" width="512" height="512">
-                    <path d="M27 13c-7.7 0-14 6.3-14 14s6.3 14 14 14 14-6.3 14-14S34.7 13 27 13zM27 39c-6.6 0-12-5.4-12-12s5.4-12 12-12 12 5.4 12 12S33.6 39 27 39z"
-                        class="a" />
-                    <path d="M51.2 21h-2c-0.5-1.9-1.3-3.7-2.3-5.5l1.4-1.4c0.5-0.5 0.8-1.2 0.8-2 0-0.7-0.3-1.4-0.8-2l-4.6-4.6c-1-1-2.9-1.1-3.9 0l-1.4 1.4C36.7 6.1 34.9 5.3 33 4.8V2.8C33 1.2 31.8 0 30.2 0H23.8C22.2 0 21 1.2 21 2.8v2c-1.9 0.5-3.7 1.3-5.5 2.3l-1.4-1.4c-1.1-1.1-2.9-1-3.9 0l-4.6 4.6c-0.5 0.5-0.8 1.2-0.8 2 0 0.7 0.3 1.4 0.8 2l1.4 1.4C6.1 17.3 5.3 19.1 4.8 21H2.8C1.2 21 0 22.2 0 23.8v6.4C0 31.8 1.2 33 2.8 33h2c0.5 1.9 1.3 3.7 2.3 5.5l-1.4 1.4c-0.5 0.5-0.8 1.2-0.8 2 0 0.7 0.3 1.4 0.8 2l4.6 4.6c1.1 1.1 2.9 1.1 3.9 0l1.4-1.4c1.7 1 3.5 1.7 5.5 2.3v2c0 1.5 1.2 2.8 2.8 2.8h6.4c1.5 0 2.8-1.2 2.8-2.8v-2c1.9-0.5 3.7-1.3 5.5-2.3l1.4 1.4c1.1 1.1 2.9 1.1 3.9 0l4.6-4.6c0.5-0.5 0.8-1.2 0.8-2 0-0.7-0.3-1.4-0.8-2l-1.4-1.4c1-1.7 1.7-3.5 2.3-5.5h2c1.5 0 2.8-1.2 2.8-2.8V23.8C54 22.2 52.8 21 51.2 21zM52 30.2C52 30.7 51.7 31 51.2 31h-3.6l-0.2 0.8c-0.5 2.2-1.4 4.4-2.6 6.3l-0.4 0.7 2.5 2.5c0.3 0.3 0.3 0.8 0 1.1l-4.6 4.6c-0.3 0.3-0.8 0.3-1.1 0l-2.5-2.5 -0.7 0.4c-1.9 1.2-4.1 2.1-6.3 2.6L31 47.6v3.6C31 51.7 30.7 52 30.2 52H23.8C23.4 52 23 51.7 23 51.2v-3.6l-0.8-0.2c-2.2-0.5-4.4-1.4-6.3-2.6l-0.7-0.4 -2.5 2.5c-0.3 0.3-0.8 0.3-1.1 0l-4.6-4.6c-0.3-0.3-0.3-0.8 0-1.1l2.5-2.5 -0.4-0.7c-1.2-1.9-2.1-4.1-2.6-6.3L6.4 31H2.8C2.4 31 2 30.7 2 30.2V23.8C2 23.4 2.4 23 2.8 23h3.6l0.2-0.8c0.5-2.2 1.4-4.4 2.6-6.3l0.4-0.7 -2.5-2.5c-0.3-0.3-0.3-0.8 0-1.1l4.6-4.6c0.3-0.3 0.8-0.3 1.1 0l2.5 2.5 0.7-0.4c2-1.2 4.1-2.1 6.3-2.6L23 6.4V2.8C23 2.4 23.4 2 23.8 2h6.4C30.7 2 31 2.4 31 2.8v3.6l0.8 0.2c2.2 0.5 4.4 1.4 6.3 2.6l0.7 0.4 2.5-2.5c0.3-0.3 0.8-0.3 1.1 0l4.6 4.6c0.3 0.3 0.3 0.8 0 1.1l-2.5 2.5 0.4 0.7c1.2 1.9 2.1 4.1 2.6 6.3L47.6 23h3.6C51.7 23 52 23.4 52 23.8V30.2z"
-                        class="a" />
-                    <path d="M27 17c-5.5 0-10 4.5-10 10s4.5 10 10 10 10-4.5 10-10S32.5 17 27 17zM27 35c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8S31.4 35 27 35z"
-                        class="a" />
-                </svg>
+            <div class="profile_settings-icon" [innerHtml]="settingsIcon | safe:'html'">
+
             </div>
 
         </div>
-         <form [formGroup]="addAvatarForm" (submit)="addAvatar($event, formAdd)" class="add-post" #formAdd='ngForm'>
 
-            <label>
-                <span>Change avatar</span>
-                <input type="file" name="profile_photo" (change)="changeListenerImg($event)"/>
-            </label>
+        <div class="profile_settings-inner">
 
-            <button type="submit">Add item</button>
-
-        </form>
-
-
-
+        </div>
 
     </div>
 </div>

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { RandomPhotoService } from "../services/random-photo.service";
 import { AuthService } from "../../core/auth.service";
 import { User } from "../models/user.model";
 import { Subscription } from "rxjs/Subscription";
 import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
+import { UserChangeService } from "../../core/user-change.service";
+import { DataSvgService } from "../services/data-svg.service";
 
 @Component({
     selector: 'sellit-profile',
@@ -12,31 +13,34 @@ import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
 })
 
 export class ProfileComponent {
+    settingsIcon: string;
+
+    currentUser: User;
     fD: FormData;
     profile_photo: any;
-    currentUser: User;
+    onlineUser: User;
     sub: Subscription;
     public loggedInUser: boolean;
 
-    photoRandom: any[];
-    constructor(private randomPhotoService: RandomPhotoService, private authService: AuthService) {
-        this.randomPhotoService.getPhotosRandom().subscribe(data => {
-            this.photoRandom = data;
-            // console.log(this.photoRandom);
-        })
+
+    constructor(private dataSvgService: DataSvgService, private userChangeService: UserChangeService, private authService: AuthService) {
+
     }
 
     ngOnInit() {
-        this.currentUser = this.authService.userTokenDate();
-        // console.log(this.currentUser);        
+        this.onlineUser = this.authService.userTokenDate();
+        (this.onlineUser) ? this.loggedInUser = true : this.loggedInUser = false;
+        console.log(this.onlineUser);
+
+        this.settingsIcon = this.dataSvgService.svgChooser('profileSettings')
+
+
+
         this.sub = this.authService.authListener()
             .subscribe(
             data => {
                 this.loggedInUser = data;
-                // console.log('this.loggedInUser  ' + this.loggedInUser);
             });
-        //console.log(this.sub);
-        (this.currentUser) ? this.loggedInUser = true : this.loggedInUser = false;
     }
 
     public addAvatarForm: FormGroup = new FormGroup({
@@ -46,8 +50,26 @@ export class ProfileComponent {
     changeListenerImg($event) {
         let inputValue = $event.target || $event.srcElement;
         this.profile_photo = inputValue.files;
-        console.log(this.profile_photo[0])
-        console.log(this.currentUser.id)
+
+        let bgImgAva = document.getElementById('change_avatar');
+        //bgImgAva.innerHTML = this.profile_photo[0].name;
+        //bgImgAva.setAttribute('src', $event.target);
+        //console.log(this.profile_photo[0]);
+
+        let loadFile = function (event) {
+            let reader = new FileReader();
+            reader.onload = function () {
+                let bgImgAva = document.getElementById('change_avatar-img');
+                bgImgAva.setAttribute('src', reader.result);
+         
+               
+            };
+            reader.readAsDataURL(inputValue.files[0]);
+        };
+
+        loadFile($event)
+        console.log(loadFile)
+
     }
 
     addAvatar($event, form) {
@@ -61,39 +83,26 @@ export class ProfileComponent {
             }
         }
 
-        let profile_photoFinaly = {
-            user: this.currentUser.id,
-            photo: []
-        }
 
-
-        this.authService.photos(this.fD)
-            .subscribe(
-            data => {
-                profile_photoFinaly.photo = data;
-                console.log(profile_photoFinaly.photo)
-                this.authService.addPost(profile_photoFinaly)
-                    .subscribe(
-                    data => {
-                        alert('good');
-
-                    },
-                    error => {
-                        alert('bad');
-                    })
-
-
-            },
-            error => {
-                console.error(error);
+        this.userChangeService.postPhoto(this.fD)
+            .then(data => {
+                this.onlineUser = data;
+                console.log(this.onlineUser)
             })
 
-        // this.authService.profilePhoto(profile_photoFinaly)
-        //     .subscribe(
-        //     data => {
 
-        //     })
+    }
 
+    closePopup() {
+        let closingElem = document.getElementById('profile_img-change--popup');
+
+        closingElem.style.display = "none";
+        console.log('qwqwq')
+    }
+
+    openPopup() {
+        let closingElem = document.getElementById('profile_img-change--popup');
+        closingElem.style.display = "block";
     }
 
 

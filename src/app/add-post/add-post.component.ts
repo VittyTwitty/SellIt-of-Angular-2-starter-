@@ -8,6 +8,7 @@ import { AuthService } from "../core/auth.service";
 import { User } from "../shared/models/user.model";
 import { Http } from "@angular/http";
 import { Router } from "@angular/router";
+import { DataSvgService } from "../shared/services/data-svg.service";
 
 @Component({
     selector: 'sellit-add-post',
@@ -17,16 +18,17 @@ import { Router } from "@angular/router";
 
 
 export class AddPostComponent {
+    priceIcon: string;
     currentUser: User;
     fD: FormData;
     photos: any = {};
 
 
 
-    constructor(private router: Router, private http: Http, private formBuilder: FormBuilder, private el: ElementRef, private authService: AuthService) {
+    constructor(private dataSvgService: DataSvgService, private router: Router, private http: Http, private formBuilder: FormBuilder, private el: ElementRef, private authService: AuthService) {
         // this.el.nativeElement.style.display = 'none';
 
-
+        this.priceIcon = dataSvgService.svgChooser('priceSale');
         this.currentUser = this.authService.userTokenDate()
     }
 

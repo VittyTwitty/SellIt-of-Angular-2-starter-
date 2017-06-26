@@ -15,6 +15,7 @@ import { ProfileComponent } from "./profile-page/profile-page.component";
 import { RouterModule } from "@angular/router";
 import { OpenButtonDirective } from "./directives/open-button.directive";
 import { CloseButtonDirective } from "./directives/close-button.directive";
+import { SafePipe } from "./pipes/valuePipe";
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { CloseButtonDirective } from "./directives/close-button.directive";
         CloseButtonDirective,
         Header,
         Footer,
-        ProfileComponent
+        ProfileComponent,
+        SafePipe
     ],
     exports: 
     [      

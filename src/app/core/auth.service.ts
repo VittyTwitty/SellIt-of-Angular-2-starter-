@@ -26,14 +26,9 @@ export class AuthService {
                 let token = userPerson.token;
                 if (userPerson && token) {
                     let currentUser = new User(userPerson);
-                    //this.cookieService.put('userId', (currentUser.id).toString());
-                    // this.cookieService.put('userToken', token);
                     this.session.sessionToken = token;
                     localStorage.setItem('auth_token', JSON.stringify(currentUser.getUser()));
                     this.signInListener();
-                    // console.log(userPerson);
-                    // console.log(token);
-                    // console.log(currentUser);
                     return currentUser;
                 }
 
@@ -55,8 +50,8 @@ export class AuthService {
     public profilePhoto(data) {
         return this.http.post(`${this.API_PATH}/profile_photo/`, data)
             .map((response: Response) => {
-                let profilePhoto = response.json();      
-                console.log(profilePhoto)          
+                let profilePhoto = response.json();
+                console.log(profilePhoto)
                 return profilePhoto;
             })
     }
@@ -64,7 +59,7 @@ export class AuthService {
     public addPost(data) {
         return this.http.post(`${this.API_PATH}/poster/`, data)
             .map((response: Response) => {
-               return response.json();
+                return response.json();
             })
     }
 

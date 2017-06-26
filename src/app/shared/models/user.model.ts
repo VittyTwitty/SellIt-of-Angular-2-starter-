@@ -1,5 +1,7 @@
+import { ConfigService } from "../services/config.service";
+
 export class User {
-  public avatar: string;
+  public avatar: any;
   public email: string;
   public firstName: string;
   public id: number;
@@ -17,6 +19,10 @@ export class User {
 
   get fullName() {
     return `${this.firstName} ${this.lastName}`;
+  }
+
+  get avatarProfile() {
+    return `${ConfigService.mediaSrc}${this.avatar.photo}`
   }
   public getUser() {
     return {
