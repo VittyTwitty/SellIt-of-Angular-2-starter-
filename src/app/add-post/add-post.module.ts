@@ -8,9 +8,8 @@ import { SharedModule } from '../shared/shared.module';
 import { AuthGuard } from '../shared/guards/auth-guard.service';
 
 @NgModule({
-    imports:
-    [   
-        ReactiveFormsModule,        
+    imports: [
+        ReactiveFormsModule,
         SharedModule,
         routAddPost,
     ],
@@ -18,7 +17,4 @@ import { AuthGuard } from '../shared/guards/auth-guard.service';
     exports: [AddPostComponent]
 })
 
-export class AddPostModule {
-
-
-}
+export class AddPostModule {}

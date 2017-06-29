@@ -8,9 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 
 export class ProductItemComponent {
-    @Input() item;
-
-  
+    @Input() public item;
 }
-
-

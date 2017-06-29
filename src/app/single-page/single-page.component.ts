@@ -16,47 +16,30 @@ import { ProductService } from '../shared/services/sellit-product.service';
 })
 
 export class SinglePageComponent implements OnInit {
-    
+
+
     public sub: Subscription;
-
-    products: any = {};
-
-
+    public products: any = {};
     public id: number;
-   
 
     constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
-        
+
     }
-    ngOnInit() {
-        
+    public ngOnInit() {
 
-
-        this.sub = this.route.params.subscribe(params => {
+        this.sub = this.route.params.subscribe((params) => {
             this.id = +params['id'];
-        })
+        });
 
         this.productService.getProduct(this.id).subscribe((items) => {
             this.products = items;
             console.log(this.products);
-        })
 
-
-        
-
-        // this.sub2 = this.route.queryParams.subscribe(info => {
-        //     this.title = info['title'];
-        //     this.price = info['price'];
-        //     this.photo = info['photo'];
-        // })
-
-
-     
-
+        });
 
     }
 
-    ngOnDestroy() {
+    public ngOnDestroy() {
         this.sub.unsubscribe();
     }
 

@@ -42,7 +42,7 @@ export class ProductService {
             });
 
     }
-    public getProductsListAll(): Observable<Products[]> {     
+    public getProductsListAll(): Observable<Products[]> {
 
         return this.http.get(this.productsLabsURL)
             .map((response: Response) => {
@@ -58,15 +58,15 @@ export class ProductService {
 
     }
 
-    getProduct(id: number) {
+    public getProduct(id: number) {
         this.id = id;
 
         return this.http.get(this.productsLabsURL + this.id).map((response: Response) => {
             let responseProduct = response.json();
-          
+
             return new Products(responseProduct)
-            
-        })
+
+        });
     }
 
 }

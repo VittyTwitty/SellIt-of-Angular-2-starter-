@@ -16,49 +16,51 @@ import { DataSvgService } from '../shared/services/data-svg.service';
     styleUrls: ['add-post.component.scss']
 })
 
-
 export class AddPostComponent {
-    priceIcon: string;
-    currentUser: User;
-    fD: FormData;
-    photos: any = {};
 
-
+    public priceIcon: string;
+    public currentUser: User;
+    public fD: FormData;
+    public photos: any = {};
+    public addProductForm: FormGroup;
 
     constructor(private dataSvgService: DataSvgService, private router: Router, private http: Http, private formBuilder: FormBuilder, private el: ElementRef, private authService: AuthService) {
-        // this.el.nativeElement.style.display = 'none';
-
         this.priceIcon = dataSvgService.svgChooser('priceSale');
-        this.currentUser = this.authService.userTokenDate()
+        this.currentUser = this.authService.userTokenDate();
+        this.addProductForm = new FormGroup({
+
+            title: new FormControl('', [Validators.required, Validators.maxLength(30), validateName]),
+            description: new FormControl('', Validators.maxLength(300)),
+            price: new FormControl('', [Validators.required, Validators.maxLength(10), validatePrice]),
+            photos: new FormControl('')
+
+        });
     }
 
-    public addProductForm: FormGroup = new FormGroup({
+    // public addProductForm: FormGroup = new FormGroup({
 
-        title: new FormControl('', [Validators.required, Validators.maxLength(30), validateName]),
-        description: new FormControl('', Validators.maxLength(300)),
-        price: new FormControl('', [Validators.required, Validators.maxLength(10), validatePrice]),
-        photos: new FormControl('')
+    //     title: new FormControl('', [Validators.required, Validators.maxLength(30), validateName]),
+    //     description: new FormControl('', Validators.maxLength(300)),
+    //     price: new FormControl('', [Validators.required, Validators.maxLength(10), validatePrice]),
+    //     photos: new FormControl('')
 
-    })
+    // });
 
-    changeListenerImg($event) {
+    public changeListenerImg($event) {
 
         // Добавление текста
         let file = $event.srcElement.files[0];
         let fileName = file.name;
         let myElem = document.getElementById('add-post_upload-img-name');
         myElem.innerHTML = fileName;
-
-
         let inputValue = $event.target || $event.srcElement;
         this.photos = inputValue.files;
 
     }
 
-
-    addProduct($event, form) {
+    public addProduct($event, form) {
         $event.preventDefault();
-        
+
         if (this.photos) {
             let files: FileList = this.photos;
             this.fD = new FormData();
@@ -79,28 +81,21 @@ export class AddPostComponent {
 
         this.authService.photos(this.fD)
             .subscribe(
-            data => {
+            (data) => {
                 finalyForm.photos = data;
-                console.log(finalyForm.photos)
+                console.log(finalyForm.photos);
                 this.authService.addPost(finalyForm)
                     .subscribe(
-                    data => {
-                        alert('good');
-                        
+                    (data) => {
+                        alert('good ');
+
                     },
-                    error => {
+                    (error) => {
                         alert('bad');
-                    })
+                    });
             },
-            error => {
+            (error) => {
                 console.error(error);
-            })
-
-
-
+            });
     }
-
-
-
-
 }

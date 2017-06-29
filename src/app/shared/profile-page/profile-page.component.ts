@@ -13,64 +13,59 @@ import { DataSvgService } from '../services/data-svg.service';
 })
 
 export class ProfileComponent {
-    settingsIcon: string;
+    public settingsIcon: string;
 
-    currentUser: User;
-    fD: FormData;
-    profile_photo: any;
-    onlineUser: User;
-    sub: Subscription;
+    public currentUser: User;
+    public fD: FormData;
+    public profile_photo: any;
+    public onlineUser: User;
+    public sub: Subscription;
     public loggedInUser: boolean;
+    public addAvatarForm: FormGroup = new FormGroup({
+        profile_photo: new FormControl('')
+    });
 
 
     constructor(private dataSvgService: DataSvgService, private userChangeService: UserChangeService, private authService: AuthService) {
 
     }
 
-    ngOnInit() {
+    public ngOnInit() {
         this.onlineUser = this.authService.userTokenDate();
-        (this.onlineUser) ? this.loggedInUser = true : this.loggedInUser = false;    
-        console.log(this.onlineUser)  
+        (this.onlineUser) ? this.loggedInUser = true : this.loggedInUser = false;
+        console.log(this.onlineUser);
 
         this.settingsIcon = this.dataSvgService.svgChooser('profileSettings');
 
         this.sub = this.authService.authListener()
             .subscribe(
-            data => {
+            (data) => {
                 this.loggedInUser = data;
             });
     }
 
-    public addAvatarForm: FormGroup = new FormGroup({
-        profile_photo: new FormControl('')
-    })
-
-    changeListenerImg($event) {
+    public changeListenerImg($event) {
         let inputValue = $event.target || $event.srcElement;
         this.profile_photo = inputValue.files;
 
         let bgImgAva = document.getElementById('change_avatar');
-        //bgImgAva.innerHTML = this.profile_photo[0].name;
-        //bgImgAva.setAttribute('src', $event.target);
-        //console.log(this.profile_photo[0]);
 
-        let loadFile = function (event) {
+        let loadFile = function(event) {
             let reader = new FileReader();
-            reader.onload = function () {
+            reader.onload = function() {
                 let bgImgAva = document.getElementById('change_avatar-img');
                 bgImgAva.setAttribute('src', reader.result);
-         
-               
+
             };
             reader.readAsDataURL(inputValue.files[0]);
         };
 
-        loadFile($event)
-        console.log(loadFile)
+        loadFile($event);
+        console.log(loadFile);
 
     }
 
-    addAvatar($event, form) {
+    public addAvatar($event, form) {
         $event.preventDefault();
 
         if (this.profile_photo) {
@@ -83,20 +78,20 @@ export class ProfileComponent {
 
 
         this.userChangeService.postPhoto(this.fD)
-            .then(data => {
+            .then((data) => {
                 this.onlineUser = data;
-            })
+            });
 
 
     }
 
-    closePopup() {
+    public closePopup() {
         let closingElem = document.getElementById('profile_img-change--popup');
 
         closingElem.style.display = 'none';
     }
 
-    openPopup() {
+    public openPopup() {
         let closingElem = document.getElementById('profile_img-change--popup');
         closingElem.style.display = 'block';
     }

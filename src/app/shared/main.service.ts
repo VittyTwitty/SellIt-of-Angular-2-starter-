@@ -371,4 +371,4 @@ export const products: any = [
         title: 'Шмотка №4',
         img: 4
     }
-]
+];

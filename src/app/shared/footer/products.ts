@@ -3,7 +3,6 @@ export class Products {
   public id: number;
   public title: string;
   public price: number;
-  // tslint:disable-next-line:variable-name
   public photo_details: any;
   public photo: any;
   public ind: number;

@@ -11,6 +11,7 @@ export class AuthService {
 
     private subject = new BehaviorSubject(this.loggedIn());
     private API_PATH = '';
+    private redirectUrl: string;
 
     constructor(private http: Http, private session: Session) {
         this.API_PATH = 'http://fe-kurs.light-it.loc:38000/api';
@@ -32,7 +33,7 @@ export class AuthService {
                     return currentUser;
                 }
 
-            })
+            });
     }
 
     public photos(data) {
@@ -42,27 +43,26 @@ export class AuthService {
                 let arrPhotos = [];
                 for (let i = 0; i < photo.length; i++) {
                     arrPhotos.push(photo[i].id);
-                };
+                }
                 return arrPhotos;
-            })
+            });
     }
 
     public profilePhoto(data) {
         return this.http.post(`${this.API_PATH}/profile_photo/`, data)
             .map((response: Response) => {
                 let profilePhoto = response.json();
-                console.log(profilePhoto)
+                console.log(profilePhoto);
                 return profilePhoto;
-            })
+            });
     }
 
     public addPost(data) {
         return this.http.post(`${this.API_PATH}/poster/`, data)
             .map((response: Response) => {
                 return response.json();
-            })
+            });
     }
-
 
     public logout() {
         return this.http.post(`${this.API_PATH}/logout/`, '')
@@ -73,7 +73,7 @@ export class AuthService {
                 localStorage.removeItem('auth_token');
                 // console.log(response.json());
                 return response.json();
-            })
+            });
     }
 
     public signup(data) {
@@ -90,10 +90,8 @@ export class AuthService {
         // } else {
         //     return false;
         // }
-        return !!this.session.sessionToken
+        return !!this.session.sessionToken;
     }
-
-    redirectUrl: string;
 
     public authListener(): Observable<any> {
         let subAsObservable = this.subject.asObservable();
@@ -103,8 +101,7 @@ export class AuthService {
     public signInListener() {
         if (this.session.sessionToken) {
             return this.subject.next(true);
-        }
-        else {
+        } else {
             localStorage.removeItem('auth_token');
             return this.subject.next(false);
         }
@@ -113,7 +110,5 @@ export class AuthService {
     public userTokenDate() {
         return (this.session.sessionToken) ? new User(JSON.parse(localStorage.getItem('auth_token'))) : null;
     }
-
-
 
 }

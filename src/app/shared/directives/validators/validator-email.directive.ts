@@ -11,11 +11,11 @@ import { forwardRef, Attribute } from '@angular/core';
 
 export class ValidatorEmailDirective implements Validator {
     constructor( @Attribute('validateEqual') public validateEqual: string,
-        @Attribute('reverse') public reverse: string) {
+                 @Attribute('reverse') public reverse: string) {
     }
 
     validate(c: AbstractControl): ValidationErrors {
-        const EMAIL_RE= /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+        const EMAIL_RE = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
         if (c.value && c.value !== '' && (c.value.length <= 5 || !EMAIL_RE.test(c.value))) {
             return { 'email': true };

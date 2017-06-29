@@ -11,14 +11,13 @@ export class RandomPhotoService {
 
     }
 
- 
 
     public getPhotosRandom() {
         return this.http.get(this.photosRandomUrl + this.limitOfQuery)
             .map((response: Response) => {
                   let data = response.json().results;
                   let randomArr = [];
-                  data.forEach( photos => {
+                  data.forEach( (photos) => {
                       randomArr.push(photos);
                   });
                   return randomArr;

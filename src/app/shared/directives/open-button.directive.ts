@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 
 
-//import $ from 'jquery';
+// import $ from 'jquery';
 
 @Directive({
     selector: '[openButton]',
@@ -12,22 +12,15 @@ import { Directive } from '@angular/core';
 
 export class OpenButtonDirective {
 
-    constructor() {
-        
-    }
-    closeClick() {
-        //let closeElement = $('.profile');
+    public closeClick() {
+        // let closeElement = $('.profile');
 
-        //closeElement.css('z-index', '50');   
+        // closeElement.css('z-index', '50');
 
-        //closeElement.css('right', '0');
+        // closeElement.css('right', '0');
         let element = document.getElementById('profile');
         element.style.right = '0';
-        //element.style.display = 'block';
-        
-
-        console.log('qwqw')
-
-
+        // element.style.display = 'block';
+        console.log('qwqw');
     }
 }

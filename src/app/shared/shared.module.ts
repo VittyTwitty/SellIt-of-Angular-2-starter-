@@ -20,13 +20,13 @@ import { SearchComponent } from './header/search/search.component';
 
 
 @NgModule({
-    imports: [ 
+    imports: [
         ReactiveFormsModule,
         CommonModule,
-        RouterModule 
+        RouterModule
     ],
-    declarations: 
-    [         
+    declarations:
+    [
         ValidatorNameDirective,
         ValidatorEmailDirective,
         ValidatorPhoneDirective,
@@ -35,17 +35,17 @@ import { SearchComponent } from './header/search/search.component';
         CloseButtonDirective,
         Header,
         Footer,
-        SearchComponent,        
+        SearchComponent,
         ProfileComponent,
         SafePipe
     ],
-    exports: 
-    [      
+    exports:
+    [
         ValidatorNameDirective,
         ValidatorEmailDirective,
-        ValidatorPhoneDirective,   
-        ValidatorPriceDirective,  
-        OpenButtonDirective, 
+        ValidatorPhoneDirective,
+        ValidatorPriceDirective,
+        OpenButtonDirective,
         CloseButtonDirective,
         FormsModule,
         CommonModule,
@@ -56,6 +56,4 @@ import { SearchComponent } from './header/search/search.component';
     ]
 })
 
-export class SharedModule {
-    
-}
+export class SharedModule {}

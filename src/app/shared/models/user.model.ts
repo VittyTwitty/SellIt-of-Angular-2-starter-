@@ -22,7 +22,7 @@ export class User {
   }
 
   get avatarProfile() {
-    return `${ConfigService.mediaSrc}${this.avatar.photo}`
+    return `${ConfigService.mediaSrc}${this.avatar.photo}`;
   }
   public getUser() {
     return {
@@ -32,6 +32,6 @@ export class User {
       id: this.id,
       last_name: this.lastName,
       username: this.username,
-    }
+    };
   }
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { ProductService } from "../../shared/services/sellit-product.service";
-import { Products } from "../../shared/footer/products";
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../../shared/services/sellit-product.service';
+import { Products } from '../../shared/footer/products';
 
 export function sortNumbers(a, b) {
     return a - b;
@@ -13,37 +13,32 @@ export function sortNumbers(a, b) {
 })
 
 export class SortComponent implements OnInit {
-    products: Products[];
+    public products: Products[];
 
-    productSort = [
+    public productSort = [
         { name: 'По умолчанию' },
         { name: 'По цене' },
         { name: 'По имени' },
-    ]
-    selectProductSort = this.productSort[0];
+    ];
+    public selectProductSort = this.productSort[0];
 
 
     constructor(private productService: ProductService) { }
 
-    ngOnInit() {
-        this.productService.getProductsListAll().subscribe(data => {
+    public ngOnInit() {
+        this.productService.getProductsListAll().subscribe((data) => {
             this.products = data;
-
-        })
+        });
     }
 
-    sortByPrice() {
-
-    }
-
-    onChangeObj(newObj) {
+    public onChangeObj(newObj) {
         this.selectProductSort = newObj;
         let name = this.selectProductSort.name;
 
         let arraySortPrice = [];
 
         if (name === 'По умолчанию') {
-            this.products.forEach(element => {
+            this.products.forEach((element) => {
                 arraySortPrice.push(element.id);
             });
             arraySortPrice.sort(sortNumbers);
@@ -51,7 +46,7 @@ export class SortComponent implements OnInit {
 
         }
         if (name === 'По цене') {
-            this.products.forEach(element => {
+            this.products.forEach((element) => {
                 arraySortPrice.push(element.price);
             });
             arraySortPrice.sort(sortNumbers);
@@ -59,7 +54,7 @@ export class SortComponent implements OnInit {
 
         }
         if (name === 'По имени') {
-            this.products.forEach(element => {
+            this.products.forEach((element) => {
                 arraySortPrice.push(element.title);
             });
             arraySortPrice.sort();

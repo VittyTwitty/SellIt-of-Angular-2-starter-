@@ -2,23 +2,23 @@ import { Routes } from '@angular/router';
 
 import { DataResolver } from './app.resolver';
 
-import { ProductListComponent } from "./product-list/product-list.component";
-import { SinglePageComponent } from "./single-page/single-page.component";
-import { LoginPageComponent } from "./login-page/login-page.component";
-import { SignUpComponent } from "./login-page/sign-up/sign-up.component";
-import { SignInComponent } from "./login-page/sign-in/sign-in.component";
-import { ProfileComponent } from "./shared/profile-page/profile-page.component";
-import { AddPostComponent } from "./add-post/add-post.component";
-import { AuthGuard } from "./shared/guards/auth-guard.service";
+import { ProductListComponent } from './product-list/product-list.component';
+import { SinglePageComponent } from './single-page/single-page.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { SignUpComponent } from './login-page/sign-up/sign-up.component';
+import { SignInComponent } from './login-page/sign-in/sign-in.component';
+import { ProfileComponent } from './shared/profile-page/profile-page.component';
+import { AddPostComponent } from './add-post/add-post.component';
+import { AuthGuard } from './shared/guards/auth-guard.service';
 
 
 export const appRoutes: Routes = [
     {
-        path: '', 
+        path: '',
         component: ProductListComponent
     },
     {
-        path: 'home', 
+        path: 'home',
         component: ProductListComponent
     },
     {
@@ -42,7 +42,7 @@ export const appRoutes: Routes = [
             path: 'sellit-sign-up',
             component: SignUpComponent,
             outlet: 'sellit-login-registr'
-        }]   
+        }]
     } */
 
 

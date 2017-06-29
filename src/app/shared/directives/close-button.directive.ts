@@ -11,12 +11,10 @@ import $ from 'jquery';
 
 export class CloseButtonDirective {
 
-    constructor() { }
-
-    closeClick() {
+    private closeClick() {
         let element = document.getElementById('profile');
-        element.style.right = "-380px";
+        element.style.right = '-380px';
         // element.style.display = 'none';
-        console.log(element.style.right)
+        console.log(element.style.right);
     }
 }

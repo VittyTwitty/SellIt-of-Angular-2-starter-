@@ -5,8 +5,6 @@ import { LoginPageComponent } from './login-page.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
-
-
 export const loginRoutes: Routes = [
    { path: 'sellit-login-page', component: LoginPageComponent,
         children: [{
@@ -21,6 +19,4 @@ export const loginRoutes: Routes = [
         }]
     }
 
-
-// tslint:disable-next-line:eofline
 ];

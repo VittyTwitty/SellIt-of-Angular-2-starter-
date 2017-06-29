@@ -12,31 +12,30 @@ import { PostService } from '../../../core/posts.service';
 })
 
 export class SearchComponent {
-    ddd:string = '112';
-    results: Object;
-    searchTerm$ = new Subject<string>();
+    public ddd: string = '112';
+    public results: Object;
+    public searchTerm$ = new Subject<string>();
 
     constructor(private postService: PostService, private searchService: SearchService) {
         this.searchService.search(this.searchTerm$)
-            .subscribe(res => {
+            .subscribe((res) => {
                 this.results = res;
                 console.log(this.results)
             });
     }
 
-    deletePost() {
+    public deletePost() {
         this.postService.deletePost(this.ddd)
             .subscribe(
-            data => {
+            (data) => {
                 console.log(data);
-            })
+            });
     }
-    deletePhoto() {
+    public deletePhoto() {
         this.postService.deletePhoto(this.ddd)
             .subscribe(
-            data => {
+            (data) => {
                 console.log(data);
-            })
+            });
     }
 }
-

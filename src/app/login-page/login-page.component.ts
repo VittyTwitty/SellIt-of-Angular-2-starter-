@@ -9,12 +9,5 @@ import { Component } from '@angular/core';
 })
 
 export class LoginPageComponent {
-  name: string;
-  constructor() {
-      this.name = 'Miha';
-  }
 
-  myNameIs() {
-      console.log(this.name)
-  }
 }

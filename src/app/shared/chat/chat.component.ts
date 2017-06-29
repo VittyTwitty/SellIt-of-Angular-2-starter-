@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
     styleUrls: ['chat.component.scss']
 })
 
-// tslint:disable-next-line:eofline
+
 export class ChatComponent {}

@@ -7,8 +7,7 @@ import { SinglePageComponent } from '../single-page.component';
     styleUrls: ['slider.component.scss']
 })
 
-export class SliderComponent // extends SinglePageComponent
- {
+export class SliderComponent {
     @Input() public photos;
     constructor () {
         console.log("FOTO " + this.photos);

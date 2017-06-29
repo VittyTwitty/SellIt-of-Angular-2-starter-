@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 export class AuthGuard implements CanActivate {
 
     constructor(private authService: AuthService, private router: Router) { }
-    canActivate(
+    public canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): boolean | Observable<boolean> | Promise<boolean> {
@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 
     }
 
-    checkLogin(url: string) {
+    public checkLogin(url: string) {
         if (this.authService.loggedIn()) {
             console.log('Авторизировано');
             return true;
@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivate {
                             outlets: { 'sellit-login-registr': ['sellit-sign-in'] }
                         }
                     ]
-                )
+                );
             console.log('Иди логинься');
             return false;
         }

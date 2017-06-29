@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from "@angular/forms";
-import { AuthService } from "../../core/auth.service";
-import { Router } from "@angular/router";
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { AuthService } from '../../core/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'sellit-sign-up',
@@ -9,9 +9,9 @@ import { Router } from "@angular/router";
     styleUrls: ['sign-up.component.scss']
 })
 
-export class SignUpComponent implements OnInit {
-    signup: Response;
+export class SignUpComponent {
 
+    public signup: Response;
 
     public signUpForm: FormGroup = new FormGroup({
 
@@ -25,33 +25,31 @@ export class SignUpComponent implements OnInit {
             city: new FormControl('')
         })
 
-    })
+    });
 
     constructor(
         private authService: AuthService,
         private router: Router
     ) { }
 
-    ngOnInit() { }
-
-    signUp($event, form) {
+    public signUp($event, form) {
         $event.preventDefault();
         this.authService.signup(form.value)
             .subscribe(
-            data => {
+            (data) => {
                 this.router.navigate(
                     ['/sellit-login-page',
                         {
                             outlets: { 'sellit-login-registr': ['sellit-sign-in'] }
                         }
                     ]
-                )
+                );
                 console.log(data);
 
             },
-            err => {
+            (err) => {
                 console.error(err);
-            })
+            });
     }
 
 }

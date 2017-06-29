@@ -7,15 +7,11 @@ import $ from 'jquery';
     selector: '[scrollPushItems]'
 })
 
-export class ScrollPushItemsDirective{
+export class ScrollPushItemsDirective {
 
+    @Output() public nextPage: EventEmitter<any> = new EventEmitter<any>();
 
-
-    constructor() { }  
-
-    @Output() nextPage:EventEmitter<any> = new EventEmitter<any>();
-
-    @HostListener('window:scroll', ['$event'])
+    @HostListener ('window:scroll', ['$event'])
     onScroll(event) {
         let x: any = $('.s-content__inner');
         let y: any = $(window);

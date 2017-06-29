@@ -20,7 +20,7 @@ import { AppState } from './app.service';
   ],
   templateUrl: 'app.component.html'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
   public name = 'Angular 2 Webpack Starter';
   public url = 'https://twitter.com/AngularClass';
@@ -28,11 +28,6 @@ export class AppComponent implements OnInit {
   constructor(
     public appState: AppState
   ) {}
-
-  public ngOnInit() {
-    //console.log('Initial App State', this.appState.state);
-  }
-  
 
 }
 

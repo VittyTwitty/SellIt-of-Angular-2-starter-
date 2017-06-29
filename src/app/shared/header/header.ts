@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { UserLoginService } from "../services/user-auth.service";
 import { User } from "../models/user.model";
-import { AuthService } from "../../core/auth.service";
+import { AuthService } from '../../core/auth.service';
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs/Subscription";
 import { UserChangeService } from "../../core/user-change.service";
@@ -15,15 +15,15 @@ import { DataSvgService } from "../services/data-svg.service";
 })
 
 export class Header implements OnInit, OnDestroy {
-    mainLogo: string;
+    public mainLogo: string;
 
-    currentUser: User;
-    avatar: string;
-    userPortfolio: any[] = [];
-    profileUser: Subscription;
-    user: void;
-    currentOnline: User;
-    sub: Subscription;
+    public currentUser: User;
+    public avatar: string;
+    public userPortfolio: any[] = [];
+    public profileUser: Subscription;
+    public user: void;
+    public currentOnline: User;
+    public sub: Subscription;
     public loggedInUser: boolean;
 
     constructor(private dataSvgService: DataSvgService, private userChangeService: UserChangeService, private authService: AuthService, private router: Router) {
@@ -31,46 +31,42 @@ export class Header implements OnInit, OnDestroy {
 
     }
 
-    ngOnInit() {
+    public ngOnInit() {
 
-        //this.currentOnline = this.authService.userTokenDate();
         (this.currentOnline) ? this.loggedInUser = true : this.loggedInUser = false;
 
         this.mainLogo = this.dataSvgService.svgChooser('mainLogo');
 
         this.userChangeService.getProfile()
-            .then(data => {
+            .then((data) => {
                 this.currentOnline = data;
             })
 
         this.sub = this.authService.authListener()
             .subscribe(
-            data => {
+            (data) => {
                 this.loggedInUser = data;
 
             });
 
     }
 
-    ngOnDestroy() {
+    public ngOnDestroy() {
         this.sub.unsubscribe();
     }
 
-    logout() {
+    public logout() {
         this.authService.logout()
             .subscribe(
-            data => {
+            (data) => {
                 this.router.navigate(
                     ['/sellit-login-page',
                         {
                             outlets: { 'sellit-login-registr': ['sellit-sign-in'] }
                         }
                     ]
-                )
-                
+                );
             });
     }
-
-
 
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from "@angular/forms";
-import { AuthService } from "../../core/auth.service";
-import { Router, ActivatedRoute } from "@angular/router";
-import { User } from "../../shared/models/user.model";
-import { Observable } from "rxjs/Observable";
-import { Auth } from "../../shared/models/auth.model";
+import { FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../../core/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { User } from '../../shared/models/user.model';
+import { Observable } from 'rxjs/Observable';
+import { Auth } from '../../shared/models/auth.model';
 
 @Component({
     selector: 'sellit-sign-in',
@@ -26,21 +26,21 @@ export class SignInComponent implements OnInit {
         private route: ActivatedRoute
     ) { }
 
-    ngOnInit() {
+    public ngOnInit() {
         this.authService.logout();
     }
 
-    loginUser($event, form) {
+    public loginUser($event, form) {
         $event.preventDefault();
         this.authService.login(new Auth(form.value))
             .subscribe(
-            data => {
+            (data) => {
                 this.router.navigate(['/']);
                // console.log(data);
             },
-            err => {
+            (err) => {
                 console.error(err);
-            })
+            });
     }
-    
+
 }
