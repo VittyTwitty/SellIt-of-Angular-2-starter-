@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
-import { Validator, NG_VALIDATORS, AbstractControl, ValidationErrors } from "@angular/forms";
-import { forwardRef, Attribute } from "@angular/core";
+import { Validator, NG_VALIDATORS, AbstractControl, ValidationErrors } from '@angular/forms';
+import { forwardRef, Attribute } from '@angular/core';
 
 export function validatePhone(c: AbstractControl): ValidationErrors {
         const NAME_RE = /^([+]?[0-9\s-\(\)]{3,25})*$/i;

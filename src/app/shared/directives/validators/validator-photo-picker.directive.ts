@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
-import { Validator, NG_VALIDATORS, AbstractControl, ValidationErrors } from "@angular/forms";
-import { forwardRef, Attribute } from "@angular/core";
+import { Validator, NG_VALIDATORS, AbstractControl, ValidationErrors } from '@angular/forms';
+import { forwardRef, Attribute } from '@angular/core';
 
 export function validateFotoPicker(c: AbstractControl): ValidationErrors {
     const PHOTO_PICKER_RE = /([^\\s]+(\\.(?i)(jpg|png|gif|bmp))$)/;

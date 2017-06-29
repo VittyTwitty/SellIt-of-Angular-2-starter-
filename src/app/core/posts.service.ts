@@ -5,7 +5,7 @@ import { Http } from "@angular/http";
 export class PostService {
     API_PATH: string;
     constructor(private http: Http) {
-        this.API_PATH = 'http://fe-kurs.light-it.net:38000/api';
+        this.API_PATH = 'http://fe-kurs.light-it.loc:38000/api';
      }
 
     public deletePost(data) {

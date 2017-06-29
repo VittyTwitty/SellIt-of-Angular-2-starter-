@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
-import { Validator, NG_VALIDATORS, AbstractControl, ValidationErrors } from "@angular/forms";
-import { forwardRef, Attribute } from "@angular/core";
+import { Validator, NG_VALIDATORS, AbstractControl, ValidationErrors } from '@angular/forms';
+import { forwardRef, Attribute } from '@angular/core';
 
 export function validateName(c: AbstractControl): ValidationErrors {
         const NAME_RE = /^([a-zа-яё]+|\d+)/i;

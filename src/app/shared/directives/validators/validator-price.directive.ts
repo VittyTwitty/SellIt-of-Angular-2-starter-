@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 import { Validator, NG_VALIDATORS, AbstractControl, ValidationErrors } from "@angular/forms";
-import { forwardRef, Attribute } from "@angular/core";
+import { forwardRef, Attribute } from '@angular/core';
 
 export function validatePrice(c: AbstractControl): ValidationErrors {
     const PRICE_RE = /^[0-9]+?([.,][0-9]+)*$/;

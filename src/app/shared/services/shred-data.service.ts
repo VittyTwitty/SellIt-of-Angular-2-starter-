@@ -1,5 +1,5 @@
-import { Products } from "../footer/products";
-import { Injectable } from "@angular/core";
+import { Products } from '../footer/products';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 export class SharedDataService {

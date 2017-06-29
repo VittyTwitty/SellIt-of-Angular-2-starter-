@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthService } from "../../core/auth.service";
-import { User } from "../models/user.model";
-import { Subscription } from "rxjs/Subscription";
-import { FormControl, FormGroup, FormBuilder } from "@angular/forms";
-import { UserChangeService } from "../../core/user-change.service";
-import { DataSvgService } from "../services/data-svg.service";
+import { AuthService } from '../../core/auth.service';
+import { User } from '../models/user.model';
+import { Subscription } from 'rxjs/Subscription';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { UserChangeService } from '../../core/user-change.service';
+import { DataSvgService } from '../services/data-svg.service';
 
 @Component({
     selector: 'sellit-profile',
@@ -93,12 +93,12 @@ export class ProfileComponent {
     closePopup() {
         let closingElem = document.getElementById('profile_img-change--popup');
 
-        closingElem.style.display = "none";
+        closingElem.style.display = 'none';
     }
 
     openPopup() {
         let closingElem = document.getElementById('profile_img-change--popup');
-        closingElem.style.display = "block";
+        closingElem.style.display = 'block';
     }
 
 

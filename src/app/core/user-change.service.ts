@@ -14,7 +14,7 @@ export class UserChangeService {
     API_PATH: string;
 
     constructor(private http: Http, private authService: AuthService, private session: Session) {
-        this.API_PATH = 'http://fe-kurs.light-it.net:38000/api';
+        this.API_PATH = 'http://fe-kurs.light-it.loc:38000/api';
         this.currentUser = this.authService.userTokenDate();
     }
 

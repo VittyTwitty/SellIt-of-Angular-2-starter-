@@ -1,7 +1,7 @@
-import { Injectable } from "@angular/core";
-import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot, Router, CanActivateChild } from "@angular/router";
-import { AuthService } from "../../core/auth.service";
-import { Observable } from "rxjs/Observable";
+import { Injectable } from '@angular/core';
+import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot, Router, CanActivateChild } from '@angular/router';
+import { AuthService } from '../../core/auth.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -32,7 +32,7 @@ export class AuthGuard implements CanActivate {
                         }
                     ]
                 )
-            console.log("Иди логинься");
+            console.log('Иди логинься');
             return false;
         }
     }

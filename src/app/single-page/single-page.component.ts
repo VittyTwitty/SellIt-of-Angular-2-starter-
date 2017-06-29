@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router, ParamMap } from "@angular/router";
+import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router';
 
 
-import { Observable, Subscription } from "rxjs/";
-import { Products } from "../shared/footer/products";
-import { products } from "../shared/main.service";
-import { SharedDataService } from "../shared/services/shred-data.service";
-import { ProductService } from "../shared/services/sellit-product.service";
+import { Observable, Subscription } from 'rxjs/';
+import { Products } from '../shared/footer/products';
+import { products } from '../shared/main.service';
+import { SharedDataService } from '../shared/services/shred-data.service';
+import { ProductService } from '../shared/services/sellit-product.service';
 
 @Component({
     selector: 'single-page',

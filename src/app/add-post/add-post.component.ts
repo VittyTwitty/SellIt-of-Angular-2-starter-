@@ -1,14 +1,14 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { validateName } from "../shared/directives/validators/validator-name.directive";
-import { validatePrice } from "../shared/directives/validators/validator-price.directive";
-import { validatePhone } from "../shared/directives/validators/validator-phone.directive";
-import { validateFotoPicker } from "../shared/directives/validators/validator-photo-picker.directive";
-import { AuthService } from "../core/auth.service";
-import { User } from "../shared/models/user.model";
-import { Http } from "@angular/http";
-import { Router } from "@angular/router";
-import { DataSvgService } from "../shared/services/data-svg.service";
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { validateName } from '../shared/directives/validators/validator-name.directive';
+import { validatePrice } from '../shared/directives/validators/validator-price.directive';
+import { validatePhone } from '../shared/directives/validators/validator-phone.directive';
+import { validateFotoPicker } from '../shared/directives/validators/validator-photo-picker.directive';
+import { AuthService } from '../core/auth.service';
+import { User } from '../shared/models/user.model';
+import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+import { DataSvgService } from '../shared/services/data-svg.service';
 
 @Component({
     selector: 'sellit-add-post',

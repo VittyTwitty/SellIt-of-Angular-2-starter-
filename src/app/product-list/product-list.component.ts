@@ -1,14 +1,14 @@
-import { Component, HostListener, OnInit } from "@angular/core";
+import { Component, HostListener, OnInit } from '@angular/core';
 
-import { products } from "../shared/main.service";
+import { products } from '../shared/main.service';
 
 import $ from 'jquery';
 
 
-import { Products } from "../shared/footer/products";
-import { Router } from "@angular/router";
-import { ProductService } from "../shared/services/sellit-product.service";
-import { RandomPhotoService } from "../shared/services/random-photo.service";
+import { Products } from '../shared/footer/products';
+import { Router } from '@angular/router';
+import { ProductService } from '../shared/services/sellit-product.service';
+import { RandomPhotoService } from '../shared/services/random-photo.service';
 
 @Component({
     selector: 'product-list',

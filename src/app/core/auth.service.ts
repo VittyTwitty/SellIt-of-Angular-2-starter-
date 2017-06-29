@@ -1,10 +1,10 @@
-import { Injectable, OnInit } from "@angular/core";
-import { Http, Response, Headers, RequestOptions } from "@angular/http";
-import { Observable } from "rxjs/Observable";
-import { User } from "../shared/models/user.model";
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
-import { CookieService } from "angular2-cookie/core";
-import { Session } from "./session";
+import { Injectable, OnInit } from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { User } from '../shared/models/user.model';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { CookieService } from 'angular2-cookie/core';
+import { Session } from './session';
 
 @Injectable()
 export class AuthService {
@@ -13,7 +13,7 @@ export class AuthService {
     private API_PATH = '';
 
     constructor(private http: Http, private session: Session) {
-        this.API_PATH = 'http://fe-kurs.light-it.net:38000/api';
+        this.API_PATH = 'http://fe-kurs.light-it.loc:38000/api';
         // this.loggedIn = !!localStorage.getItem('auth_token');
     }
 

@@ -2,7 +2,7 @@
 
     <a [routerLink]="['single-item', item.id]">
         <div class="product-item__bacground">
-            <img src="{{ item?.photo }}" alt="Одежда">
+            <img [src]="item?.image" alt="Одежда">
         </div>
         <div class="product-item__bottom">
             <span>{{ item?.title }}</span>

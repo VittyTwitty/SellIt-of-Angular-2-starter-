@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
-import { Subject } from "rxjs/Subject";
-import { SearchService } from "../../../core/search.service";
-import { Products } from "../../footer/products";
-import { PostService } from "../../../core/posts.service";
+import { Component } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { SearchService } from '../../../core/search.service';
+import { Products } from '../../footer/products';
+import { PostService } from '../../../core/posts.service';
 
 @Component({
     selector: 'sellit-search',

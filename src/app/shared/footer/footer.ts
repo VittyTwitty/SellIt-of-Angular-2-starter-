@@ -7,6 +7,7 @@ import { Response } from '@angular/http';
     styleUrls: ['footer.scss']
 })
 
+// tslint:disable-next-line:component-class-suffix
 export class Footer /*implements OnInit */{
 
   /*  public user: User;

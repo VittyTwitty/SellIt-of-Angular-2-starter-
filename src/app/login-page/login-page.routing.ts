@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 
 import { DataResolver } from './app.resolver';
-import { LoginPageComponent } from "./login-page.component";
-import { SignInComponent } from "./sign-in/sign-in.component";
-import { SignUpComponent } from "./sign-up/sign-up.component";
+import { LoginPageComponent } from './login-page.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 
@@ -18,8 +18,9 @@ export const loginRoutes: Routes = [
             path: 'sellit-sign-up',
             component: SignUpComponent,
             outlet: 'sellit-login-registr'
-        }]    
+        }]
     }
 
 
+// tslint:disable-next-line:eofline
 ];

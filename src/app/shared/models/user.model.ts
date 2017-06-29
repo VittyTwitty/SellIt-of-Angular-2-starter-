@@ -1,4 +1,4 @@
-import { ConfigService } from "../services/config.service";
+import { ConfigService } from '../services/config.service';
 
 export class User {
   public avatar: any;

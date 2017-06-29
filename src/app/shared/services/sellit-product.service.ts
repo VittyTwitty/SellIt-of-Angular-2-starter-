@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { Http, Response, URLSearchParams } from '@angular/http';
 
 import 'rxjs/add/operator/map';
-import { Observable } from "rxjs/Observable";
-import { Products } from "../footer/products";
+import { Observable } from 'rxjs/Observable';
+import { Products } from '../footer/products';
 
 
 @Injectable()
@@ -29,7 +29,7 @@ export class ProductService {
     public getUsersList(offsetOfQuery: number | string = 0): Observable<Products[]> {
         this.offsetOfQuery = offsetOfQuery;
 
-        return this.http.get(this.productsHomeURL, { search: this.getParams() })
+        return this.http.get(this.productsLabsURL, { search: this.getParams() })
             .map((response: Response) => {
 
                 let data = response.json().results;
@@ -44,7 +44,7 @@ export class ProductService {
     }
     public getProductsListAll(): Observable<Products[]> {     
 
-        return this.http.get(this.productsHomeURL)
+        return this.http.get(this.productsLabsURL)
             .map((response: Response) => {
 
                 let data = response.json();
@@ -61,7 +61,7 @@ export class ProductService {
     getProduct(id: number) {
         this.id = id;
 
-        return this.http.get(this.productsHomeURL + this.id).map((response: Response) => {
+        return this.http.get(this.productsLabsURL + this.id).map((response: Response) => {
             let responseProduct = response.json();
           
             return new Products(responseProduct)

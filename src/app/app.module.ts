@@ -34,39 +34,39 @@ import { XLargeDirective } from './home/x-large';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { SinglePageComponent } from './single-page/single-page.component';
-import { SliderComponent } from "./single-page/slider/slider.component";
-import { SignUpComponent } from "./login-page/sign-up/sign-up.component";
-import { SignInComponent } from "./login-page/sign-in/sign-in.component";
+import { SliderComponent } from './single-page/slider/slider.component';
+import { SignUpComponent } from './login-page/sign-up/sign-up.component';
+import { SignInComponent } from './login-page/sign-in/sign-in.component';
 
 
-import { ProductService } from "./shared/services/sellit-product.service";
+import { ProductService } from './shared/services/sellit-product.service';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
-import { BtnScrollTopComponent } from "./shared/button-scrolltop/button-scrolltop.component";
-import { ScrollTopDirective } from "./shared/directives/scroll-top.directive";
-import { ScrollPushItemsDirective } from "./shared/directives/scroll-push.directive";
+import { BtnScrollTopComponent } from './shared/button-scrolltop/button-scrolltop.component';
+import { ScrollTopDirective } from './shared/directives/scroll-top.directive';
+import { ScrollPushItemsDirective } from './shared/directives/scroll-push.directive';
 
 
-import { ChatComponent } from "./shared/chat/chat.component";
-import { LoginPageModule } from "./login-page/login-page.module";
-import { SharedModule } from "./shared/shared.module";
-import { AddPostModule } from "./add-post/add-post.module";
-import { RandomPhotoService } from "./shared/services/random-photo.service";
-import { AuthService } from "./core/auth.service";
+import { ChatComponent } from './shared/chat/chat.component';
+import { LoginPageModule } from './login-page/login-page.module';
+import { SharedModule } from './shared/shared.module';
+import { AddPostModule } from './add-post/add-post.module';
+import { RandomPhotoService } from './shared/services/random-photo.service';
+import { AuthService } from './core/auth.service';
 
 import { CookieService } from 'angular2-cookie/core';
-import { UserLoginService } from "./shared/services/user-auth.service";
-import { StipHttp } from "./core/stip-http";
-import { Session } from "./core/session";
-import { CommonModule } from "@angular/common";
-import { AuthGuard } from "./shared/guards/auth-guard.service";
-import { UserChangeService } from "./core/user-change.service";
-import { ConfigService } from "./shared/services/config.service";
-import { DataSvgService } from "./shared/services/data-svg.service";
-import { SearchService } from "./core/search.service";
-import { PostService } from "./core/posts.service";
-import { SortComponent } from "./product-list/sort/sort.component";
+import { UserLoginService } from './shared/services/user-auth.service';
+import { StipHttp } from './core/stip-http';
+import { Session } from './core/session';
+import { CommonModule } from '@angular/common';
+import { AuthGuard } from './shared/guards/auth-guard.service';
+import { UserChangeService } from './core/user-change.service';
+import { ConfigService } from './shared/services/config.service';
+import { DataSvgService } from './shared/services/data-svg.service';
+import { SearchService } from './core/search.service';
+import { PostService } from './core/posts.service';
+import { SortComponent } from './product-list/sort/sort.component';
 
 
 
