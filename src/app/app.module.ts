@@ -64,6 +64,9 @@ import { AuthGuard } from "./shared/guards/auth-guard.service";
 import { UserChangeService } from "./core/user-change.service";
 import { ConfigService } from "./shared/services/config.service";
 import { DataSvgService } from "./shared/services/data-svg.service";
+import { SearchService } from "./core/search.service";
+import { PostService } from "./core/posts.service";
+import { SortComponent } from "./product-list/sort/sort.component";
 
 
 
@@ -95,6 +98,7 @@ type StoreType = {
     SinglePageComponent,
     BtnScrollTopComponent,
     SliderComponent,
+    SortComponent,
     //SignInComponent,
     //SignUpComponent,
     ChatComponent,
@@ -128,7 +132,9 @@ type StoreType = {
     ConfigService,
     CookieService,
     DataSvgService,
+    SearchService,
     Session,
+    PostService,
     {
       provide: Http,
       useClass: StipHttp,

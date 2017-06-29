@@ -1,0 +1,6 @@
+<select  class="sort-selector" [ngModel]="selectProductSort" (ngModelChange)="onChangeObj($event)" name="sel3">
+    <option *ngFor="let dev of productSort" [ngValue]="dev">{{dev.name}}</option>
+  </select>
+  
+
+<!--<button (click)="sortByPrice()">SORT TEST</button>-->

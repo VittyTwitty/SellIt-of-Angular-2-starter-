@@ -42,6 +42,21 @@ export class ProductService {
             });
 
     }
+    public getProductsListAll(): Observable<Products[]> {     
+
+        return this.http.get(this.productsHomeURL)
+            .map((response: Response) => {
+
+                let data = response.json();
+                let mainArr = [];
+                data.forEach((index) => {
+                    mainArr.push(new Products(index));
+                });
+
+                return mainArr;
+            });
+
+    }
 
     getProduct(id: number) {
         this.id = id;

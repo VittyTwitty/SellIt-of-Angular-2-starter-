@@ -20,40 +20,7 @@
   }
 }
 
-.search-form {
-  position: relative;
-  width: 450px;
-  float: left;
-  height: 30px;
-  border: none;
-  border-bottom: 1px solid $main-color;
-  margin-left: 115px;
-  margin-top: 15px;
-  &__find {
-    width: 5%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0);
-    border: none;
-    float: left;
-    text-align: center;
-    cursor: pointer;
-    transition: all $main-time;
-    &:hover {
-      color: $main-color;
-    }
-  }
-  &__input {
-    border: none;
-    width: 95%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    color: #4a4a4a;
-    font-size: 0.875em;
-    background-color: rgba(255, 255, 255, 0);
-  }
 
-}
 
 .user-button {
   display: flex;

@@ -41,7 +41,6 @@ export class Header implements OnInit, OnDestroy {
         this.userChangeService.getProfile()
             .then(data => {
                 this.currentOnline = data;
-                console.log(this.currentOnline)
             })
 
         this.sub = this.authService.authListener()
@@ -68,7 +67,7 @@ export class Header implements OnInit, OnDestroy {
                         }
                     ]
                 )
-                // console.log(data);
+                
             });
     }
 

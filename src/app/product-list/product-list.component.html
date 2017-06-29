@@ -1,6 +1,7 @@
 <sellit-header></sellit-header>
 <div class="s-content" scrollPushItems (nextPage)="pushProducts()">
    
+   <sellit-sort></sellit-sort>
     <div class="s-content__inner">
         <product-item *ngFor="let prod of products" [item]="prod"></product-item>
     </div>

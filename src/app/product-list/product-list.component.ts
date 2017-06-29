@@ -28,7 +28,9 @@ export class ProductListComponent implements OnInit {
     public ngOnInit() {
         this.productService.getUsersList().subscribe((data) => {
             this.products = data;
-        });        
+            console.log(this.products);  
+        });    
+          
     }
     public pushProducts() {
         if (this.respFlag) {

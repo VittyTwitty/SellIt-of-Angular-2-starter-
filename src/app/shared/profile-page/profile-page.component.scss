@@ -257,4 +257,39 @@ img {
         }
        
     }
+
+    &_lastpost {
+        margin-top: 20px;     
+        width: 70%;
+        h4 {
+            text-align: center;
+            font-size: 1.2em;   
+            margin-bottom: 10px;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            li {
+                display: flex;  
+                justify-content: space-between;  
+                align-items: center;
+                height: 40px;
+                border: 1px solid #fff;
+                margin-bottom: 5px;
+                div{
+                    width: 30%;
+                }       
+                span {
+                    display: inline-block;
+                    width: 10%;
+                    cursor: pointer;
+                    &:hover {
+                        color: red;
+                    }
+                }                
+            }
+
+        }
+        
+    }
 }

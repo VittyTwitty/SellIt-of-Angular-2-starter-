@@ -16,6 +16,7 @@ import { RouterModule } from "@angular/router";
 import { OpenButtonDirective } from "./directives/open-button.directive";
 import { CloseButtonDirective } from "./directives/close-button.directive";
 import { SafePipe } from "./pipes/valuePipe";
+import { SearchComponent } from "./header/search/search.component";
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { SafePipe } from "./pipes/valuePipe";
         CloseButtonDirective,
         Header,
         Footer,
+        SearchComponent,        
         ProfileComponent,
         SafePipe
     ],
@@ -47,6 +49,7 @@ import { SafePipe } from "./pipes/valuePipe";
         CloseButtonDirective,
         FormsModule,
         CommonModule,
+        SearchComponent,
         Header,
         Footer,
         ProfileComponent

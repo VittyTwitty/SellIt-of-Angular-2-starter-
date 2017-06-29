@@ -22,7 +22,7 @@
 
             <form [formGroup]="addAvatarForm" (submit)="addAvatar($event, formAdd)" class="add-photo" #formAdd='ngForm'>
                 <div class="profile_settings-upload">
-                    <label >
+                    <label>
                         <span id="change_avatar">Choose avatar</span>
                         <img id="change_avatar-img" src="" alt="">
                         <input type="file" name="profile_photo" (change)="changeListenerImg($event)"/>
@@ -50,6 +50,25 @@
             <li>Заец азиат уходит в закат</li>
         </ul>
 
+        <div class="profile_lastpost">
+            <h4>Last posts</h4>
+            <ul>
+                <li>
+                    <div class="profile_lastpost-img">img </div>
+                    <div class="profile_lastpost-title">title </div>
+                    <div class="profile_lastpost-price">200$ </div>
+                    <span class="profile_lastpost-close">x </span>
+                </li>
+                <li>
+                    <div class="profile_lastpost-img">img </div>
+                    <div class="profile_lastpost-title">title </div>
+                    <div class="profile_lastpost-price">200$ </div>
+                    <span class="profile_lastpost-close">x </span>
+                </li>
+            </ul>
+
+        </div>
+
         <div class="profile_close" closeButton>
             <div class="profile_close--triangle-top"></div>
             <div class="profile_close--center">
@@ -71,6 +90,8 @@
             </div>
 
         </div>
+
+
 
         <div class="profile_settings-inner">
 

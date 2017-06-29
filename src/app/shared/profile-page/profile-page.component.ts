@@ -29,12 +29,10 @@ export class ProfileComponent {
 
     ngOnInit() {
         this.onlineUser = this.authService.userTokenDate();
-        (this.onlineUser) ? this.loggedInUser = true : this.loggedInUser = false;
-        console.log(this.onlineUser);
+        (this.onlineUser) ? this.loggedInUser = true : this.loggedInUser = false;    
+        console.log(this.onlineUser)  
 
-        this.settingsIcon = this.dataSvgService.svgChooser('profileSettings')
-
-
+        this.settingsIcon = this.dataSvgService.svgChooser('profileSettings');
 
         this.sub = this.authService.authListener()
             .subscribe(
@@ -87,7 +85,6 @@ export class ProfileComponent {
         this.userChangeService.postPhoto(this.fD)
             .then(data => {
                 this.onlineUser = data;
-                console.log(this.onlineUser)
             })
 
 
@@ -97,7 +94,6 @@ export class ProfileComponent {
         let closingElem = document.getElementById('profile_img-change--popup');
 
         closingElem.style.display = "none";
-        console.log('qwqwq')
     }
 
     openPopup() {
