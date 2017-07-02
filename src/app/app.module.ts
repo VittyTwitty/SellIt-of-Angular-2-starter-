@@ -63,6 +63,7 @@ import { DataSvgService } from './shared/services/data-svg.service';
 import { SearchService } from './core/search.service';
 import { PostService } from './core/posts.service';
 import { SortComponent } from './product-list/sort/sort.component';
+import { TransferService } from "./core/transfer.service";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -123,6 +124,7 @@ type StoreType = {
     SearchService,
     Session,
     PostService,
+    TransferService,
     {
       provide: Http,
       useClass: StipHttp,

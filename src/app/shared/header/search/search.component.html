@@ -1,14 +1,16 @@
-<div class="header-find">
-    <input class="header-find_input" (keyup)="searchTerm$.next($event.target.value)" placeholder="Find something">
+<!--<div class="header-find" (keyup)="searchTerm$.next($event.target.value)">-->
+<div class="header-find" >
+    <input #searchBox class="header-find_input" (keyup)="search(searchBox.value)" placeholder="Find something">
     <!--<button (click)="searchTerm$.next($event.target.value)">test</button>
     <button (click)="deletePost()">testPost</button>
     <button (click)="deletePhoto()">testPhoto</button>-->
 
-    <ul class="header-find_dropdown" *ngIf="results">
+    <ul class="header-find_dropdown" *ngIf="searchFlag">
         <li *ngFor="let result of results | slice:0:9">
             <a [routerLink]="['single-item', result.id]">
                 {{ result.title }}
             </a>
         </li>
     </ul>
+    
 </div>

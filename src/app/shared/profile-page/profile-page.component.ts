@@ -88,12 +88,12 @@ export class ProfileComponent {
     public closePopup() {
         let closingElem = document.getElementById('profile_img-change--popup');
 
-        closingElem.style.display = 'none';
+        closingElem.style.top = '-200px';
     }
 
     public openPopup() {
         let closingElem = document.getElementById('profile_img-change--popup');
-        closingElem.style.display = 'block';
+        closingElem.style.top = '0';
     }
 
 

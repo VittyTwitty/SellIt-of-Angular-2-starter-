@@ -31,7 +31,9 @@
 
                 <button type="submit">Add avatar</button>
             </form>
-            <span class="close-popup" (click)="closePopup()">X</span>
+            <span class="close-popup" (click)="closePopup()">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
         </div>
         <div class="profile_name">{{currentUser?.username}}</div>
         <ul class="profile_purchases">

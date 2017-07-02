@@ -5,23 +5,24 @@ import { User } from '../shared/models/user.model';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { CookieService } from 'angular2-cookie/core';
 import { Session } from './session';
+import { ConfigService } from "../shared/services/config.service";
 
 @Injectable()
 export class AuthService {
 
-    private subject = new BehaviorSubject(this.loggedIn());
-    private API_PATH = '';
-    private redirectUrl: string;
+    public subject = new BehaviorSubject(this.loggedIn());
+    public API_PATH = '';
+    public redirectUrl: string;
 
-    constructor(private http: Http, private session: Session) {
-        this.API_PATH = 'http://fe-kurs.light-it.loc:38000/api';
+    constructor(private http: Http, private session: Session, private configService: ConfigService) {
+        this.API_PATH = this.configService.mainSrc;
         // this.loggedIn = !!localStorage.getItem('auth_token');
     }
 
     public login(data) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post(`${this.API_PATH}/login/`, JSON.stringify(data), { headers })
+        return this.http.post(`${this.API_PATH}login/`, JSON.stringify(data), { headers })
             .map((response: Response) => {
                 let userPerson = response.json();
                 let token = userPerson.token;
@@ -37,7 +38,7 @@ export class AuthService {
     }
 
     public photos(data) {
-        return this.http.post(`${this.API_PATH}/photo/`, data)
+        return this.http.post(`${this.API_PATH}photo/`, data)
             .map((response: Response) => {
                 let photo = response.json();
                 let arrPhotos = [];
@@ -49,7 +50,7 @@ export class AuthService {
     }
 
     public profilePhoto(data) {
-        return this.http.post(`${this.API_PATH}/profile_photo/`, data)
+        return this.http.post(`${this.API_PATH}profile_photo/`, data)
             .map((response: Response) => {
                 let profilePhoto = response.json();
                 console.log(profilePhoto);
@@ -58,14 +59,14 @@ export class AuthService {
     }
 
     public addPost(data) {
-        return this.http.post(`${this.API_PATH}/poster/`, data)
+        return this.http.post(`${this.API_PATH}poster/`, data)
             .map((response: Response) => {
                 return response.json();
             });
     }
 
     public logout() {
-        return this.http.post(`${this.API_PATH}/logout/`, '')
+        return this.http.post(`${this.API_PATH}logout/`, '')
             .map((response: Response) => {
                 // this.cookieService.remove('userId');
                 // this.cookieService.remove('userToken');
@@ -77,7 +78,7 @@ export class AuthService {
     }
 
     public signup(data) {
-        return this.http.post(`${this.API_PATH}/signup/`, data)
+        return this.http.post(`${this.API_PATH}signup/`, data)
             .map((response: Response) => {
                 // console.log(response.json());
                 return response.json();
