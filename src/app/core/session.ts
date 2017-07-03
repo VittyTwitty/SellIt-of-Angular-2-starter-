@@ -9,7 +9,6 @@ export class Session {
 
     }
 
-
     public get sessionToken() {
         return this.cookieService.get('userToken');
     }
@@ -27,6 +26,4 @@ export class Session {
     public set user(data) {
         localStorage.setItem('auth_token', JSON.stringify(data.getUser()));
     }
-
-
 }

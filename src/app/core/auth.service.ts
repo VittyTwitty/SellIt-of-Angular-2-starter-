@@ -5,7 +5,7 @@ import { User } from '../shared/models/user.model';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { CookieService } from 'angular2-cookie/core';
 import { Session } from './session';
-import { ConfigService } from "../shared/services/config.service";
+import { ConfigService } from '../shared/services/config.service';
 
 @Injectable()
 export class AuthService {

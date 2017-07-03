@@ -5,7 +5,7 @@ import { AuthService } from './auth.service';
 import 'rxjs/add/operator/toPromise';
 import { User } from '../shared/models/user.model';
 import { Session } from './session';
-import { ConfigService } from "../shared/services/config.service";
+import { ConfigService } from '../shared/services/config.service';
 
 @Injectable()
 
@@ -29,7 +29,6 @@ export class UserChangeService {
                 return profile;
             }).toPromise();
     }
-
 
     // .map((response: Response) => {
     //     let photo = response.json();
@@ -66,6 +65,5 @@ export class UserChangeService {
                     });
             });
     }
-
 
 }

@@ -1,12 +1,11 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { UserLoginService } from "../services/user-auth.service";
-import { User } from "../models/user.model";
+import { UserLoginService } from '../services/user-auth.service';
+import { User } from '../models/user.model';
 import { AuthService } from '../../core/auth.service';
-import { Router } from "@angular/router";
-import { Subscription } from "rxjs/Subscription";
-import { UserChangeService } from "../../core/user-change.service";
-import { DataSvgService } from "../services/data-svg.service";
-
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import { UserChangeService } from '../../core/user-change.service';
+import { DataSvgService } from '../services/data-svg.service';
 
 @Component({
     selector: 'sellit-header',
@@ -28,7 +27,6 @@ export class Header implements OnInit, OnDestroy {
 
     constructor(private dataSvgService: DataSvgService, private userChangeService: UserChangeService, private authService: AuthService, private router: Router) {
 
-
     }
 
     public ngOnInit() {
@@ -40,7 +38,7 @@ export class Header implements OnInit, OnDestroy {
         this.userChangeService.getProfile()
             .then((data) => {
                 this.currentOnline = data;
-            })
+            });
 
         this.sub = this.authService.authListener()
             .subscribe(

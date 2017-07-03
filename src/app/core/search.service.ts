@@ -20,14 +20,12 @@ export class SearchService {
             .switchMap((term) => this.searchEntries(term));
     }
 
-   
-
     public searchEntries(term) {
         return this.http
             .get(`${this.API_PATH}poster/?search=` + term)
             .map((res) => {
                 let prodSearch = res.json();
-                //console.log(term);
+                // console.log(term);
                 // let a;
                 // for (let property in prodSearch) {
                 //     a = prodSearch[property].title;

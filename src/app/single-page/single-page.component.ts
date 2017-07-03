@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params, Router, ParamMap } from '@angular/router';
-
 
 import { Observable, Subscription } from 'rxjs/';
 import { Products } from '../shared/footer/products';
@@ -15,8 +14,7 @@ import { ProductService } from '../shared/services/sellit-product.service';
     providers: [ProductService]
 })
 
-export class SinglePageComponent implements OnInit {
-
+export class SinglePageComponent implements OnInit, OnDestroy {
 
     public sub: Subscription;
     public products: any = {};
@@ -42,6 +40,5 @@ export class SinglePageComponent implements OnInit {
     public ngOnDestroy() {
         this.sub.unsubscribe();
     }
-
 
 }

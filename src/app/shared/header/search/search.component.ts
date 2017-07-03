@@ -3,9 +3,9 @@ import { Subject } from 'rxjs/Subject';
 import { SearchService } from '../../../core/search.service';
 import { Products } from '../../footer/products';
 import { PostService } from '../../../core/posts.service';
-import { TransferService } from "../../../core/transfer.service";
-import { Observable } from "rxjs/Observable";
-import { Subscription } from "rxjs/Subscription";
+import { TransferService } from '../../../core/transfer.service';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
     selector: 'sellit-search',
@@ -15,9 +15,9 @@ import { Subscription } from "rxjs/Subscription";
 })
 
 export class SearchComponent implements OnInit {
-    sub: Subscription;
+    public sub: Subscription;
     public searchFlag: boolean = false;
-    results: Object = null;
+    public results: Object = null;
 
     public ddd: string = '112';
 
@@ -33,7 +33,7 @@ export class SearchComponent implements OnInit {
                 } else {
                     this.searchFlag = true;
                 }
-            })
+            });
 
     }
 
@@ -44,13 +44,12 @@ export class SearchComponent implements OnInit {
     public ngOnInit() {
         this.searchService.search(this.searchValue())
             .subscribe((res) => {
-                console.log(res)
+                console.log(res);
                 this.results = res;
-
             });
     }
 
-    searchValue(): Observable<string> {
+    public searchValue(): Observable<string> {
         return this.transferService.getResults();
     }
 

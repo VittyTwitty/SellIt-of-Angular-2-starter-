@@ -22,7 +22,6 @@ export class SortComponent implements OnInit {
     ];
     public selectProductSort = this.productSort[0];
 
-
     constructor(private productService: ProductService) { }
 
     public ngOnInit() {
@@ -63,6 +62,5 @@ export class SortComponent implements OnInit {
         }
 
     }
-
 
 }

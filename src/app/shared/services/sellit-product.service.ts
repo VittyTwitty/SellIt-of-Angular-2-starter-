@@ -4,15 +4,14 @@ import { Http, Response, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Products } from '../footer/products';
-import { ConfigService } from "./config.service";
-
+import { ConfigService } from './config.service';
 
 @Injectable()
 export class ProductService {
     private offset: number | string = 0;
 
     private id: string | number;
-    
+
      private API_PATH: string;
 
     private limitOfQuery: number = 16;
@@ -27,7 +26,7 @@ export class ProductService {
         let params: URLSearchParams = new URLSearchParams();
         params.set('limit', `${this.limitOfQuery}`);
         params.set('offset', `${this.offsetOfQuery}`);
-        params.set('search', `${this.searchQuery}`)
+        params.set('search', `${this.searchQuery}`);
         return params;
     }
 
@@ -70,7 +69,7 @@ export class ProductService {
         return this.http.get(this.API_PATH + 'poster' + this.id).map((response: Response) => {
             let responseProduct = response.json();
 
-            return new Products(responseProduct)
+            return new Products(responseProduct);
 
         });
     }

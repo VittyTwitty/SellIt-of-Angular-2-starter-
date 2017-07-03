@@ -1,19 +1,18 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild, OnDestroy } from '@angular/core';
 
 import { products } from '../shared/main.service';
 
 import $ from 'jquery';
 
-
 import { Products } from '../shared/footer/products';
 import { Router } from '@angular/router';
 import { ProductService } from '../shared/services/sellit-product.service';
 import { RandomPhotoService } from '../shared/services/random-photo.service';
-import { SearchService } from "../core/search.service";
-import { Subscription } from "rxjs/Subscription";
-import { Subject } from "rxjs/Subject";
-import { SearchComponent } from "../shared/header/search/search.component";
-import { TransferService } from "../core/transfer.service";
+import { SearchService } from '../core/search.service';
+import { Subscription } from 'rxjs/Subscription';
+import { Subject } from 'rxjs/Subject';
+import { SearchComponent } from '../shared/header/search/search.component';
+import { TransferService } from '../core/transfer.service';
 
 @Component({
     selector: 'product-list',
@@ -22,18 +21,15 @@ import { TransferService } from "../core/transfer.service";
 
 })
 
-export class ProductListComponent implements OnInit {
-    isEmpty: boolean = false;
+export class ProductListComponent implements OnInit, OnDestroy {
+    public isEmpty: boolean = false;
 
-
-    sub: Subscription;
+    public sub: Subscription;
     public photosRandom: any[];
     public offsetStep: number = 0;
     public respFlag: boolean = true;
     public searchQuery: any = null;
     private products: Products[];
-
-
 
     constructor(
         private productService: ProductService,
@@ -42,7 +38,6 @@ export class ProductListComponent implements OnInit {
         private transferService: TransferService
     ) {
         this.sub = this.transferService.getResults().subscribe((res) => {
-            //console.log("dsdsd " + res);
             this.products = [];
             if (res.length === 0) {
                 this.pushDefault();
@@ -50,7 +45,7 @@ export class ProductListComponent implements OnInit {
                 this.searchQuery = res;
                 this.pushSearch(this.searchQuery);
             }
-        })
+        });
 
     }
 
@@ -80,7 +75,7 @@ export class ProductListComponent implements OnInit {
         this.productService.getUsersList(0, this.searchQuery).subscribe((res) => {
             res.forEach((prod) => {
                 this.products.push(prod);
-            });           
+            });
         });
     }
 
@@ -89,7 +84,7 @@ export class ProductListComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.pushDefault()
+        this.pushDefault();
     }
     public ngOnDestroy() {
         this.sub.unsubscribe();

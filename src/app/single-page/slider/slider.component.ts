@@ -10,6 +10,6 @@ import { SinglePageComponent } from '../single-page.component';
 export class SliderComponent {
     @Input() public photos;
     constructor () {
-        console.log("FOTO " + this.photos);
+        console.log('FOTO ' + this.photos);
     }
 }

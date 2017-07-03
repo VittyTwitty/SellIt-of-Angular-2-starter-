@@ -1,6 +1,5 @@
 import { Directive, HostListener, EventEmitter, Output } from '@angular/core';
 
-
 import $ from 'jquery';
 
 @Directive({

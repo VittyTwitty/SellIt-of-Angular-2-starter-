@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { User } from '../models/user.model';
 import { Subscription } from 'rxjs/Subscription';
@@ -12,7 +12,7 @@ import { DataSvgService } from '../services/data-svg.service';
     styleUrls: ['profile-page.component.scss']
 })
 
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
     public settingsIcon: string;
 
     public currentUser: User;
@@ -24,7 +24,6 @@ export class ProfileComponent {
     public addAvatarForm: FormGroup = new FormGroup({
         profile_photo: new FormControl('')
     });
-
 
     constructor(private dataSvgService: DataSvgService, private userChangeService: UserChangeService, private authService: AuthService) {
 
@@ -76,12 +75,10 @@ export class ProfileComponent {
             }
         }
 
-
         this.userChangeService.postPhoto(this.fD)
             .then((data) => {
                 this.onlineUser = data;
             });
-
 
     }
 
@@ -95,7 +92,5 @@ export class ProfileComponent {
         let closingElem = document.getElementById('profile_img-change--popup');
         closingElem.style.top = '0';
     }
-
-
 
 }
