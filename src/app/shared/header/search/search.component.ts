@@ -44,7 +44,7 @@ export class SearchComponent implements OnInit {
     public ngOnInit() {
         this.searchService.search(this.searchValue())
             .subscribe((res) => {
-                console.log(res);
+                // console.log(res);
                 this.results = res;
             });
     }

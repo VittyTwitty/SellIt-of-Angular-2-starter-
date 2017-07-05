@@ -5,7 +5,7 @@
             <img [src]="item?.image" alt="Одежда">
         </div>
         <div class="product-item__bottom">
-            <span>{{ item?.title }}</span>
+            <span>{{ item?.title | bcRound:15}}</span>
             <i class="fa fa-eye fa"></i>
         </div>
     </a>

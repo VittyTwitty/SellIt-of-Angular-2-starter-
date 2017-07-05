@@ -17,7 +17,8 @@ import { OpenButtonDirective } from './directives/open-button.directive';
 import { CloseButtonDirective } from './directives/close-button.directive';
 import { SafePipe } from './pipes/valuePipe';
 import { SearchComponent } from './header/search/search.component';
-
+import { RoundPipe } from './pipes/roundPipe';
+import { ProfileAnchorDirective } from './directives/validators/profile-anchor.directive';
 
 @NgModule({
     imports: [
@@ -33,11 +34,13 @@ import { SearchComponent } from './header/search/search.component';
         ValidatorPriceDirective,
         OpenButtonDirective,
         CloseButtonDirective,
+        ProfileAnchorDirective,
         Header,
         Footer,
         SearchComponent,
         ProfileComponent,
-        SafePipe
+        SafePipe,
+        RoundPipe
     ],
     exports:
     [
@@ -47,12 +50,15 @@ import { SearchComponent } from './header/search/search.component';
         ValidatorPriceDirective,
         OpenButtonDirective,
         CloseButtonDirective,
+        ProfileAnchorDirective,
         FormsModule,
         CommonModule,
         SearchComponent,
         Header,
         Footer,
-        ProfileComponent
+        ProfileComponent,
+        RoundPipe,
+        SafePipe,
     ]
 })
 

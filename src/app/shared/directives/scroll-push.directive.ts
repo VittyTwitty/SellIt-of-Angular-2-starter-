@@ -15,7 +15,7 @@ export class ScrollPushItemsDirective {
         let x: any = $('.s-content__inner');
         let y: any = $(window);
 
-        if (y.height() + y.scrollTop() >= x.height()) {
+        if (y.height() + y.scrollTop() >= x.height() + 200) {
             this.nextPage.emit();
 
         }

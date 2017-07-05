@@ -19,7 +19,6 @@ export class UserChangeService {
         this.currentUser = this.authService.userTokenDate();
     }
 
-
     public getProfile() {
         return this.http.get(`${this.API_PATH}profile/me`)
             .map((res) => {
@@ -27,6 +26,16 @@ export class UserChangeService {
                 this.session.user = profile;
                 this.authService.signInListener();
                 return profile;
+            }).toPromise();
+    }
+
+    public getProfileId(): any {
+        return this.http.get(`${this.API_PATH}profile/me`)
+            .map((res) => {
+                let profile = new User(res.json());
+                this.session.user = profile;
+                this.authService.signInListener();
+                return profile.id;
             }).toPromise();
     }
 

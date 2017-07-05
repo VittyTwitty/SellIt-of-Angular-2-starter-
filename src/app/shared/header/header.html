@@ -50,12 +50,16 @@
                 <div class="user-button__new-post" routerLink="/sellit-add-post">
                     <span>Add new post</span>
                 </div>
-                <div openButton class="user-button__profile">
+                
+                <div class="user-button__profile" (click)='openDialogBox()'>Profile</div>
+                <!--<div openButton class="user-button__profile">
                     <span>Profile</span>
-                </div>
+                </div>-->
             </div>
 
         </button>
     </div>
-    <sellit-profile id="sellit-profile"></sellit-profile>
+    <div profileAnchor></div>
+    <!--<sellit-profile id="sellit-profile"></sellit-profile>-->
+    <!--<div id="profile-overlay" (click)="onClickedExit()" class="profile-overlay"></div>-->
 </div>

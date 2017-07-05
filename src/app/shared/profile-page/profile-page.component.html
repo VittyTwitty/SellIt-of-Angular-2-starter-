@@ -55,23 +55,20 @@
         <div class="profile_lastpost">
             <h4>Last posts</h4>
             <ul>
-                <li>
-                    <div class="profile_lastpost-img">img </div>
-                    <div class="profile_lastpost-title">title </div>
-                    <div class="profile_lastpost-price">200$ </div>
-                    <span class="profile_lastpost-close">x </span>
-                </li>
-                <li>
-                    <div class="profile_lastpost-img">img </div>
-                    <div class="profile_lastpost-title">title </div>
-                    <div class="profile_lastpost-price">200$ </div>
-                    <span class="profile_lastpost-close">x </span>
+                {{post?.image}}
+                <li *ngFor="let post of postById">
+                    <div class="profile_lastpost-img"><img [src]="post.image" alt="Post photo"> </div>
+                    <div class="profile_lastpost-title">{{post.title| bcRound:13}} </div>
+                    <div class="profile_lastpost-price">{{post.price}} </div>
+                    <span class="profile_lastpost-close">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </span>
                 </li>
             </ul>
 
         </div>
 
-        <div class="profile_close" closeButton>
+        <div class="profile_close" (click)="onClickedExit()">
             <div class="profile_close--triangle-top"></div>
             <div class="profile_close--center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 898.3 898.3">

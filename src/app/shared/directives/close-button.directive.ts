@@ -12,9 +12,14 @@ import $ from 'jquery';
 export class CloseButtonDirective {
 
     private closeClick() {
-        let element = document.getElementById('profile');
-        element.style.right = '-380px';
+        let profile = document.getElementById('profile');
+        let overlay = document.getElementById('profile-overlay');
+
+        profile.style.right = '-380px';
+
+        overlay.style.display = 'none';
+        overlay.style.opacity = '0';
         // element.style.display = 'none';
-        console.log(element.style.right);
+        console.log(profile.style.right);
     }
 }

@@ -32,7 +32,6 @@ export class SinglePageComponent implements OnInit, OnDestroy {
         this.productService.getProduct(this.id).subscribe((items) => {
             this.products = items;
             console.log(this.products);
-
         });
 
     }

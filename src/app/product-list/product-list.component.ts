@@ -22,12 +22,11 @@ import { TransferService } from '../core/transfer.service';
 })
 
 export class ProductListComponent implements OnInit, OnDestroy {
-    public isEmpty: boolean = false;
+    public searchFlag: boolean = false;
 
     public sub: Subscription;
     public photosRandom: any[];
     public offsetStep: number = 0;
-    public respFlag: boolean = true;
     public searchQuery: any = null;
     private products: Products[];
 
@@ -37,20 +36,24 @@ export class ProductListComponent implements OnInit, OnDestroy {
         private searchService: SearchService,
         private transferService: TransferService
     ) {
-        this.sub = this.transferService.getResults().subscribe((res) => {
-            this.products = [];
-            if (res.length === 0) {
-                this.pushDefault();
-            } else {
-                this.searchQuery = res;
-                this.pushSearch(this.searchQuery);
-            }
-        });
+        this.sub = this.transferService.getResults()
+            .subscribe(
+            (res) => {
+                this.products = [];
+                if (res.length === 0) {
+                    this.searchFlag = false;
+                    this.pushDefault();
+                } else {
+                    this.searchFlag = true;
+                    this.searchQuery = res;
+                    this.pushSearch(this.searchQuery);
+                }
+            });
 
     }
 
     public pushProducts() {
-        if (this.respFlag) {
+        if (!this.searchFlag) {
             console.log('Вернуться к пушу продуктов');
             let lengthItems: number = this.products.length;
             this.offsetStep += 16;
@@ -59,24 +62,26 @@ export class ProductListComponent implements OnInit, OnDestroy {
                 res.forEach((prod) => {
                     this.products.push(prod);
                     if (this.products.length === lengthItems) {
-                        this.respFlag = false;
+                        this.searchFlag = false;
                     }
                 });
             });
         }
     }
     public pushDefault() {
-        this.productService.getUsersList().subscribe((data) => {
-            this.products = data;
-            console.log(this.products);
-        });
+        this.productService.getUsersList()
+            .subscribe(
+            (data) => {
+                this.products = data;
+                console.log(this.products);
+            });
     }
     public pushSearch(searchQuery) {
-        this.productService.getUsersList(0, this.searchQuery).subscribe((res) => {
-            res.forEach((prod) => {
-                this.products.push(prod);
+        this.productService.getUsersList(0, this.searchQuery)
+            .subscribe(
+            (res) => {
+                this.products = res;
             });
-        });
     }
 
     public handleSelect(event) {

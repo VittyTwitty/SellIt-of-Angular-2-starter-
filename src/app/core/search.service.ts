@@ -15,7 +15,7 @@ export class SearchService {
     }
 
     public search(terms: Observable<string>) {
-        return terms.debounceTime(400)
+        return terms.debounceTime(300)
             .distinctUntilChanged()
             .switchMap((term) => this.searchEntries(term));
     }

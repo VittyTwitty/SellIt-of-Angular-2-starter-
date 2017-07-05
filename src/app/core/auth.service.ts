@@ -7,6 +7,8 @@ import { CookieService } from 'angular2-cookie/core';
 import { Session } from './session';
 import { ConfigService } from '../shared/services/config.service';
 
+import 'rxjs/add/operator/map';
+
 @Injectable()
 export class AuthService {
 
@@ -42,6 +44,7 @@ export class AuthService {
             .map((response: Response) => {
                 let photo = response.json();
                 let arrPhotos = [];
+                // через тоже светит for(let i in photo){
                 for (let i = 0; i < photo.length; i++) {
                     arrPhotos.push(photo[i].id);
                 }

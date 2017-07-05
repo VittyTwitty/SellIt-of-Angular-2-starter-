@@ -3,6 +3,7 @@ import { Http, Response, URLSearchParams } from '@angular/http';
 
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import { UserChangeService } from '../../core/user-change.service';
 import { Products } from '../footer/products';
 import { ConfigService } from './config.service';
 
@@ -12,13 +13,13 @@ export class ProductService {
 
     private id: string | number;
 
-     private API_PATH: string;
+    private API_PATH: string;
 
     private limitOfQuery: number = 16;
     private offsetOfQuery: number | string = 0;
     private searchQuery: any = null;
 
-    constructor(private http: Http, private configService: ConfigService) {
+    constructor(private userChangeService: UserChangeService, private http: Http, private configService: ConfigService) {
         this.API_PATH = this.configService.mainSrc;
     }
 
@@ -34,7 +35,7 @@ export class ProductService {
         this.offsetOfQuery = offsetOfQuery;
         this.searchQuery = searchQuery;
 
-        return this.http.get(this.API_PATH + 'poster', { search: this.getParams() })
+        return this.http.get(this.API_PATH + 'poster/', { search: this.getParams() })
             .map((response: Response) => {
 
                 let data = response.json().results;
@@ -47,9 +48,10 @@ export class ProductService {
             });
 
     }
+
     public getProductsListAll(): Observable<Products[]> {
 
-        return this.http.get(this.API_PATH + 'poster')
+        return this.http.get(this.API_PATH + 'poster/')
             .map((response: Response) => {
 
                 let data = response.json();
@@ -66,12 +68,31 @@ export class ProductService {
     public getProduct(id: number) {
         this.id = id;
 
-        return this.http.get(this.API_PATH + 'poster' + this.id).map((response: Response) => {
+        return this.http.get(this.API_PATH + 'poster/' + this.id).map((response: Response) => {
             let responseProduct = response.json();
 
             return new Products(responseProduct);
 
         });
+    }
+
+    public getProductByUserId() {
+        return this.userChangeService.getProfileId()
+            .then((res) => {
+                return this.http.get(`${this.API_PATH}poster/`)
+                    .map((response) => {
+                        let data = response.json();
+                        let mainArr = [];
+                        for (let index in data) {
+                            if (res === data[index].author) {
+                                let prodObj = new Products(data[index]);
+                                mainArr.push(prodObj);
+                            }
+                        }
+                        return mainArr;
+
+                    }).toPromise();
+            });
     }
 
 }

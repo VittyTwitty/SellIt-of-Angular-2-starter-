@@ -6,7 +6,7 @@
     <button (click)="deletePhoto()">testPhoto</button>-->
 
     <ul class="header-find_dropdown" *ngIf="searchFlag">
-        <li *ngFor="let result of results | slice:0:9">
+        <li *ngFor="let result of results | slice:0:40">
             <a [routerLink]="['single-item', result.id]">
                 {{ result.title }}
             </a>
