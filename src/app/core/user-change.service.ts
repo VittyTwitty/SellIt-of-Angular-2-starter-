@@ -75,4 +75,21 @@ export class UserChangeService {
             });
     }
 
+    public changePassword(data) {
+        let passwords = {
+            new_password1: data.newPassword1,
+            new_password2: data.newPassword2,
+            old_password: data.oldPassword,
+        };
+        return this.http.post(`${this.API_PATH}change_password/`, passwords)
+            .map((response) => {
+                let password = response.json();
+                console.log(password);
+                return password;
+            }).toPromise()
+            .then((res) => {
+                this.authService.logoutWithChangePass();
+            });
+    }
+
 }

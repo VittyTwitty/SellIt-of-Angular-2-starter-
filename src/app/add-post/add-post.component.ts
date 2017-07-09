@@ -91,11 +91,11 @@ export class AddPostComponent {
 
                     },
                     (error) => {
-                        alert('bad');
+                        alert(`Sorry. This is error: ${error}`);
                     });
             },
             (error) => {
-                console.error(error);
+                alert(`Sorry. This is error: ${error}`);
             });
     }
 }

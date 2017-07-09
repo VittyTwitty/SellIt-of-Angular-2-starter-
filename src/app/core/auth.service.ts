@@ -83,18 +83,18 @@ export class AuthService {
     public signup(data) {
         return this.http.post(`${this.API_PATH}signup/`, data)
             .map((response: Response) => {
-                // console.log(response.json());
                 return response.json();
             });
     }
 
     public loggedIn() {
-        // if (this.session.sessionToken) {
-        //     return true;
-        // } else {
-        //     return false;
-        // }
         return !!this.session.sessionToken;
+    }
+    public logoutWithChangePass() {
+        this.session.sessionToken = null;
+        localStorage.removeItem('auth_token');
+        this.signInListener();
+        return true;
     }
 
     public authListener(): Observable<any> {

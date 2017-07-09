@@ -37,23 +37,10 @@
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px){
   .header {
-    .search-form {
-      width: 400px;
-      &__find {
-        width: 10%
-      }
-      &__input {
-        width: 90%;
-      }
-    }
-    .user-button {
-      width: 240px;
-      padding: 0 5px;
-      &__name {
-        width: 100px;
-      }
-    }
-
+      &-find {
+        width: 20%;
+        margin-left: 5%;
+      }    
   }
 
 
@@ -62,10 +49,22 @@
       height: 180px;
     }
   }
-
-  .add-post {
-    width: 75%;
+  .single-item__background,
+  .single-item__description {
+    width: 400px;
+    height: 400px;
   }
+  .carousel-control-next,
+  .carousel-control-prev {
+    height: 400px;
+  }
+  ngb-carousel.carousel div.carousel-inner {
+    height: 400px;
+  }
+  .single-item__description {
+    margin-left: 30px;
+  }
+ 
 
 }
 
@@ -96,9 +95,20 @@
     }
   }
 
+  .single-item__background,
+  .single-item__description {
+    width: 300px;
+    height: 300px;
+  }  
+  .carousel-control-next,
+  .carousel-control-prev,
+  ngb-carousel.carousel div.carousel-inner {
+    height: 300px;
+  }
 
   .single-item {
       .single-item__description {
+        
         &>h2 {
           font-size: 1.250em;
         }
@@ -108,8 +118,8 @@
       }
   }
 
-  .add-post {
-    width: 90%;
+  .add-post_add-button {
+    height: 2.225em;
   }
 }
 
@@ -128,15 +138,18 @@
     .logo {
       margin-right: 60px;
     }
-    .user-button {
-      width: 210px;
-      margin-left: 25px;
-      padding: 0 10px;
-    }
-    .search-form {
+
+    &-find {
       order: 3;
       flex-grow: 1;
       margin-left: 0;
+      width: 100%;
+      input {
+        padding-left: 10px;
+      }
+    }
+    sellit-search {
+      order: 3;
       width: 100%;
     }
     .user-button__sub {
@@ -159,11 +172,6 @@
     }
 
   }
-
-
-
-
-
   .s-content {
     product-item {
       width: 23%;
@@ -183,10 +191,7 @@
   }
 
   .single-item {
-    .single-item__background {
-      width: 300px;
-      height: 300px;
-    }
+    margin-top: 30px;
     .single-item__description {
       &>h2 {
         font-size: 1.250em;
@@ -209,9 +214,36 @@
   div.s-login_inner {
     width: 100%;
   }
+
+  .single-item__background,
+  .single-item__description {
+    width: 260px;
+    height: 260px;
+  }  
+  .carousel-control-next,
+  .carousel-control-prev,
+  ngb-carousel.carousel div.carousel-inner {
+    height: 260px;
+  }
+
+  .add-post_wrapper {
+    width: 90%;
+  }
+
 }
 
 @media only screen and (max-width : 601px) {
+  .user-button {
+    width: 280px;
+    &__name {
+      width: 155px;
+    }
+  }
+  .logo {
+    margin-right: 0;
+    margin-left: 5px;
+    width: 35px;
+  }
   .s-content {
     product-item {
       width: 48%;
@@ -225,9 +257,31 @@
 
 
   .single-item {
-    .single-item__background {
-      width: 200px;
-      height: 200px;
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+  }
+
+  .single-item__background,
+  .single-item__description {
+    width: 400px;
+    height: 400px;
+  }  
+  .single-item__background {
+    margin-bottom: 30px;
+  }
+  .carousel-control-next,
+  .carousel-control-prev,
+  ngb-carousel.carousel div.carousel-inner {
+    height: 400px;
+  }
+
+  .add-post_wrapper {
+    span,
+    div {
+      font-size: 0.9em;
     }
   }
 
@@ -265,27 +319,34 @@
 
   }
 
-  .single-item {
-    .single-item__inner {
-      flex-direction: column;
-    }
-    .single-item__background {
-      width: 90%;
-      margin: 0 auto;
-      height: 280px;
-      float: none;
-    }
-    .single-item__description {
-      width: auto;
-      padding: 30px;
-      &>h2 {
-        font-size: 1.250em;
-      }
-      p {
-        font-size: 1em;
-      }
+  .single-item__background,
+  .single-item__description {
+    width: 320px;
+    height: 320px;
+  }  
+  .single-item__background {
+    margin-bottom: 30px;
+  }
+  .single-item__description {
+    font-size: 0.9em
+  } 
+
+ 
+  .carousel-control-next,
+  .carousel-control-prev,
+  ngb-carousel.carousel div.carousel-inner {
+    height: 320px;
+  }
+
+  .add-post_wrapper {
+    width: 95%;
+    span,
+    div {
+      font-size: 0.9em;
     }
   }
+
+
 
 }
 

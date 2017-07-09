@@ -47,8 +47,8 @@ export class SignUpComponent {
                 console.log(data);
 
             },
-            (err) => {
-                console.error(err);
+            (error) => {
+                alert(`Sorry. You don't sign up now. Error: ${error}`);
             });
     }
 

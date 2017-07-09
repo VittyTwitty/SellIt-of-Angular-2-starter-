@@ -73,5 +73,19 @@
 }
 
 img {
+  height: auto;
   width: 100%;
+  -webkit-object-fit: cover;
+  -o-object-fit: cover;
+  -moz-object-fit: cover;
+  object-fit: cover;
+  -webkit-object-position: 50% 50%;
+  -o-object-position: 50% 50%;
+  -moz-object-position: 50% 50%;
+  object-position: 50% 50%;
+  
 }
+
+
+    
+

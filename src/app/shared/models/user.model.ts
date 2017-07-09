@@ -7,6 +7,9 @@ export class User {
   public id: number;
   public lastName: string;
   public username: string;
+  public newPassword1: string;
+  public newPassword2: string;
+  public oldPassword: string;
 
   constructor(data) {
     this.avatar = data.photo;
@@ -15,6 +18,9 @@ export class User {
     this.id = data.id;
     this.lastName = data.last_name;
     this.username = data.username;
+    this.newPassword1 = data.new_password1;
+    this.newPassword2 = data.new_password1;
+    this.oldPassword = data.old_password1;
   }
 
   get fullName() {

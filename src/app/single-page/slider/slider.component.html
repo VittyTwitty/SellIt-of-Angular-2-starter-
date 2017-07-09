@@ -1,15 +1,24 @@
-<div class="slide_viewer">
+<!--<div class="slide_viewer">
     <div class="slide_group">
 
         <div class="slide" *ngFor='let photo of photos'>
             <img src="{{ photo?.photo }}" alt="">
         </div>
-        
     </div>
+
 </div>
 <div class="previous_btn" title="Previous">
     <i class="fa fa-long-arrow-left fa"></i>
 </div>
 <div class="next_btn" title="Next">
     <i class="fa fa-long-arrow-right fa"></i>
+</div>-->
+<div class="slide_viewer">
+    <div class="slide_group">
+        <ngb-carousel>
+            <ng-template ngbSlide class="slide" *ngFor='let photo of photos'>
+                <img id="slide_img" src="{{ photo?.photo }}" alt="">
+            </ng-template>
+        </ngb-carousel>
+    </div>
 </div>

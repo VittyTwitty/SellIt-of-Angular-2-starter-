@@ -87,14 +87,16 @@
             <div class="profile_settings-icon" [innerHtml]="settingsIcon | safe:'html'">
 
             </div>
+            <form class="profile_change-password" [formGroup]="changePasswordForm" (submit)="changePassword($event, changePasswordForm.value)">
+                <input type="password" name="newPassword1" placeholder="New password" [formControl]="changePasswordForm.get('newPassword1')">
+                <input type="password" name="newPassword2" placeholder="Confirm" [formControl]="changePasswordForm.get('newPassword2')">
+                <input type="password" name="oldPassword" placeholder="Old password" [formControl]="changePasswordForm.get('oldPassword')">
+                <button type="submit">Change password</button>
+            </form>
 
         </div>
 
 
-
-        <div class="profile_settings-inner">
-
-        </div>
 
     </div>
 </div>

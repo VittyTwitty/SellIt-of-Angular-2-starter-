@@ -8,6 +8,7 @@ import { ProductService } from '../services/sellit-product.service';
 import { Subscription } from 'rxjs/Subscription';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'sellit-profile',
@@ -25,13 +26,26 @@ export class ProfileComponent implements OnInit {
     public onlineUser: User;
     public sub: Subscription;
     public loggedInUser: boolean;
+
     public addAvatarForm: FormGroup = new FormGroup({
         profile_photo: new FormControl('')
     });
 
+    public changePasswordForm: FormGroup = new FormGroup({
+        newPassword1: new FormControl(''),
+        newPassword2: new FormControl(''),
+        oldPassword: new FormControl('')
+    });
+
     public close = new EventEmitter();
 
-    constructor(private productService: ProductService, private dataSvgService: DataSvgService, private userChangeService: UserChangeService, private authService: AuthService) {
+    constructor(
+        private productService: ProductService,
+        private dataSvgService: DataSvgService,
+        private userChangeService: UserChangeService,
+        private authService: AuthService,
+        private router: Router
+    ) {
 
     }
 
@@ -66,9 +80,9 @@ export class ProfileComponent implements OnInit {
 
         let bgImgAva = document.getElementById('change_avatar');
 
-        let loadFile = function (event) {
+        let loadFile = (event) => {
             let reader = new FileReader();
-            reader.onload = function () {
+            reader.onload = () => {
                 let bgImgAva = document.getElementById('change_avatar-img');
                 bgImgAva.setAttribute('src', reader.result);
 
@@ -122,6 +136,26 @@ export class ProfileComponent implements OnInit {
     public openPopup() {
         let closingElem = document.getElementById('profile_img-change--popup');
         closingElem.style.top = '0';
+    }
+
+    public changePassword($event, val) {
+        $event.preventDefault();
+        console.log(val);
+        this.userChangeService.changePassword(val)
+            .then(
+            (res) => {
+                this.router.navigate(
+                    ['/sellit-login-page',
+                        {
+                            outlets: { 'sellit-login-registr': ['sellit-sign-in'] }
+                        }
+                    ]
+                );
+                alert('Password changed. Relogin, please');
+            },
+            (error) => {
+                alert(error);
+            });
     }
 
 }

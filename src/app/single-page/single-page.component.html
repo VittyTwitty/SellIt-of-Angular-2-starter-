@@ -1,16 +1,15 @@
 <sellit-header></sellit-header>
 <div class="single-item">
-    <div class="container">
-        <div class="row single-item__inner">
-            <div class="col-md-6">
+    <div class="cont">
+        <div class="single-item__inner">
+            
                 <div class="single-item__background">
                     <!--Начало слайдера-->
                     <sellit-slider class="slider" [photos]='products?.photo_details'></sellit-slider>
                     <!--Конец слайдера-->
                 </div>
-            </div>
-            <div class="col-md-6 single-item__description">
-                <h2></h2>
+         
+            <div class="single-item__description">
                 <p class="single-item__price bold">
                     {{products.title}}
                     <span class="blue">Alis Kim</span>
@@ -31,7 +30,7 @@
                     <li class="bold">Finished on this line.</li>
                 </ul>
             </div>
-        </div>
+        </div>       
     </div>
     <!--  <sellit-chat></sellit-chat> -->
 </div>

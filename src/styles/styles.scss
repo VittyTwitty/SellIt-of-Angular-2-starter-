@@ -1,7 +1,8 @@
 @import "reset";
 @import "media";
 
-//@import '~bootstrap/scss/bootstrap.scss';
+
+@import '~bootstrap/scss/bootstrap.scss';
 
 body{
   display: flex;
@@ -95,6 +96,15 @@ single-page {
       transform: rotateZ(37deg)
     }
 
+  }
+}
+
+.carousel {
+  div.carousel-inner {
+    height: 500px;
+    .carousel-item {
+      height: 100%;
+    }
   }
 }
 

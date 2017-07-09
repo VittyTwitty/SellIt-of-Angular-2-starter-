@@ -13,6 +13,7 @@
       border-bottom: 3px solid #fff;
       font-family: Arial, monospace;
       transition: all $main-time;
+      font-size: 13px;
       &:focus {
         border-bottom: 3px solid $second-color;
         transition: all $main-time;

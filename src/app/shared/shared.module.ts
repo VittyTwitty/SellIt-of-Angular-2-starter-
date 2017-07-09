@@ -62,4 +62,4 @@ import { ProfileAnchorDirective } from './directives/validators/profile-anchor.d
     ]
 })
 
-export class SharedModule {}
+export class SharedModule { }

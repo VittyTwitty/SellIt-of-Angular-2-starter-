@@ -1,6 +1,6 @@
 @import "../../styles/_vars.scss";
 @import "../../styles/grid";
-@import "../../styles/_media.scss";
+
 
 .single-item{
   font-family: $main-font;
@@ -16,6 +16,7 @@
   &__inner {
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
   &__background {
     width: 500px;
@@ -31,6 +32,7 @@
   &__description {
     width: 500px;
     color: #4a4a4a;
+    margin-left: 40px;
     h2{
       font-size: 2em;
       margin-bottom: 20px;
@@ -71,3 +73,4 @@
 
 
 
+@import "../../styles/_media.scss";

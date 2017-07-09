@@ -1,5 +1,4 @@
 @import "../../../styles/_vars.scss";
-@import "../../../styles/_media.scss";
 
 .header {
   width: 100%;
@@ -93,7 +92,7 @@
   &__new-post,
   &__profile {
     float: left;
-    width: calc( 50% - 5px);
+    width: 50%;
     line-height: 42px;
     font-size: 16px;
     border-left: 5px solid #4a4a4a;
@@ -123,3 +122,5 @@
 // }
 
 
+
+@import "../../../styles/_media.scss";

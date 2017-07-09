@@ -15,6 +15,7 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -106,7 +107,8 @@ type StoreType = {
     LoginPageModule,
     AddPostModule,
     SharedModule,
-    RouterModule.forRoot(appRoutes, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(appRoutes, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    NgbModule.forRoot()
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

@@ -38,8 +38,8 @@ export class SignInComponent implements OnInit {
                 this.router.navigate(['/']);
                // console.log(data);
             },
-            (err) => {
-                console.error(err);
+            (error) => {
+                alert(`Don't enter, because ${error}`);
             });
     }
 
