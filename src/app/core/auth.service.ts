@@ -8,6 +8,10 @@ import { Session } from './session';
 import { ConfigService } from '../shared/services/config.service';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthService {
@@ -36,6 +40,9 @@ export class AuthService {
                     return currentUser;
                 }
 
+            })
+            .catch((error: any) => {
+                return Observable.throw(error);
             });
     }
 
@@ -84,7 +91,8 @@ export class AuthService {
         return this.http.post(`${this.API_PATH}signup/`, data)
             .map((response: Response) => {
                 return response.json();
-            });
+            })
+            .catch((error: any) => { return Observable.throw(error); });
     }
 
     public loggedIn() {
