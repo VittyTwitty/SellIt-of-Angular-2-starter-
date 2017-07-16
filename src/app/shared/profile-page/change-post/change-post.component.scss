@@ -1,0 +1,35 @@
+@import "../../../../styles/_vars.scss";
+.change-post {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #cab9b9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.change-transparent {
+    position: absolute;
+    top: calc( 50% - 30px );
+    left: 0;
+}
+.change-triangle-top {
+    width: 0;
+    height: 0;
+    border-top: 10px solid red;
+    border-left: 30px solid #fff;
+}
+.change-center{
+    display: flex;
+    width: 30px;
+    height: 40px;
+    background-color:#fff;
+    justify-content: center;
+}
+.change-triangle-bot {
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid red;
+    border-left: 30px solid #fff;
+}

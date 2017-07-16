@@ -65,6 +65,8 @@ import { SearchService } from './core/search.service';
 import { PostService } from './core/posts.service';
 import { SortComponent } from './product-list/sort/sort.component';
 import { TransferService } from './core/transfer.service';
+import { ErrorComponent } from './404-page/404.component';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -92,6 +94,7 @@ type StoreType = {
     SliderComponent,
     SortComponent,
     ChatComponent,
+    ErrorComponent,
     ScrollTopDirective,
     ScrollPushItemsDirective
   ],

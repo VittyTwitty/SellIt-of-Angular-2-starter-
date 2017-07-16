@@ -24,23 +24,20 @@ export class AuthGuard implements CanActivate {
             return true;
         } else {
             this.authService.redirectUrl = url;
-            // Navigate to the login page with extras
-            this.router.navigate(
-                    ['/sellit-login-page',
-                        {
-                            outlets: { 'sellit-login-registr': ['sellit-sign-in'] }
-                        }
-                    ]
-                );
             console.log('Иди логинься');
+
+            this.router.navigate(
+                ['/sellit-login-page',
+                    {
+                        outlets: { 'sellit-login-registr': ['sellit-sign-in'] }
+                    }
+                ]
+            );
             return false;
         }
     }
 
 }
-
-
-
 
 // if (this.authService.loggedIn) {
 //     console.log(this.authService.loggedIn());

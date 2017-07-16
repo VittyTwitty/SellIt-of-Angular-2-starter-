@@ -28,7 +28,7 @@ export class Header implements OnInit, OnDestroy {
     public user: void;
     public currentOnline: User;
     public sub: Subscription;
-    public loggedInUser: boolean;
+    public loggedInUser: boolean = false;
 
     constructor(private dataSvgService: DataSvgService, private userChangeService: UserChangeService, private authService: AuthService, private router: Router) {
 

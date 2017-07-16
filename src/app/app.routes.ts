@@ -10,7 +10,7 @@ import { SignInComponent } from './login-page/sign-in/sign-in.component';
 import { ProfileComponent } from './shared/profile-page/profile-page.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { AuthGuard } from './shared/guards/auth-guard.service';
-
+import { ErrorComponent } from './404-page/404.component';
 
 export const appRoutes: Routes = [
     {
@@ -32,6 +32,10 @@ export const appRoutes: Routes = [
         path: 'sellit-add-post', loadChildren: 'app/add-post/add-post.module#AddPostModule',
         canActivateChild: [AuthGuard],
     },
+    {
+        path: '**',
+        component: ErrorComponent
+    },
     /*{ path: 'sellit-login-page', component: LoginPageComponent,
         children: [{
             path: 'sellit-sign-in',
@@ -44,6 +48,5 @@ export const appRoutes: Routes = [
             outlet: 'sellit-login-registr'
         }]
     } */
-
 
 ];

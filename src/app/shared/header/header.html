@@ -30,8 +30,8 @@
                     <i class="fa fa-sign-out fa"></i>
                 </div>
             </div>
-            
-            <div *ngIf="!loggedInUser"  routerLink="/sellit-login-page" class="user-button_outer">
+            <!--routerLink="/sellit-login-page"-->
+            <div *ngIf="!loggedInUser" [routerLink]="['/sellit-login-page']" routerLinkActive="active" class="user-button_outer">
                
                 <div  class="user-button__name" >
                     Get profit here {{svg}}

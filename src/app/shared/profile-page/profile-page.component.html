@@ -44,28 +44,32 @@
             <li>216</li>
             <li>10340 $</li>
         </ul>
-
+<!--
         <ul class="profile_sales">
             <div>Лучшие продажи</div>
             <li>Котушка-мокрушка</li>
             <li>Зверь едет в тверь</li>
             <li>Заец азиат уходит в закат</li>
-        </ul>
+        </ul>-->
 
         <div class="profile_lastpost">
             <h4>Last posts</h4>
             <ul>
-                {{post?.image}}
+                
                 <li *ngFor="let post of postById">
-                    <div class="profile_lastpost-img"><img [src]="post.image" alt="Post photo"> </div>
-                    <div class="profile_lastpost-title">{{post.title| bcRound:13}} </div>
-                    <div class="profile_lastpost-price">{{post.price}} </div>
-                    <span class="profile_lastpost-close">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </span>
+                    <div class="profile_lastpost-img"><img [src]="post?.image" alt="Post photo"> </div>
+                    <div class="profile_lastpost-title">{{post?.title| bcRound:13}} </div>
+                    <div class="profile_lastpost-price">{{post?.price}} </div>
+                    <a [routerLink]="['/single-item', post.id]">
+                        <span class="profile_lastpost-close">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                   
+                    <sellit-change-post [post]="post">{{post?.price}}</sellit-change-post>
                 </li>
             </ul>
-
+ 
         </div>
 
         <div class="profile_close" (click)="onClickedExit()">
@@ -99,4 +103,5 @@
 
 
     </div>
+   
 </div>

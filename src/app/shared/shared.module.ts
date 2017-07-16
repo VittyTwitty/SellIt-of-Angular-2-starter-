@@ -19,6 +19,7 @@ import { SafePipe } from './pipes/valuePipe';
 import { SearchComponent } from './header/search/search.component';
 import { RoundPipe } from './pipes/roundPipe';
 import { ProfileAnchorDirective } from './directives/validators/profile-anchor.directive';
+import { ChangePostComponent } from './profile-page/change-post/change-post.component';
 
 @NgModule({
     imports: [
@@ -39,6 +40,7 @@ import { ProfileAnchorDirective } from './directives/validators/profile-anchor.d
         Footer,
         SearchComponent,
         ProfileComponent,
+        ChangePostComponent,
         SafePipe,
         RoundPipe
     ],
@@ -54,6 +56,7 @@ import { ProfileAnchorDirective } from './directives/validators/profile-anchor.d
         FormsModule,
         CommonModule,
         SearchComponent,
+        ChangePostComponent,
         Header,
         Footer,
         ProfileComponent,
